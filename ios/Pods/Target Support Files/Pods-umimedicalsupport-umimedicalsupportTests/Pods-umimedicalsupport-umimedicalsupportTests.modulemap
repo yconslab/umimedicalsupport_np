@@ -1,0 +1,6 @@
+module Pods_umimedicalsupport_umimedicalsupportTests {
+  umbrella header "Pods-umimedicalsupport-umimedicalsupportTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
