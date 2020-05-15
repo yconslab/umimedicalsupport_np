@@ -1,10 +1,32 @@
-import React from 'react';
-import {Text, View} from 'react-native';
+import * as React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+// import {SafeAreaProvider} from 'react-native-safe-area-context';
 
-const componentName = ({params}) => (
-  <View>
-    <Text>componentName</Text>
-  </View>
-);
+import AuthorityStack from "./screens/authority";
 
-export default componentName;
+const Stack = createStackNavigator();
+
+const Main = () => {
+  //   const { login } = useSelector(
+  //     state => ({
+  //       login: state.authorizationReducer.login,
+  //     }),
+  //     [],
+  //   );
+  return (
+    // <SafeAreaProvider>
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="AuthorityStack"
+        headerMode="none"
+        gestureEnabled={false}
+      >
+        <Stack.Screen name="AuthorityStack" component={AuthorityStack} />
+      </Stack.Navigator>
+    </NavigationContainer>
+    // </SafeAreaProvider>
+  );
+};
+
+export default Main;
