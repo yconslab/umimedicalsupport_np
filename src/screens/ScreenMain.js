@@ -16,9 +16,9 @@ const Main = () => {
   //   );
   return (
     <Tab.Navigator>
-      <Tab.Screen name="Home" component={HomeStack} />
-      <Tab.Screen name="Reservation" component={ReservationStack} />
-      <Tab.Screen name="MoreStack" component={MoreStack} />
+      <Tab.Screen name="홈" component={HomeStack} />
+      <Tab.Screen name="예약내역" component={ReservationStack} />
+      <Tab.Screen name="내 정보" component={MoreStack} />
     </Tab.Navigator>
   );
 };
