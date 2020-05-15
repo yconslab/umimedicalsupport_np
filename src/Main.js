@@ -1,10 +1,31 @@
-import React from 'react';
-import {Text, View} from 'react-native';
+import * as React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 
-const componentName = ({params}) => (
-  <View>
-    <Text>componentName</Text>
-  </View>
-);
+// import AuthorityStack from "./screens/authority";
+import MainBottomTab from "./screens/ScreenMain";
 
-export default componentName;
+const Stack = createStackNavigator();
+
+const Main = () => {
+  //   const { login } = useSelector(
+  //     state => ({
+  //       login: state.authorizationReducer.login,
+  //     }),
+  //     [],
+  //   );
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="AuthorityStack"
+        headerMode="none"
+        gestureEnabled={false}
+      >
+        {/* <Stack.Screen name="AuthorityStack" component={AuthorityStack} /> */}
+        <Stack.Screen name="MainBottomTab" component={MainBottomTab} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
+
+export default Main;
