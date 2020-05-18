@@ -1,4 +1,5 @@
 import React from "react";
+import { SafeAreaView } from "react-native";
 
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
