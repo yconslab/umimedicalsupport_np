@@ -21,7 +21,7 @@ const InputBox = ({ label, disabled, changeText, value, click }) => {
             flexDirection: "row",
             justifyContent: "space-between",
             //   backgroundColor: 'yellow',
-            width: 90
+            width: 90,
           }}
           onPress={click}
         >
@@ -52,29 +52,29 @@ const InputBox = ({ label, disabled, changeText, value, click }) => {
 const styles = StyleSheet.create({
   title: {
     fontSize: 13,
-    lineHeight: 16
+    lineHeight: 16,
   },
   inputarea: {
     height: 48,
     width: "100%",
     borderBottomColor: "#4388F0",
     borderBottomWidth: 1,
-    borderStyle: "dashed"
+    borderStyle: "dashed",
   },
   inputText: {
     fontSize: 28,
-    lineHeight: 33
+    lineHeight: 33,
   },
   label: {
     fontSize: 13,
     lineHeight: 16,
     color: "#000000",
-    opacity: 0.4
+    opacity: 0.4,
   },
   container: {
     borderBottomColor: "#4388F0",
-    borderBottomWidth: 1
-  }
+    borderBottomWidth: 1,
+  },
 });
 
 export default InputBox;
