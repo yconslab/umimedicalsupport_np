@@ -1,9 +1,15 @@
-import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Platform} from 'react-native';
-import HeaderWrapper from './HeaderWrapper';
-import HorizontalMarginWrapper from './HorizontalMargin';
-import Colors from '../constants/Colors';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import React from "react";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Platform,
+} from "react-native";
+import HeaderWrapper from "./HeaderWrapper";
+import HorizontalMarginWrapper from "./HorizontalMargin";
+
+import Icon from "react-native-vector-icons/MaterialIcons";
 
 const CustomHeaderCross = ({
   click,
@@ -15,7 +21,7 @@ const CustomHeaderCross = ({
   clicktitle2,
 }) => {
   return (
-    <HeaderWrapper style={{...styles.verticalmargin}}>
+    <HeaderWrapper style={{ ...styles.verticalmargin }}>
       <HorizontalMarginWrapper>
         <View style={styles.headerBox}>
           <Icon name="close" color="#000000" size={26} onPress={click} />
@@ -25,8 +31,9 @@ const CustomHeaderCross = ({
                 fontSize: 17,
                 lineHeight: 22,
                 letterSpacing: -0.41,
-                textAlign: 'center',
-              }}>
+                textAlign: "center",
+              }}
+            >
               {title3}
             </Text>
           </View>
@@ -34,12 +41,13 @@ const CustomHeaderCross = ({
         <View
           style={{
             marginTop: 8,
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-          }}>
-          <Text style={{...styles.title, ...title1style}}>{title1}</Text>
+            flexDirection: "row",
+            justifyContent: "space-between",
+          }}
+        >
+          <Text style={{ ...styles.title, ...title1style }}>{title1}</Text>
           <TouchableOpacity onPress={clicktitle2}>
-            <Text style={{...styles.title, ...title2style}}>{title2}</Text>
+            <Text style={{ ...styles.title, ...title2style }}>{title2}</Text>
           </TouchableOpacity>
         </View>
       </HorizontalMarginWrapper>
@@ -49,24 +57,24 @@ const CustomHeaderCross = ({
 
 const styles = StyleSheet.create({
   verticalmargin: {
-    marginTop: Platform.OS === 'ios' ? '10%' : 0,
+    marginTop: Platform.OS === "ios" ? "10%" : 0,
     marginBottom: 16,
   },
   headerBox: {
-    marginTop: '5%',
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
+    marginTop: "5%",
+    flexDirection: "row",
+    justifyContent: "flex-start",
   },
   title: {
     fontSize: 24,
     lineHeight: 29,
-    color: Colors.headerBlack,
-    fontWeight: 'bold',
+    color: "#000000",
+    fontWeight: "bold",
   },
 
   title3: {
-    width: '90%',
-    alignItems: 'center',
+    width: "90%",
+    alignItems: "center",
   },
 });
 

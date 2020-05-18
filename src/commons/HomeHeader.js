@@ -1,13 +1,13 @@
-import React from 'react';
-import {View, Text, StyleSheet, Platform} from 'react-native';
-import HeaderWrapper from './HeaderWrapper';
-import HorizontalMarginWrapper from './HorizontalMargin';
-import Colors from '../constants/Colors';
+import React from "react";
+import { View, Text, StyleSheet, Platform } from "react-native";
+import HeaderWrapper from "./HeaderWrapper";
+import HorizontalMarginWrapper from "./HorizontalMargin";
 
-const NotificationBell = ({click, style}) => {
+const NotificationBell = ({ click, style }) => {
   return (
     <View
-      style={{flexDirection: 'row', justifyContent: 'flex-start', ...style}}>
+      style={{ flexDirection: "row", justifyContent: "flex-start", ...style }}
+    >
       <Icon name="notifications" size={30} color="black" onPress={click} />
       <View style={styles.notificationWrap}>
         <Text style={styles.notificationText}>1</Text>
@@ -15,15 +15,16 @@ const NotificationBell = ({click, style}) => {
     </View>
   );
 };
-const HomeHeader = ({style, click}) => {
+const HomeHeader = ({ style, click }) => {
   return (
-    <HeaderWrapper style={{...styles.verticalmargin, ...style}}>
+    <HeaderWrapper style={{ ...styles.verticalmargin, ...style }}>
       <HorizontalMarginWrapper
-        style={{flexDirection: 'row', justifyContent: 'flex-end'}}>
+        style={{ flexDirection: "row", justifyContent: "flex-end" }}
+      >
         <View style={styles.headerBox}>
           <NotificationBell
             click={click}
-            style={{paddingTop: 5, paddingLeft: 5}}
+            style={{ paddingTop: 5, paddingLeft: 5 }}
           />
         </View>
       </HorizontalMarginWrapper>
@@ -33,15 +34,15 @@ const HomeHeader = ({style, click}) => {
 
 const styles = StyleSheet.create({
   verticalmargin: {
-    marginTop: Platform.OS === 'ios' ? 20 : 20,
+    marginTop: Platform.OS === "ios" ? 20 : 20,
   },
   headerBox: {
-    marginTop: '2%',
+    marginTop: "2%",
     height: 44,
     width: 44,
     borderRadius: 22,
-    backgroundColor: '#FFFFFF',
-    shadowColor: '#000',
+    backgroundColor: "#FFFFFF",
+    shadowColor: "#000",
     shadowOffset: {
       width: 0,
       height: 1,
@@ -52,37 +53,37 @@ const styles = StyleSheet.create({
     elevation: 15,
   },
   headerText: {
-    color: Colors.headerBlack,
+    color: "black",
     fontSize: 20,
     lineHeight: 26,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   ttileBox: {
-    width: '90%',
+    width: "90%",
   },
   notificationBox: {
-    width: '10%',
+    width: "10%",
   },
   shadowView: {
-    shadowColor: '#00000029',
+    shadowColor: "#00000029",
     shadowOpacity: 0.41,
-    shadowOffset: {width: 0, height: 5},
+    shadowOffset: { width: 0, height: 5 },
     shadowRadius: 5,
     elevation: 15,
   },
   notificationWrap: {
     width: 14,
     height: 14,
-    backgroundColor: '#FF634F',
+    backgroundColor: "#FF634F",
     borderRadius: 7,
-    position: 'relative',
+    position: "relative",
     right: 12,
     top: 5,
   },
   notificationText: {
-    color: 'white',
+    color: "white",
     fontSize: 9,
-    textAlign: 'center',
+    textAlign: "center",
   },
 });
 

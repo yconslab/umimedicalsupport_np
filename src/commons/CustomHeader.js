@@ -1,101 +1,173 @@
-import React from 'react';
+import React from "react";
 import {
   View,
   Text,
-  TouchableOpacity,
   StyleSheet,
-  SafeAreaView,
-} from 'react-native';
-import HeaderWrapper from './HeaderWrapper';
-import HorizontalMarginWrapper from './HorizontalMargin';
-import Colors from '../constants/Colors';
-import Icon from 'react-native-vector-icons/MaterialIcons';
-const CustomHeader = ({
-  style,
-  backHidden,
-  click,
-  justifyStyle,
-  clicktitle1,
-  title1style,
-  title1,
-  clicktitle2,
-  title2style,
-  title2,
-  title3style,
-  title3,
+  TouchableOpacity,
+  Image,
+  Dimensions,
+  TextInput,
+} from "react-native";
+import { Header, Avatar, Badge, Icon, withBadge } from "react-native-elements";
+// import Icon from "react-native-vector-icons/MaterialIcons";
+import Colors from "../constants";
+
+const { height, width } = Dimensions.get("window");
+const MyCustomLeftComponent = ({
+  navigation,
+  cross,
+  showBarIocn,
+  navigationFirstPage,
+  customcross,
+  navTitle,
 }) => {
   return (
-    <SafeAreaView>
-      <HeaderWrapper
-        style={{
-          ...styles.verticalmargin,
-          ...style,
-        }}>
-        <HorizontalMarginWrapper>
-          <View style={styles.headerBox}>
-            {backHidden ? null : (
-              <Icon
-                name="arrow-back"
-                color="#404040"
-                size={30}
-                onPress={click}
-              />
-            )}
-          </View>
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              ...justifyStyle,
-            }}>
-            <View>
-              <TouchableOpacity onPress={clicktitle1}>
-                <Text
-                  style={{
-                    ...styles.title,
-                    ...title1style,
-                  }}>
-                  {title1}
-                </Text>
-              </TouchableOpacity>
-              <Text
-                style={{
-                  ...styles.title,
-                  ...title3style,
-                }}>
-                {title3}
-              </Text>
-            </View>
-
-            <TouchableOpacity onPress={clicktitle2}>
-              <Text
-                style={{
-                  ...styles.title,
-                  ...title2style,
-                }}>
-                {title2}
-              </Text>
-            </TouchableOpacity>
-          </View>
-        </HorizontalMarginWrapper>
-      </HeaderWrapper>
-    </SafeAreaView>
+    <View>
+      {cross ? (
+        customcross ? (
+          <TouchableOpacity onPress={() => navigation.navigate("OrderHistory")}>
+            <Image
+              source={Images.cross}
+              style={{
+                height: 15,
+                resizeMode: "contain",
+                width: 15,
+                tintColor: "#000000",
+              }}
+            />
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Icon name="close" color="#000000" size={26} />
+          </TouchableOpacity>
+        )
+      ) : (
+        <TouchableOpacity
+          onPress={() =>
+            navigationFirstPage
+              ? navigationFirstPage.navigate("HomeScreen")
+              : navigation.goBack()
+          }
+          //
+        >
+          <Icon name="arrow-back" color="#404040" size={30} />
+        </TouchableOpacity>
+      )}
+    </View>
   );
 };
+const HeaderList = ({
+  headerText,
+  backHidden,
+  navigation,
+  centerText,
+  padding,
+  header,
+  cross,
+  showHeaderText,
 
+  showBarIocn,
+  sideText,
+  navigationFirstPage,
+
+  centerNavigation,
+}) => {
+  const BadgedIcon = withBadge(1)(Icon);
+
+  return (
+    <View style={{ backgroundColor: "white" }}>
+      <View
+        style={
+          padding
+            ? { ...styles.headerWrapper, paddingBottom: 30 }
+            : { ...styles.headerWrapper }
+        }
+      >
+        {backHidden ? (
+          <Header
+            containerStyle={{
+              backgroundColor: Colors.appColor,
+              justifyContent: "space-around",
+            }}
+            centerComponent={
+              centerText && (
+                <TouchableOpacity
+                // onPress={centerNavigation}
+                >
+                  <Text>{centerText}</Text>
+                </TouchableOpacity>
+              )
+            }
+            rightComponent={sideText && <Text>{sideText}</Text>}
+          />
+        ) : (
+          <Header
+            leftComponent={
+              <MyCustomLeftComponent
+                navigation={navigation}
+                showBarIocn={showBarIocn}
+                cross={cross}
+                navigationFirstPage={navigationFirstPage}
+              />
+            }
+            containerStyle={{
+              backgroundColor: Colors.appColor,
+              justifyContent: "space-around",
+            }}
+            centerComponent={
+              centerText && (
+                <TouchableOpacity onPress={centerNavigation}>
+                  <Text>{centerText}</Text>
+                </TouchableOpacity>
+              )
+            }
+            rightComponent={
+              sideText && (
+                <TouchableOpacity
+                  onPress={() => navigation.navigate("ChargingMethodSelection")}
+                >
+                  <Text
+                    style={{
+                      color: Colors.activeBlueColor,
+                      fontSize: 17,
+                      lineHeight: 22,
+                    }}
+                  >
+                    {sideText}
+                  </Text>
+                </TouchableOpacity>
+              )
+            }
+          />
+        )}
+      </View>
+
+      {showHeaderText && (
+        <View style={styles.headerTextDesign}>
+          <Text style={styles.headerTextStyle}>{headerText}</Text>
+        </View>
+      )}
+    </View>
+  );
+};
 const styles = StyleSheet.create({
-  verticalmargin: {
-    marginBottom: 20,
+  headerWrapper: {
+    paddingHorizontal: 3,
+    backgroundColor: Colors.appColor,
   },
-  headerBox: {
-    marginTop: '5%',
+  headerTextDesign: {
+    paddingHorizontal: 15,
+    backgroundColor: Colors.appColor,
+    borderWidth: 0,
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
-  title: {
-    fontSize: 24,
-    lineHeight: 29,
-    color: Colors.headerBlack,
-    fontWeight: 'bold',
+  headerTextStyle: {
+    fontSize: 20,
+    lineHeight: 24,
+    fontWeight: "bold",
+    color: Colors.inputText,
   },
 });
 
-export default CustomHeader;
+export default HeaderList;

@@ -1,36 +1,35 @@
-import React from 'react';
-import {Text, TouchableOpacity, StyleSheet} from 'react-native';
-import Colors from '../constants/Colors';
+//
 
-const CustomButton = ({style, click, disabled, textStyle, buttontext}) => {
+import React from "react";
+import { Button } from "react-native-elements";
+
+const ButtonComponent = ({
+  title,
+  onPress,
+  innerStyle,
+  innerTextStyle,
+  disabled,
+}) => {
   return (
-    <TouchableOpacity
-      style={{...styles.btn, ...style}}
-      onPress={click}
-      disabled={disabled}>
-      <Text style={{...styles.btnText, ...textStyle}}>{buttontext}</Text>
-    </TouchableOpacity>
+    <Button
+      onPress={onPress}
+      buttonStyle={{
+        height: 50,
+        borderRadius: 4,
+        marginVertical: 10,
+        ...innerStyle,
+      }}
+      title={title || ""}
+      titleStyle={{
+        color: "#FFFFFF",
+        ...innerTextStyle,
+        fontSize: 15,
+        lineHeight: 19,
+        fontWeight: "bold",
+      }}
+      disabled={disabled}
+    />
   );
 };
 
-const styles = StyleSheet.create({
-  btn: {
-    backgroundColor: Colors.buttonBlue,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  btnText: {
-    textAlign: 'center',
-    color: Colors.btntextWhite,
-  },
-  bottombtn: {
-    position: 'absolute',
-    bottom: 0,
-    marginBottom: 20,
-    width: '70%',
-    marginHorizontal: '15%',
-  },
-});
-
-export default CustomButton;
+export default ButtonComponent;
