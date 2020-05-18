@@ -2,7 +2,7 @@ export default (Colors = {
   TextColor: "#000000", // all page text color
   placholderTextColor: "#CCCCCC",
   inactiveTextColor: "#929292",
-  activeBlueColor: "#069BE5", // switch active color // userInforlastScreen text color/ bottomtab active color
+  activeBlueColor: "#4388F0", // switch active color // userInforlastScreen text color/ bottomtab active color
   homeTextColor: "#666666", //arrow color // icon Color /
   homeTopBlueColor: "#012866",
   homeMiddleBlueColor: "#69CFFE",

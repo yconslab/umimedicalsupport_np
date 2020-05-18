@@ -4,11 +4,11 @@ import {
   View,
   StyleSheet,
   ScrollView,
-  SafeAreaView,
   TouchableOpacity,
 } from "react-native";
 import CheckBox from "react-native-check-box";
 import Icon from "react-native-vector-icons/MaterialIcons";
+import Colors from "../../../constants";
 import { CustomButton, CustomHeader } from "../../../commons";
 const data = [
   {
@@ -95,6 +95,7 @@ const HospitalSelection = ({ navigation }) => {
       <View style={styles.buttonStyle}>
         <CustomButton
           title="다음"
+          innerStyle={{ backgroundColor: Colors.activeBlueColor }}
           onPress={() => navigation.navigate("VerificationCodeScreen")}
         />
       </View>
