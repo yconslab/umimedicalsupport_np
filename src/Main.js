@@ -5,7 +5,6 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 
 // import AuthorityStack from "./screens/authority";
 import MainBottomTab from "./screens/ScreenMain";
-import HomeStack from "./screens/home";
 const Stack = createStackNavigator();
 
 const Main = () => {
@@ -16,9 +15,7 @@ const Main = () => {
         headerMode="none"
         gestureEnabled={false}
       >
-        <Stack.Screen name="HomeStack" component={HomeStack} />
-
-        {/* <Stack.Screen name="MainBottomTab" component={MainBottomTab} /> */}
+        <Stack.Screen name="MainBottomTab" component={MainBottomTab} />
       </Stack.Navigator>
     </NavigationContainer>
   );
