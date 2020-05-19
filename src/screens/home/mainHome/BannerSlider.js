@@ -14,15 +14,13 @@ import { CustomButton } from "../../../commons";
 import { Scale } from "../../../helper/HelperFunction";
 import Colors from "../../../constants/Colors";
 
-const HomeImageSlider = () => (
+const HomeImageSlider = ({ navigation }) => (
   <ImageBackground source={Images.welcomeBanner} style={styles.bannerStyle}>
     <View style={styles.containerWrapper}>
       <View
         style={{
           width: Scale(200),
           height: Scale(100)
-          // justifyContent: "center",
-          // alignItems: "center"
         }}
       >
         <Text style={styles.firstTextStyle}>우미 이용이 </Text>
@@ -43,6 +41,7 @@ const HomeImageSlider = () => (
       <CustomButton
         title="우미 헬퍼 예약하기"
         innerStyle={styles.customButtonStyle}
+        onPress={() => navigation.navigate("HospitalSelection")}
       />
     </View>
   </ImageBackground>
