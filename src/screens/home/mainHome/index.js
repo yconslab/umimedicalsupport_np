@@ -4,6 +4,7 @@ import { View, Text, Image, StyleSheet } from "react-native";
 import SwiperFlatList from "react-native-swiper-flatlist";
 import BannerSlider from "./BannerSlider";
 import Colors from "../../../constants/Colors";
+import { Scale } from "../../../helper/HelperFunction";
 
 const Home = () => {
   return (
@@ -19,7 +20,7 @@ const Home = () => {
         paginationStyle={{
           position: "absolute",
 
-          bottom: 100
+          bottom: Scale(80)
         }}
       >
         <BannerSlider />

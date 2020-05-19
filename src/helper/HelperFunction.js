@@ -18,10 +18,4 @@ const VerticalScale = size => (height / guidelineBaseHeight) * size;
 const ModerateScale = (size, factor = 0.5) =>
   size + (Scale(size) - size) * factor;
 
-export default {
-  ValidEmail,
-  Scale,
-  VerticalScale,
-  ModerateScale,
-  validNumber
-};
+export { ValidEmail, Scale, VerticalScale, ModerateScale, validNumber };

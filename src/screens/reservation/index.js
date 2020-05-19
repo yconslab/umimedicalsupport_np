@@ -1,13 +1,13 @@
 import * as React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import Reservation from "./Reservation";
+import MyReservationTab from "../reservation/myReservation";
 const Stack = createStackNavigator();
 
 const ReservationStack = () => {
   return (
     <Stack.Navigator headerMode="none">
-      <Stack.Screen name="Reservation" component={Reservation} />
+      <Stack.Screen name="Reservation" component={MyReservationTab} />
     </Stack.Navigator>
   );
 };
