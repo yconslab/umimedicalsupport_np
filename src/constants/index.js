@@ -6,4 +6,5 @@ export default (Colors = {
   borderBottomColor: "#EBEBEB",
   appColor: "#FFFFFF",
   inactiveTintColor: "#0000004D", //for tab navigation
+  redColor: "#FF5151",
 });

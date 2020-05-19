@@ -1,10 +1,18 @@
-import React from "react";
-import { Text, View } from "react-native";
+// import * as React from "react";
+// import { createStackNavigator } from "@react-navigation/stack";
 
-const Reservation = ({ params }) => (
-  <View>
-    <Text>Reservation</Text>
-  </View>
-);
+// import ReservationInformationMatched from "../reservation/reservationInfomationMatched";
+// const Stack = createStackNavigator();
 
-export default Reservation;
+// const ReservationStack = () => {
+//   return (
+//     <Stack.Navigator headerMode="none">
+//       <Stack.Screen
+//         name="ReservationInformationMatched"
+//         component={ReservationInformationMatched}
+//       />
+//     </Stack.Navigator>
+//   );
+// };
+
+// export default ReservationStack;

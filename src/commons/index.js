@@ -6,6 +6,7 @@ import HeaderWrapper from "./HeaderWrapper";
 import HomeHeader from "./HomeHeader";
 import LogoBox from "./LogoBox";
 import NormalButton from "./NormalButton";
+import ProfileImageWrap from "./ProfileImageWrap";
 // import PhoneInput from './PhoneInput';
 export {
   CustomHeader,
@@ -15,6 +16,7 @@ export {
   HeaderWrapper,
   HomeHeader,
   LogoBox,
-  NormalButton
+  NormalButton,
+  ProfileImageWrap,
   // PhoneInput,
 };
