@@ -1,12 +1,5 @@
 import React, { Component } from "react";
-import {
-  FlatList,
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  SafeAreaView,
-} from "react-native";
+import { FlatList, View, Text, StyleSheet, ScrollView } from "react-native";
 import { CustomButton, CustomHeader, ProfileImageWrap } from "../../../commons";
 
 import { Input } from "react-native-elements";

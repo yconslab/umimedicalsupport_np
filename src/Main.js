@@ -9,6 +9,7 @@ import ServiceCompletion from "./screens/reservation/serviceCompletion";
 // import AuthorityStack from "./screens/authority";
 import MainBottomTab from "./screens/ScreenMain";
 import ReservationStacks from "./screens/reservation/reservation";
+import MyReservationReserved from "./screens/reservation/myRservationReserved";
 const Stack = createStackNavigator();
 
 const Main = () => {
@@ -19,7 +20,10 @@ const Main = () => {
         headerMode="none"
         gestureEnabled={false}
       >
-        <Stack.Screen name="ServiceCompletion" component={ServiceCompletion} />
+        <Stack.Screen
+          name="MyReservationReserved"
+          component={MyReservationReserved}
+        />
         {/* <Stack.Screen name="MainBottomTab" component={MainBottomTab} /> */}
       </Stack.Navigator>
     </NavigationContainer>
