@@ -21,14 +21,7 @@ const MidLine = ({ lineStyle }) => {
 
 const TitleBox = ({ title1, title2, title1Style, title2Style }) => {
   return (
-    <View
-      style={{
-        flexDirection: "row",
-        justifyContent: "space-between",
-        width: "100%",
-        marginVertical: 10,
-      }}
-    >
+    <View style={styles.titleBox}>
       <Text style={{ ...styles.title1, ...title1Style }}>{title1}</Text>
       <Text style={{ ...styles.title2, ...title2Style }}>{title2}</Text>
     </View>
@@ -37,26 +30,9 @@ const TitleBox = ({ title1, title2, title1Style, title2Style }) => {
 
 const CircleBox = ({ title }) => {
   return (
-    <View style={{ flexDirection: "row", justifyContent: "flex-start" }}>
-      <View
-        style={{
-          height: 24,
-          width: 24,
-          borderRadius: 12,
-          borderWidth: 1,
-          borderColor: "#707070",
-        }}
-      />
-      <Text
-        style={{
-          fontSize: 14,
-          lineHeight: 21,
-          color: "#000000",
-          marginLeft: 10,
-        }}
-      >
-        {title}
-      </Text>
+    <View style={styles.circleBoxWrap}>
+      <View style={styles.circleBox} />
+      <Text style={styles.circleBoxText}>{title}</Text>
     </View>
   );
 };
@@ -68,24 +44,9 @@ const TextBox = ({ value, label }) => {
         placeholder=""
         value={value}
         label={label}
-        labelStyle={{
-          fontSize: 12,
-          lineHeight: 18,
-          color: "#393939",
-          marginVertical: 5,
-        }}
-        inputContainerStyle={{
-          height: 50,
-          width: "100%",
-          borderWidth: 1,
-          borderColor: "#DFE4EB",
-        }}
-        inputStyle={{
-          fontSize: 14,
-          lineHeight: 21,
-          color: "#393939",
-          paddingHorizontal: 10,
-        }}
+        labelStyle={styles.labelStyle}
+        inputContainerStyle={styles.inputContainerStyle}
+        inputStyle={styles.inputStyle}
       />
     </View>
   );
@@ -98,6 +59,7 @@ const BottomTextBox = ({ title, textStyle }) => {
     </View>
   );
 };
+
 const ReservationInformation = ({ navigation }) => {
   return (
     <View style={{ flex: 1, backgroundColor: "#FFFFFF" }}>
@@ -111,12 +73,7 @@ const ReservationInformation = ({ navigation }) => {
         <View style={{ alignItems: "center", marginVertical: 20 }}>
           <ProfileImageWrap
             imageUrl="https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png"
-            imageStyle={{
-              height: 78,
-              width: 78,
-              borderRadius: 78 / 2,
-              marginBottom: 10,
-            }}
+            imageStyle={styles.imageStyle}
             title1="소중한 고객님을 안내해드릴 파트너를"
             title2="매칭 중 입니다."
           />
@@ -191,13 +148,8 @@ const ReservationInformation = ({ navigation }) => {
           <TitleBox
             title1="결제예정금액"
             title2="24,800원"
-            title1Style={{ fontSize: 16, lineHeight: 19, color: "#404040" }}
-            title2Style={{
-              fontSize: 24,
-              lineHeight: 29,
-              color: "#000000",
-              fontWeight: "bold",
-            }}
+            title1Style={styles.title1Style}
+            title2Style={styles.title2Style}
           />
           <View style={styles.marginText}>
             <Text style={styles.textStyle}>
@@ -294,6 +246,67 @@ const styles = StyleSheet.create({
     lineHeight: 15,
     letterSpacing: -0.43,
     color: "#666666",
+  },
+  titleBox: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: "100%",
+    marginVertical: 10,
+  },
+  circleBoxWrap: {
+    flexDirection: "row",
+    justifyContent: "flex-start",
+  },
+  circleBox: {
+    height: 24,
+    width: 24,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: "#707070",
+  },
+  circleBoxText: {
+    fontSize: 14,
+    lineHeight: 21,
+    color: "#000000",
+    marginLeft: 10,
+  },
+  labelStyle: {
+    fontSize: 12,
+    lineHeight: 18,
+    color: "#393939",
+    marginVertical: 5,
+  },
+  inputContainerStyle: {
+    height: 50,
+    width: "100%",
+    borderWidth: 1,
+    borderColor: "#DFE4EB",
+  },
+  inputStyle: {
+    fontSize: 14,
+    lineHeight: 21,
+    color: "#393939",
+    paddingHorizontal: 10,
+  },
+  imageStyle: {
+    height: 78,
+    width: 78,
+    borderRadius: 78 / 2,
+    marginBottom: 10,
+  },
+  title1Style: {
+    fontSize: 16,
+    lineHeight: 19,
+    color: "#404040",
+  },
+  title2Style: {
+    fontSize: 24,
+    lineHeight: 29,
+    color: "#000000",
+    fontWeight: "bold",
+  },
+  innerStyle: {
+    backgroundColor: Colors.activeBlueColor,
   },
 });
 export default ReservationInformation;

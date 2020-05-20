@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, FlatList } from "react-native";
-import Colors from "../../../../constants";
+import styles from "./style";
 
+//data used in screen
 const data = [
   {
     id: 1,
@@ -17,6 +18,7 @@ const data = [
   },
 ];
 
+//reusable component
 const CompletedReservationList = ({ serviceTitle, dateTime, matchStatus }) => {
   return (
     <View style={styles.boxMargin}>
@@ -33,6 +35,7 @@ const CompletedReservationList = ({ serviceTitle, dateTime, matchStatus }) => {
   );
 };
 
+//main component
 const MyReservationCompleted = () => {
   return (
     <View style={styles.screen}>
@@ -54,39 +57,4 @@ const MyReservationCompleted = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    justifyContent: "center",
-    backgroundColor: Colors.appColor,
-  },
-  boxMargin: {
-    marginHorizontal: 20,
-    // backgroundColor: "yellow",
-    marginVertical: 5,
-  },
-  box: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    height: 100,
-    borderBottomWidth: 1,
-    borderBottomColor: Colors.borderBottomColor,
-  },
-  infoTextWrap: {
-    justifyContent: "center",
-  },
-  matchStatusWrap: {
-    justifyContent: "center",
-  },
-  infotext: {
-    fontSize: 14,
-    lineHeight: 20,
-    color: Colors.TextColor,
-  },
-  matchStatus: {
-    fontSize: 14,
-    lineHeight: 20,
-    color: Colors.activeBlueColor,
-  },
-});
 export default MyReservationCompleted;

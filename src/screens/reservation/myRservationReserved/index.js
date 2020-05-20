@@ -10,13 +10,11 @@ import {
 } from "react-native";
 import { CustomButton, CustomHeader, ProfileImageWrap } from "../../../commons";
 import Colors from "../../../constants";
-//reusable components
 import Images from "../../../images";
 const { width, height } = Dimensions.get("screen");
 
 const ProgressBar = ({}) => {
   return (
-    //
     <View style={{ justifyContent: "column", marginVertical: 35 }}>
       <View
         style={{
@@ -29,11 +27,27 @@ const ProgressBar = ({}) => {
         <View
           style={{
             flexDirection: "column",
-            // backgroundColor: 'red',
             justifyContent: "flex-end",
-            alignItems: "flex-end",
+            // alignItems: "flex-end",
           }}
         >
+          <View
+            style={{
+              width: 10,
+              height: 10,
+              backgroundColor: "#E7E8E9",
+              borderRadius: 5,
+            }}
+          />
+        </View>
+        <View
+          style={{
+            width: "20%",
+            height: 2,
+            backgroundColor: "#E7E8E9",
+          }}
+        />
+        <View style={{ flexDirection: "column" }}>
           <View
             style={{
               width: 15,
@@ -45,7 +59,7 @@ const ProgressBar = ({}) => {
         </View>
         <View
           style={{
-            width: "25%",
+            width: "20%",
             height: 2,
             backgroundColor: "#E7E8E9",
           }}
@@ -62,7 +76,7 @@ const ProgressBar = ({}) => {
         </View>
         <View
           style={{
-            width: "25%",
+            width: "20%",
             height: 2,
             backgroundColor: "#E7E8E9",
           }}
@@ -76,29 +90,6 @@ const ProgressBar = ({}) => {
               borderRadius: 5,
             }}
           />
-          {/* <View>
-        <Text>예약완료</Text>
-      </View> */}
-        </View>
-        <View
-          style={{
-            width: "25%",
-            height: 2,
-            backgroundColor: "#E7E8E9",
-          }}
-        />
-        <View style={{ flexDirection: "column" }}>
-          <View
-            style={{
-              width: 10,
-              height: 10,
-              backgroundColor: "#E7E8E9",
-              borderRadius: 5,
-            }}
-          />
-          {/* <View>
-        <Text>예약완료</Text>
-      </View> */}
         </View>
       </View>
       <View
@@ -110,13 +101,16 @@ const ProgressBar = ({}) => {
         }}
       >
         <Text style={styles.progressText}>예약완료</Text>
-        <Text style={styles.progressText}>대기중</Text>
+        <Text style={{ ...styles.progressText, ...styles.blueText }}>
+          대기중
+        </Text>
         <Text style={styles.progressText}>안내중</Text>
         <Text style={styles.progressText}>서비스 완료</Text>
       </View>
     </View>
   );
 };
+
 const MyReservationReserved = ({ navigation }) => {
   return (
     <View style={{ flex: 1, backgroundColor: "#FFFFFF" }}>
@@ -149,9 +143,6 @@ const MyReservationReserved = ({ navigation }) => {
             }}
             title1="김우미 도우미"
           />
-          {/* <View
-            style={{ backgroundColor: "yellow", height: 100, width: "100%" }}
-          /> */}
           <View style={{ margin: 20 }}>
             <ProgressBar />
           </View>
@@ -253,6 +244,9 @@ const styles = StyleSheet.create({
     color: "#CBCCCD",
     fontSize: 13,
     lineHeight: 17,
+  },
+  blueText: {
+    color: Colors.activeBlueColor,
   },
 });
 export default MyReservationReserved;

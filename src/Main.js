@@ -20,10 +20,7 @@ const Main = () => {
         headerMode="none"
         gestureEnabled={false}
       >
-        <Stack.Screen
-          name="MyReservationReserved"
-          component={MyReservationReserved}
-        />
+        <Stack.Screen name="Inquiry" component={Inquiry} />
         {/* <Stack.Screen name="MainBottomTab" component={MainBottomTab} /> */}
       </Stack.Navigator>
     </NavigationContainer>
