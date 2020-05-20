@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, FlatList } from "react-native";
+import { View, Text, FlatList } from "react-native";
 import { CustomButton } from "../../../../commons";
-import Colors from "../../../../constants";
+
 const data = [
   {
     id: 1,
@@ -75,47 +75,4 @@ const MyReservationReserved = ({ navigation }) => {
   );
 };
 
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    backgroundColor: Colors.appColor,
-    justifyContent: "center",
-  },
-  textWrap: {
-    alignItems: "center",
-  },
-  info: {
-    fontSize: 19,
-    lineHeight: 29,
-    color: Colors.activeBlueColor,
-  },
-  boxMargin: {
-    marginHorizontal: 20,
-    // backgroundColor: "yellow",
-    marginVertical: 5,
-  },
-  box: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    height: 100,
-    borderBottomWidth: 1,
-    borderBottomColor: Colors.borderBottomColor,
-  },
-  infoTextWrap: {
-    justifyContent: "center",
-  },
-  matchStatusWrap: {
-    justifyContent: "center",
-  },
-  infotext: {
-    fontSize: 14,
-    lineHeight: 20,
-    color: Colors.TextColor,
-  },
-  matchStatus: {
-    fontSize: 14,
-    lineHeight: 20,
-    color: Colors.activeBlueColor,
-  },
-});
 export default MyReservationReserved;
