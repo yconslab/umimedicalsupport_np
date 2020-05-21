@@ -7,6 +7,7 @@ import HomeHeader from "./HomeHeader";
 import LogoBox from "./LogoBox";
 import NormalButton from "./NormalButton";
 import ProfileImageWrap from "./ProfileImageWrap";
+import TextInput from "./TextInput";
 // import PhoneInput from './PhoneInput';
 export {
   CustomHeader,
@@ -18,5 +19,6 @@ export {
   LogoBox,
   NormalButton,
   ProfileImageWrap,
+  TextInput,
   // PhoneInput,
 };
