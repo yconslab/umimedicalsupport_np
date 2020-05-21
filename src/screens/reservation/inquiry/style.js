@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import Colors from "../../../constants";
 export default StyleSheet.create({
   screen: {
     flex: 1,
@@ -111,4 +112,7 @@ export default StyleSheet.create({
   lineHeight21: {
     height: 21,
   },
+  innerStyle:{
+    backgroundColor: Colors.activeBlueColor
+  }
 });

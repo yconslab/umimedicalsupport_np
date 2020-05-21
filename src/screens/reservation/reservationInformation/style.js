@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import Colors from "../../../../constants";
+import Colors from "../../../constants";
 export default StyleSheet.create({
   screen: {
     flex: 1,
@@ -163,5 +163,4 @@ export default StyleSheet.create({
   marginVertical_10: {
     marginVertical: 10,
   },
-  innerStyle: { backgroundColor: Colors.activeBlueColor },
 });
