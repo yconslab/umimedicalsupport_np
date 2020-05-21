@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { View, ScrollView, TouchableOpacity, Image, Text } from "react-native";
 import { CustomHeader, CustomButton } from "../../../commons";
 import styles from "./style";
