@@ -8,19 +8,18 @@ import {
   StyleSheet,
   StatusBar,
   ScrollView,
-  SafeAreaView,
+  SafeAreaView
 } from "react-native";
-import CustomHeader from "../../components/Global/CustomHeader";
-import CustomButton from "../../components/UI/CustomButton";
-import RoundCheckBox from "../../components/Global/RoundCheckBox";
-import NormalInput from "../../components/Global/NormalInput";
+import { CustomHeader, CustomButton } from "../../../commons";
+// import RoundCheckBox from "../../components/Global/RoundCheckBox";
+// import NormalInput from "../../components/Global/NormalInput";
 class VisitorNameInput extends Component {
   constructor(props) {
     super(props);
     this.state = {
       check: false,
       hasInput: false,
-      name: "",
+      name: ""
     };
   }
 
@@ -35,26 +34,26 @@ class VisitorNameInput extends Component {
             }}
           />
           <View style={{ marginHorizontal: 20, marginVertical: 40 }}>
-            <NormalInput
+            {/* <NormalInput
               label="방문자 이름"
               placeholder="실명을 입력해주세요."
               labelStyle={{ color: "#000000", opacity: 0.4 }}
-              changeText={(value) =>
+              changeText={value =>
                 this.setState({
                   name: value,
-                  hasInput: this.state.name.length > 0,
+                  hasInput: this.state.name.length > 0
                 })
               }
               value={this.state.name}
-            />
+            /> */}
 
-            <View style={{ flexDirection: "row" }}>
+            {/* <View style={{ flexDirection: "row" }}>
               <RoundCheckBox
                 title="대리 접수입니다."
                 style={{ width: "50%" }}
               />
               <RoundCheckBox title="본인입니다." style={{ width: "50%" }} />
-            </View>
+            </View> */}
           </View>
         </ScrollView>
         <View style={{ margin: 20 }}>
@@ -64,7 +63,7 @@ class VisitorNameInput extends Component {
               width: "100%",
               borderRadius: 4,
               backgroundColor:
-                this.state.hasInput && this.state.name ? "#4388F0" : "#EBEBEB",
+                this.state.hasInput && this.state.name ? "#4388F0" : "#EBEBEB"
             }}
             buttontext="다음"
             textStyle={{
@@ -74,7 +73,7 @@ class VisitorNameInput extends Component {
                 this.state.hasInput && this.state.name
                   ? "#FFFFFF"
                   : "#0000004D",
-              fontWeight: "bold",
+              fontWeight: "bold"
             }}
             click={() => {
               this.props.navigation.navigate("VisitorNumberInput");
@@ -86,16 +85,16 @@ class VisitorNameInput extends Component {
   }
 }
 
-VisitorNameInput.navigationOptions = (navData) => {
+VisitorNameInput.navigationOptions = navData => {
   return {
-    header: null,
+    header: null
   };
 };
 
 const styles = StyleSheet.create({
   middleContent: {
     height: "15%",
-    backgroundColor: "grey",
+    backgroundColor: "grey"
   },
   firstbox: {
     height: 56,
@@ -104,23 +103,23 @@ const styles = StyleSheet.create({
     borderBottomColor: "#00000014",
     flexDirection: "row",
     justifyContent: "space-between",
-    alignItems: "center",
+    alignItems: "center"
   },
   lastBox: {
     height: 56,
     width: "100%",
     flexDirection: "row",
     justifyContent: "space-between",
-    alignItems: "center",
+    alignItems: "center"
   },
   value: {
-    color: "#0000004D",
+    color: "#0000004D"
   },
   helpText: {
     textAlign: "center",
     textDecorationLine: "underline",
     textDecorationStyle: "solid",
-    textDecorationColor: "black",
-  },
+    textDecorationColor: "black"
+  }
 });
 export default VisitorNameInput;

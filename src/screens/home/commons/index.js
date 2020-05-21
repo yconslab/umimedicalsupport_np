@@ -1,2 +1,3 @@
 import ReservationModal from "./ReservationModal";
-export { ReservationModal };
+import DateConversionWithDot from "./DateConversion";
+export { ReservationModal, DateConversionWithDot };
