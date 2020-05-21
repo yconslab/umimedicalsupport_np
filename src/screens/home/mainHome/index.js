@@ -6,7 +6,7 @@ import BannerSlider from "./BannerSlider";
 import Colors from "../../../constants/Colors";
 import { Scale } from "../../../helper/HelperFunction";
 
-const Home = () => {
+const Home = ({ navigation }) => {
   return (
     <View style={styles.wrapper}>
       <SwiperFlatList
@@ -23,11 +23,11 @@ const Home = () => {
           bottom: Scale(80)
         }}
       >
-        <BannerSlider />
-        <BannerSlider />
-        <BannerSlider />
-        <BannerSlider />
-        <BannerSlider />
+        <BannerSlider navigation={navigation} />
+        <BannerSlider navigation={navigation} />
+        <BannerSlider navigation={navigation} />
+        <BannerSlider navigation={navigation} />
+        <BannerSlider navigation={navigation} />
       </SwiperFlatList>
     </View>
   );
