@@ -18,7 +18,7 @@ const { height, width } = Dimensions.get("window");
 import { CustomHeader, CustomButton } from "../../../commons";
 import Colors from "../../../constants/Colors";
 
-const Modal = ({ showReservationModal, toggleOverlay }) => {
+const Modal = ({ showReservationModal, toggleOverlay, navigation }) => {
   const OpenURLButton = ({ url, displayText }) => {
     const handlePress = async () => {
       const supported = await Linking.canOpenURL(url);
@@ -37,6 +37,10 @@ const Modal = ({ showReservationModal, toggleOverlay }) => {
     );
   };
 
+  const handleOverlay = () => {
+    navigation.navigate("DateSchedule");
+    toggleOverlay();
+  };
   return (
     <View style={styles.wrapper}>
       <Overlay
@@ -77,7 +81,10 @@ const Modal = ({ showReservationModal, toggleOverlay }) => {
             />
           </View>
         </View>
-        <CustomButton title="네. 예약을 완료했어요." />
+        <CustomButton
+          title="네. 예약을 완료했어요."
+          onPress={() => handleOverlay()}
+        />
       </Overlay>
     </View>
   );

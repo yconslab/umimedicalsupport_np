@@ -6,5 +6,6 @@ export default Colors = {
   redColor: "#FF5151",
   TextColor: "#000000", // all page text color
   appColor: "#FFFFFF",
-  textColor: "#393939"
+  textColor: "#393939",
+  lightTextColor: "#707070"
 };

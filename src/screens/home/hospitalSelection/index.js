@@ -106,6 +106,7 @@ const HospitalSelection = ({ navigation }) => {
       <ReservationModal
         showReservationModal={showReservationModal}
         toggleOverlay={() => handletoggleOverlay()}
+        navigation={navigation}
       />
       <View style={styles.buttonStyle}>
         <CustomButton
