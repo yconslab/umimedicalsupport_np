@@ -8,20 +8,20 @@ import PaymentCompletion from "./screens/reservation/payementCompletion";
 import ServiceCompletion from "./screens/reservation/serviceCompletion";
 // import AuthorityStack from "./screens/authority";
 import MainBottomTab from "./screens/ScreenMain";
-import ReservationStacks from "./screens/reservation/reservation";
-import MyReservationReserved from "./screens/reservation/myRservationReserved";
+// import ReservationStacks from "./screens/reservation/reservation";
+// import MyReservationReserved from "./screens/reservation/myRservationReserved";
 const Stack = createStackNavigator();
 
 const Main = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="AuthorityStack"
+        // initialRouteName="AuthorityStack"
         headerMode="none"
         gestureEnabled={false}
       >
-        <Stack.Screen name="Inquiry" component={Inquiry} />
-        {/* <Stack.Screen name="MainBottomTab" component={MainBottomTab} /> */}
+        {/* <Stack.Screen name="Inquiry" component={Inquiry} /> */}
+        <Stack.Screen name="MainBottomTab" component={MainBottomTab} />
       </Stack.Navigator>
     </NavigationContainer>
   );
