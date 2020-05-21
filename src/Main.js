@@ -10,7 +10,7 @@ import ServiceCompletion from "./screens/reservation/serviceCompletion";
 import MainBottomTab from "./screens/ScreenMain";
 import ReservationStacks from "./screens/reservation/reservation";
 import MyReservationReserved from "./screens/reservation/myRservationReserved";
-import PayementCard from "./screens/more/PayementCard";
+import PayementCard from "./screens/more/paymentCard";
 import MoreList from "./screens/more/moreList";
 
 // import ReservationStacks from "./screens/reservation/reservation";

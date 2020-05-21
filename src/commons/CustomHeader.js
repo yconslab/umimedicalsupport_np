@@ -35,6 +35,7 @@ const HeaderList = ({
   centerComponent,
   rightComponent,
   leftComponent,
+  sideText,
 }) => {
   return (
     <View style={styles.headerMainWrapper}>
@@ -44,7 +45,10 @@ const HeaderList = ({
         centerComponent={centerComponent}
         rightComponent={rightComponent}
       />
-      <Text style={styles.headerTextStyle}>{headerText}</Text>
+      <View style={styles.headerTextWrap}>
+        <Text style={styles.headerTextStyle}>{headerText}</Text>
+        {sideText && <Text style={styles.sideText}>{sideText}</Text>}
+      </View>
     </View>
   );
 };
@@ -69,6 +73,15 @@ const styles = StyleSheet.create({
     fontSize: Scale(24),
     fontWeight: "bold",
     color: Colors.TextColor,
+  },
+  headerTextWrap: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  sideText: {
+    fontSize: 16,
+    lineHeight: 19,
+    color: Colors.activeBlueColor,
   },
 });
 
