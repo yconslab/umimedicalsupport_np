@@ -6,45 +6,33 @@ import {
   FlatList,
   ScrollView,
 } from "react-native";
-import { CustomHeader, ProfileImageWrap } from "../../../commons";
+import { CustomHeader, CustomButton } from "../../../commons";
 import Images from "../../../images";
 import styles from "./style";
 //data
 const data = [
-  { id: 1, title: "환자 정보", navigationTitle: "" },
-  { id: 2, title: "카드 관리", navigationTitle: "" },
-  { id: 3, title: "자주 묻는 질문", navigationTitle: "" },
-  { id: 4, title: "쿠폰 관리", navigationTitle: "" },
-  { id: 5, title: "로그아웃", navigationTitle: "" },
+  { id: 1, title: "윤정택", contactNumber: "01045844821", navigationTitle: "" },
+  { id: 2, title: "박춘자", contactNumber: "01012938287", navigationTitle: "" },
 ];
 
 //reusable component
-const ListBox = ({ title, navigation, navigationTitle }) => {
+const ListBox = ({ title, contactNumber, navigation, navigationTitle }) => {
   return (
     <TouchableOpacity
       style={styles.listBox}
       onPress={() => navigation.navigate(navigationTitle)}
     >
       <Text style={styles.title}>{title}</Text>
+      <Text style={styles.contactNumber}>{contactNumber}</Text>
     </TouchableOpacity>
   );
 };
 //maincomponent
-const MoreList = ({ navigation }) => {
+const PatientInformation = ({ navigation }) => {
   return (
     <View style={styles.screen}>
-      <CustomHeader backHidden />
+      <CustomHeader headerText="환자 정보" showHeaderText />
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-        <View style={styles.profileWrapper}>
-          <ProfileImageWrap
-            source={Images.profileImage}
-            imageStyle={styles.imageStyle}
-            title1="윤정탁"
-            title2="010-5504-8441"
-            title1Style={styles.title1Style}
-            title2Style={styles.title2Style}
-          />
-        </View>
         <View style={styles.listWrapper}>
           <FlatList
             data={data}
@@ -54,12 +42,20 @@ const MoreList = ({ navigation }) => {
                 title={itemData.item.title}
                 navigation={navigation}
                 navigationTitle={itemData.item.navigationTitle}
+                contactNumber={itemData.item.contactNumber}
               />
             )}
           />
         </View>
       </ScrollView>
+      <View style={styles.buttonWrap}>
+        <CustomButton
+          title="새 환자 등록"
+          innerStyle={styles.innerStyle}
+          innerTextStyle={styles.innerTextStyle}
+        />
+      </View>
     </View>
   );
 };
-export default MoreList;
+export default PatientInformation;

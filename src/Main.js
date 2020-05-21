@@ -10,6 +10,7 @@ import ServiceCompletion from "./screens/reservation/serviceCompletion";
 import MainBottomTab from "./screens/ScreenMain";
 import ReservationStacks from "./screens/reservation/reservation";
 import MyReservationReserved from "./screens/reservation/myRservationReserved";
+import PatientInformation from "./screens/more/patientInformation";
 import MoreList from "./screens/more/moreList";
 const Stack = createStackNavigator();
 
@@ -21,7 +22,10 @@ const Main = () => {
         headerMode="none"
         gestureEnabled={false}
       >
-        <Stack.Screen name="MoreList" component={MoreList} />
+        <Stack.Screen
+          name="PatientInformation"
+          component={PatientInformation}
+        />
         {/* <Stack.Screen name="MainBottomTab" component={MainBottomTab} /> */}
       </Stack.Navigator>
     </NavigationContainer>

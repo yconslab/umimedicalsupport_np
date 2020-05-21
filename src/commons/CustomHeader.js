@@ -163,8 +163,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   headerTextStyle: {
-    fontSize: 20,
-    lineHeight: 24,
+    fontSize: 24,
+    lineHeight: 29,
     fontWeight: "bold",
     color: Colors.TextColor,
   },
