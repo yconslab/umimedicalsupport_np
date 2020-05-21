@@ -6,7 +6,6 @@ import styles from "./style";
 //maincomponent
 const EnterPatientInformation = ({ navigation }) => {
   const [input, setInput] = useState("");
-
   const [inputState, setInputState] = useState(false);
   const [showNumberField, setShowNumberField] = useState(false);
   return (

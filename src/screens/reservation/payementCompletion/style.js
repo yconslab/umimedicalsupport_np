@@ -1,31 +1,27 @@
 import { StyleSheet } from "react-native";
-<<<<<<< HEAD
-import Colors from "../../../constants";
-=======
 import Colors from "../../../constants/";
->>>>>>> d94e2b2d35685544749fe35235885cfd4d2247b7
 export default StyleSheet.create({
   screen: {
     flex: 1,
-    backgroundColor: "#FFFFFF"
+    backgroundColor: "#FFFFFF",
   },
   contentWrap: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
   imageStyle: {
     height: 178.19,
     width: 289.73,
     overflow: "hidden",
-    marginHorizontal: "5%"
+    marginHorizontal: "5%",
   },
   titleText: {
     fontSize: 30,
     lineHeight: 36,
     textAlign: "center",
     marginTop: 16,
-    color: "#2A8CFF"
+    color: "#2A8CFF",
   },
   normalText: {
     fontSize: 14,
@@ -33,7 +29,7 @@ export default StyleSheet.create({
 
     marginHorizontal: 40,
     color: "#404040",
-    lineHeight: 17
+    lineHeight: 17,
   },
   box: {
     width: "85%",
@@ -44,15 +40,15 @@ export default StyleSheet.create({
     borderColor: "#4388F0",
     marginBottom: 16,
     backgroundColor: "#4388F0",
-    alignSelf: "center"
+    alignSelf: "center",
   },
   innerStyle: {
-    backgroundColor: Colors.activeColor
+    backgroundColor: Colors.activeColor,
   },
   marginStyle: {
-    margin: 20
+    margin: 20,
   },
   marginBottomStyle: {
-    marginBottom: 32
-  }
+    marginBottom: 32,
+  },
 });
