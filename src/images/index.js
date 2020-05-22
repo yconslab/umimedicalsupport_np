@@ -1,4 +1,4 @@
-export default (Images = {
+export default Images = {
   callIcon: require("./callIcon.png"),
   cardChip: require("./cardChip1.png"),
   couponBanner: require("./bannerCoupon.png"),
@@ -11,4 +11,5 @@ export default (Images = {
   userIcon: require("./user.png"),
   profileImage: require("./profileImage.png"),
   starIcon: require("./starIcon.png"),
-});
+  helperNurse: require("./helperNurse.png")
+};

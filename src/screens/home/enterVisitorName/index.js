@@ -1,126 +1,96 @@
-import React, { Component } from "react";
-import {
-  FlatList,
-  View,
-  Text,
-  Button,
-  TouchableOpacity,
-  StyleSheet,
-  StatusBar,
-  ScrollView,
-  SafeAreaView,
-} from "react-native";
-import CustomHeader from "../../components/Global/CustomHeader";
-import CustomButton from "../../components/UI/CustomButton";
-import RoundCheckBox from "../../components/Global/RoundCheckBox";
-import NormalInput from "../../components/Global/NormalInput";
-class VisitorNameInput extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      check: false,
-      hasInput: false,
-      name: "",
-    };
-  }
+import React, { useState } from "react";
+import { Text, View, StyleSheet } from "react-native";
+import { useSelector, useDispatch } from "react-redux";
 
-  render() {
-    return (
-      <SafeAreaView style={{ flex: 1, backgroundColor: "#FFFFFF" }}>
-        <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-          <CustomHeader
-            title1="방문자의 이름을 입력하세요."
-            click={() => {
-              this.props.navigation.goBack();
-            }}
-          />
-          <View style={{ marginHorizontal: 20, marginVertical: 40 }}>
-            <NormalInput
-              label="방문자 이름"
-              placeholder="실명을 입력해주세요."
-              labelStyle={{ color: "#000000", opacity: 0.4 }}
-              changeText={(value) =>
-                this.setState({
-                  name: value,
-                  hasInput: this.state.name.length > 0,
-                })
-              }
-              value={this.state.name}
-            />
+import { CustomHeader, CustomButton, TextInput } from "../../../commons";
+import { Scale } from "../../../helper/HelperFunction";
+import Colors from "../../../constants/Colors";
+import { RadioButton } from "../commons";
+import { setName, setRadioButton } from "../redux/actions";
 
-            <View style={{ flexDirection: "row" }}>
-              <RoundCheckBox
-                title="대리 접수입니다."
-                style={{ width: "50%" }}
-              />
-              <RoundCheckBox title="본인입니다." style={{ width: "50%" }} />
-            </View>
-          </View>
-        </ScrollView>
-        <View style={{ margin: 20 }}>
-          <CustomButton
-            style={{
-              height: Platform.OS === "ios" ? 50 : 50,
-              width: "100%",
-              borderRadius: 4,
-              backgroundColor:
-                this.state.hasInput && this.state.name ? "#4388F0" : "#EBEBEB",
-            }}
-            buttontext="다음"
-            textStyle={{
-              fontSize: 17,
-              lineHeight: 20,
-              color:
-                this.state.hasInput && this.state.name
-                  ? "#FFFFFF"
-                  : "#0000004D",
-              fontWeight: "bold",
-            }}
-            click={() => {
-              this.props.navigation.navigate("VisitorNumberInput");
-            }}
-          />
-        </View>
-      </SafeAreaView>
-    );
-  }
-}
+const componentName = ({ navigation }) => {
+  const [selectedRadioButton, setselectedRadioButton] = useState(
+    "대리 접수입니다."
+  );
+  const [disableButton, setDisableButton] = useState(true);
+  const [name, setname] = useState("");
 
-VisitorNameInput.navigationOptions = (navData) => {
-  return {
-    header: null,
+  const VisitorInformationValue = useSelector(
+    state => state.VisitorInformation
+  );
+  const dispatch = useDispatch();
+  const handleRadioButton = vale => {
+    dispatch(setRadioButton(vale));
+
+    setselectedRadioButton(vale);
   };
+  const handleNameChangeInput = text => {
+    dispatch(setName(text));
+    setname(text);
+    if (name.length > 4) {
+      return setDisableButton(false);
+    } else {
+      setDisableButton(true);
+    }
+  };
+  return (
+    <View style={styles.wrapper}>
+      <CustomHeader
+        headerText="방문자의 이름을 입력하세요."
+        navigation={navigation}
+      />
+      <View style={styles.textInputStyle}>
+        <Text style={styles.textInputHeaderStyle}>방문자 이름</Text>
+        <TextInput
+          placeholderText="실명을 입력해주세요."
+          value={VisitorInformationValue.name}
+          changeText={handleNameChangeInput}
+        />
+      </View>
+      <View style={styles.radioButtonWrapper}>
+        <RadioButton
+          title="대리 접수입니다."
+          selected={VisitorInformationValue.selectedRadioButton}
+          onChangeRadioButton={title => handleRadioButton(title)}
+        />
+        <RadioButton
+          title="본인입니다."
+          selected={VisitorInformationValue.selectedRadioButton}
+          onChangeRadioButton={title => handleRadioButton(title)}
+        />
+      </View>
+      <View style={styles.footerPosition}>
+        <CustomButton
+          title="다음"
+          innerStyle={{ marginHorizontal: Scale(20) }}
+          disabled={disableButton}
+          onPress={() => navigation.navigate("VisitorInformatioNumber")}
+        />
+      </View>
+    </View>
+  );
 };
 
+export default componentName;
+
 const styles = StyleSheet.create({
-  middleContent: {
-    height: "15%",
-    backgroundColor: "grey",
+  wrapper: {
+    flex: 1,
+    backgroundColor: Colors.appColor
   },
-  firstbox: {
-    height: 56,
-    width: "100%",
-    borderBottomWidth: 1,
-    borderBottomColor: "#00000014",
+  textInputStyle: {
+    marginHorizontal: Scale(20),
+    marginTop: Scale(30)
+  },
+  textInputHeaderStyle: {
+    fontSize: Scale(13),
+    color: "#A7A7A7",
+    fontWeight: "bold"
+  },
+  radioButtonWrapper: {
     flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    marginTop: -20,
+    marginHorizontal: Scale(20)
   },
-  lastBox: {
-    height: 56,
-    width: "100%",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-  value: {
-    color: "#0000004D",
-  },
-  helpText: {
-    textAlign: "center",
-    textDecorationLine: "underline",
-    textDecorationStyle: "solid",
-    textDecorationColor: "black",
-  },
+  footerPosition: { position: "absolute", bottom: 0, left: 0, right: 0 }
 });
-export default VisitorNameInput;

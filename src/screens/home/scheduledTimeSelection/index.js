@@ -7,9 +7,10 @@ import {
   TouchableOpacity,
   StyleSheet,
   StatusBar,
-  ScrollView,
+  ScrollView
 } from "react-native";
-import CustomHeader from "../../components/Global/CustomHeader";
+import CustomHeader from "../../../commons/CustomHeader";
+import { DateConversionWithDot } from "../commons";
 
 const newStyle = { backgroundColor: "#236ED24B", borderRadius: 10 };
 
@@ -23,65 +24,71 @@ class TimeSelection extends Component {
       setColor2: false,
       setColor3: false,
       setColor4: false,
-      setColor5: false,
+      setColor5: false
     };
   }
 
-  selectHandler = (myColor) => {
+  selectHandler = myColor => {
     return {
       height: 40,
       width: 60,
       borderRadius: 10,
-      backgroundColor: myColor,
+      backgroundColor: myColor
     };
   };
 
-  clickTimeHanlder1 = (val) => {
-    if (val === "8") {
+  handleNavigation = val =>
+    this.props.navigation.navigate("ScheduleHelper", {
+      dateString: this.props.route.params.day,
+      time: val
+    });
+
+  clickTimeHanlder1 = val => {
+    if (val === "8:00") {
       this.setState({
         setColor1: !this.state.setColor1,
         setColor2: false,
         setColor3: false,
         setColor4: false,
-        setColor5: false,
+        setColor5: false
       });
-      this.props.navigation.navigate("ReviewPage");
+      this.handleNavigation(val);
     } else if (val === "8:30") {
       this.setState({
         setColor2: !this.state.setColor2,
         setColor1: false,
         setColor3: false,
         setColor4: false,
-        setColor5: false,
+        setColor5: false
       });
-      this.props.navigation.navigate("ReviewPage");
-    } else if (val === "9") {
+      this.handleNavigation(val);
+    } else if (val === "9:00") {
       this.setState({
         setColor3: !this.state.setColor3,
         setColor2: false,
         setColor1: false,
         setColor4: false,
-        setColor5: false,
+        setColor5: false
       });
-      this.props.navigation.navigate("ReviewPage");
+      this.handleNavigation(val);
     } else if (val === "9:30") {
       this.setState({
         setColor4: !this.state.setColor4,
         setColor2: false,
         setColor1: false,
         setColor3: false,
-        setColor5: false,
+        setColor5: false
       });
-      this.props.navigation.navigate("ReviewPage");
+      this.handleNavigation(val);
     } else {
       this.setState({
         setColor5: !this.state.setColor5,
         setColor2: false,
         setColor1: false,
         setColor3: false,
-        setColor4: false,
+        setColor4: false
       });
-      this.props.navigation.navigate("ReviewPage");
+      this.handleNavigation(val);
     }
     console.log(val);
   };
@@ -92,18 +99,17 @@ class TimeSelection extends Component {
       setColor2,
       setColor3,
       setColor4,
-      setColor5,
+      setColor5
     } = this.state;
+    const { dateString } = this.props.route.params.day;
+    const replaceDate = DateConversionWithDot(dateString);
     return (
       <View style={{ flex: 1, backgroundColor: "#FFFFFF" }}>
         <CustomHeader
-          title1="예약된 일정을 선택하세요."
-          click={() => {
-            this.props.navigation.goBack();
-          }}
+          headerText="예약된 일정을 선택하세요."
+          navigation={this.props.navigation}
         />
-
-        <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+        <View contentContainerStyle={{ flexGrow: 1 }}>
           <View style={{ margin: 20 }}>
             <View style={styles.firstbox}>
               <Text style={{ fontSize: 16, color: "#404040" }}>방문병원</Text>
@@ -112,7 +118,7 @@ class TimeSelection extends Component {
 
             <View style={styles.firstbox}>
               <Text style={{ fontSize: 16, color: "#404040" }}>방문날짜</Text>
-              <Text style={styles.value}>2020.01.15</Text>
+              <Text style={styles.value}>{replaceDate}</Text>
             </View>
 
             <View style={styles.lastBox}>
@@ -121,7 +127,7 @@ class TimeSelection extends Component {
             <View
               style={{
                 flexDirection: "row",
-                justifyContent: "flex-start",
+                justifyContent: "flex-start"
               }}
             >
               <Text style={{ marginRight: "25%", color: "#BEBEBE" }}>오전</Text>
@@ -130,7 +136,7 @@ class TimeSelection extends Component {
                   <TouchableOpacity
                     // style={this.selectHandler(this.state.color1)}
                     style={[setColor1 && { ...newStyle }]}
-                    onPress={() => this.clickTimeHanlder1("8")}
+                    onPress={() => this.clickTimeHanlder1("8:00")}
                   >
                     <Text style={styles.timeText}>8:00</Text>
                   </TouchableOpacity>
@@ -145,7 +151,7 @@ class TimeSelection extends Component {
                 <View style={styles.timeBox}>
                   <TouchableOpacity
                     style={[setColor3 && { ...newStyle }]}
-                    onPress={() => this.clickTimeHanlder1("9")}
+                    onPress={() => this.clickTimeHanlder1("9:00")}
                   >
                     <Text style={styles.timeText}>9:00</Text>
                   </TouchableOpacity>
@@ -160,7 +166,7 @@ class TimeSelection extends Component {
                 <View style={styles.timeBox}>
                   <TouchableOpacity
                     style={[setColor5 && { ...newStyle }]}
-                    onPress={() => this.clickTimeHanlder1("10")}
+                    onPress={() => this.clickTimeHanlder1("10:00")}
                   >
                     <Text style={styles.timeText}>10:00</Text>
                   </TouchableOpacity>
@@ -170,22 +176,22 @@ class TimeSelection extends Component {
 
             <View />
           </View>
-        </ScrollView>
+        </View>
       </View>
     );
   }
 }
 
-TimeSelection.navigationOptions = (navData) => {
+TimeSelection.navigationOptions = navData => {
   return {
-    header: null,
+    header: null
   };
 };
 
 const styles = StyleSheet.create({
   middleContent: {
     height: "15%",
-    backgroundColor: "grey",
+    backgroundColor: "grey"
   },
   firstbox: {
     height: 56,
@@ -194,28 +200,28 @@ const styles = StyleSheet.create({
     borderBottomColor: "#00000014",
     flexDirection: "row",
     justifyContent: "space-between",
-    alignItems: "center",
+    alignItems: "center"
   },
   lastBox: {
     height: 56,
     width: "100%",
     flexDirection: "row",
     justifyContent: "space-between",
-    alignItems: "center",
+    alignItems: "center"
   },
   value: {
     color: "#4086F0",
-    fontSize: 16,
+    fontSize: 16
   },
   timepicker: {
     width: "50%",
     justifyContent: "center",
-    alignSelf: "center",
+    alignSelf: "center"
   },
   timeBox: {
     // width: '100%',
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "space-between"
   },
   timeText: {
     fontSize: 17,
@@ -224,7 +230,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
     padding: 2,
-    margin: 8,
-  },
+    margin: 8
+  }
 });
 export default TimeSelection;
