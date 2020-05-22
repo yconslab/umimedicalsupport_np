@@ -10,7 +10,7 @@ import AuthorityStack from "./screens/authority";
 import MainBottomTab from "./screens/ScreenMain";
 import ReservationStacks from "./screens/reservation/reservation";
 import MyReservationReserved from "./screens/reservation/myRservationReserved";
-import PayementCard from "./screens/more/paymentCard";
+import FAQContents from "./screens/more/contentsFAQ";
 import MoreList from "./screens/more/moreList";
 import ENterName from "./screens/login/enterName";
 import EnterName from "./screens/login/enterName";
@@ -27,7 +27,7 @@ const Main = () => {
         headerMode="none"
         gestureEnabled={false}
       >
-        <Stack.Screen name="TermsofService" component={TermsofService} />
+        <Stack.Screen name="FAQContents" component={FAQContents} />
         {/* <Stack.Screen name="MainBottomTab" component={MainBottomTab} /> */}
       </Stack.Navigator>
     </NavigationContainer>

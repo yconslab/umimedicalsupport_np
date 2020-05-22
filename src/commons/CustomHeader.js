@@ -15,16 +15,18 @@ import { Scale } from "../helper/HelperFunction";
 
 const { height, width } = Dimensions.get("window");
 
-const MyLeftComponent = ({ navigation }) => {
+const MyLeftComponent = ({ navigation, cross }) => {
   return (
     <TouchableOpacity onPress={() => navigation.goBack()}>
-      {
+      {cross ? (
+        <BackIcon name="ios-close" size={Scale(35)} />
+      ) : (
         (Platform.OS = "ios" ? (
           <BackIcon name="ios-arrow-round-back" size={Scale(30)} />
         ) : (
           <BackIcon name="md-arrow-back" size={Scale(30)} />
         ))
-      }
+      )}
     </TouchableOpacity>
   );
 };
@@ -36,12 +38,15 @@ const HeaderList = ({
   rightComponent,
   leftComponent,
   sideText,
+  cross,
 }) => {
   return (
     <View style={styles.headerMainWrapper}>
       <Header
         containerStyle={styles.headerWrapper}
-        leftComponent={<MyLeftComponent navigation={navigation} />}
+        leftComponent={
+          <MyLeftComponent navigation={navigation} cross={cross} />
+        }
         centerComponent={centerComponent}
         rightComponent={rightComponent}
       />
