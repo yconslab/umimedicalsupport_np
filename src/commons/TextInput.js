@@ -30,6 +30,7 @@ const InputField = ({
   externalStyle,
   externalBoxStyle,
   externalFontStyle,
+  maxLength,
 }) => {
   return (
     <View style={(styles.InputFieldwrapper, { ...externalBoxStyle })}>
@@ -56,6 +57,7 @@ const InputField = ({
           clearButtonMode={clearButtonMode}
           onSubmitEditing={onSubmitEditing}
           underlineColorAndroid="transparent"
+          maxLength={maxLength}
         />
       </TouchableOpacity>
       <TouchableOpacity
@@ -82,10 +84,11 @@ const styles = StyleSheet.create({
   },
   footerTextStyle: {
     fontSize: 12,
-    color: Colors.loginHelpText,
+    color: "#00000099",
     marginTop: 10,
     marginLeft: 10,
-    // textDecorationLine: 'underline',
+    textDecorationColor: "#00000099",
+    textDecorationLine: "underline",
   },
   textStyle: {
     fontSize: 13,

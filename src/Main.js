@@ -6,13 +6,15 @@ import ReservationInformationMatched from "./screens/reservation/reservationInfo
 import Inquiry from "./screens/reservation/inquiry";
 import PaymentCompletion from "./screens/reservation/payementCompletion";
 import ServiceCompletion from "./screens/reservation/serviceCompletion";
-// import AuthorityStack from "./screens/authority";
+import AuthorityStack from "./screens/authority";
 import MainBottomTab from "./screens/ScreenMain";
 import ReservationStacks from "./screens/reservation/reservation";
 import MyReservationReserved from "./screens/reservation/myRservationReserved";
 import PayementCard from "./screens/more/paymentCard";
 import MoreList from "./screens/more/moreList";
-
+import ENterName from "./screens/login/enterName";
+import EnterName from "./screens/login/enterName";
+import TermsofService from "./screens/login/termsOfService";
 // import ReservationStacks from "./screens/reservation/reservation";
 // import MyReservationReserved from "./screens/reservation/myRservationReserved";
 const Stack = createStackNavigator();
@@ -25,7 +27,7 @@ const Main = () => {
         headerMode="none"
         gestureEnabled={false}
       >
-        <Stack.Screen name="PayementCard" component={PayementCard} />
+        <Stack.Screen name="TermsofService" component={TermsofService} />
         {/* <Stack.Screen name="MainBottomTab" component={MainBottomTab} /> */}
       </Stack.Navigator>
     </NavigationContainer>
