@@ -6,7 +6,6 @@ import {
   StyleSheet,
   ScrollView,
   Dimensions,
-  TouchableOpacity,
 } from "react-native";
 import { CustomButton, CustomHeader, ProfileImageWrap } from "../../../commons";
 import Colors from "../../../constants";

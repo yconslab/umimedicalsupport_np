@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   Image,
   Dimensions,
-  Platform
+  Platform,
 } from "react-native";
 import { Header } from "react-native-elements";
 import BackIcon from "react-native-vector-icons/Ionicons";
@@ -15,16 +15,18 @@ import { Scale } from "../helper/HelperFunction";
 
 const { height, width } = Dimensions.get("window");
 
-const MyLeftComponent = ({ navigation }) => {
+const MyLeftComponent = ({ navigation, cross }) => {
   return (
     <TouchableOpacity onPress={() => navigation.goBack()}>
-      {
+      {cross ? (
+        <BackIcon name="ios-close" size={Scale(35)} />
+      ) : (
         (Platform.OS = "ios" ? (
           <BackIcon name="ios-arrow-round-back" size={Scale(30)} />
         ) : (
           <BackIcon name="md-arrow-back" size={Scale(30)} />
         ))
-      }
+      )}
     </TouchableOpacity>
   );
 };
@@ -34,17 +36,24 @@ const HeaderList = ({
   headerText,
   centerComponent,
   rightComponent,
-  leftComponent
+  leftComponent,
+  sideText,
+  cross,
 }) => {
   return (
     <View style={styles.headerMainWrapper}>
       <Header
         containerStyle={styles.headerWrapper}
-        leftComponent={<MyLeftComponent navigation={navigation} />}
+        leftComponent={
+          <MyLeftComponent navigation={navigation} cross={cross} />
+        }
         centerComponent={centerComponent}
         rightComponent={rightComponent}
       />
-      <Text style={styles.headerTextStyle}>{headerText}</Text>
+      <View style={styles.headerTextWrap}>
+        <Text style={styles.headerTextStyle}>{headerText}</Text>
+        {sideText && <Text style={styles.sideText}>{sideText}</Text>}
+      </View>
     </View>
   );
 };
@@ -52,23 +61,33 @@ const HeaderList = ({
 const styles = StyleSheet.create({
   headerWrapper: {
     paddingHorizontal: 3,
-    backgroundColor: Colors.appColor
+    backgroundColor: Colors.appColor,
   },
   headerMainWrapper: {
-    paddingHorizontal: Scale(20)
+    paddingHorizontal: Scale(20),
   },
   headerTextDesign: {
     paddingHorizontal: Scale(15),
     backgroundColor: Colors.appColor,
     borderWidth: 0,
     flexDirection: "row",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
   },
   headerTextStyle: {
+    lineHeight: 29,
     fontSize: Scale(24),
     fontWeight: "bold",
-    color: Colors.TextColor
-  }
+    color: Colors.TextColor,
+  },
+  headerTextWrap: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  sideText: {
+    fontSize: 16,
+    lineHeight: 19,
+    color: Colors.activeBlueColor,
+  },
 });
 
 export default HeaderList;

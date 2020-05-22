@@ -1,12 +1,18 @@
 import CustomHeader from "./CustomHeader";
 import CustomButton from "./CustomButton";
-import Divider from "./Divider";
 
+import ProfileImageWrap from "./ProfileImageWrap";
+import TextInput from "./TextInput";
+import Divider from "./Divider";
+import TextInputLeftIcon from "./TextInputLeftIcon";
 // import PhoneInput from './PhoneInput';
 export {
   CustomHeader,
   CustomButton,
-  Divider
+  ProfileImageWrap,
+  TextInput,
+  Divider,
+  TextInputLeftIcon,
 
   // PhoneInput,
 };

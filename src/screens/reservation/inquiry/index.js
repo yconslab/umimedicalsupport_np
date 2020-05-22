@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, ScrollView } from "react-native";
 import { CustomButton, CustomHeader, ProfileImageWrap } from "../../../commons";
-import Colors from "../../../constants";
 import Images from "../../../images";
 
 //reusable components
@@ -84,7 +83,7 @@ const Inquiry = ({ navigation }) => {
           onPress={() => {
             navigation.navigate("Home");
           }}
-          innerStyle={{ backgroundColor: Colors.activeBlueColor }}
+          innerStyle={styles.innerStyle}
         />
       </View>
     </View>

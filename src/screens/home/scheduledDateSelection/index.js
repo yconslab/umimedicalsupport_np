@@ -127,7 +127,8 @@ const ScheduleDate = ({ navigation }) => {
         minDate={todaysDate}
         LocaleConfig={LocaleConfig.defaultLocale}
         onDayPress={day => {
-          console.log("selected day", day);
+          navigation.navigate("ScheduleTime", { day: day });
+          // console.log("selected day", day);
         }}
         monthFormat={"yyyy.MM "}
         onMonthChange={month => {

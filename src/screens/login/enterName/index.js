@@ -1,25 +1,27 @@
-import React, {useState} from 'react';
-import {View, StyleSheet, ScrollView, SafeAreaView} from 'react-native';
-import {CustomHeader, CustomButton, NormalInput} from '../../commons';
-const NameInput = ({navigation}) => {
-  const [input, setInput] = useState('');
-  const [inputstate, setInputState] = useState(false);
-
+import React, { useState } from "react";
+import { View, ScrollView } from "react-native";
+import { CustomHeader, CustomButton, TextInput } from "../../../commons";
+import styles from "./style";
+const EnterName = ({ navigation }) => {
+  const [input, setInput] = useState("");
+  const [inputState, setInputState] = useState(false);
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: '#FFFFFF'}}>
-      <ScrollView contentContainerStyle={{flexGrow: 1}}>
-        <CustomHeader
-          title1="실명을 입력해주세요."
-          click={() => {
-            navigation.goBack();
-          }}
-        />
-        <View style={{marginHorizontal: 20, marginVertical: 40}}>
-          <NormalInput
-            label="이름"
-            placeholder="실명"
-            changeText={value => {
+    <View style={styles.screen}>
+      <CustomHeader
+        headerText="실명을 입력해주세요."
+        click={() => {
+          navigation.goBack();
+        }}
+      />
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+        <View style={styles.inputWrapper}>
+          <TextInput
+            title="이름"
+            placeholderText="타이틀1"
+            customStyle={styles.Textholder}
+            changeText={(value) => {
               setInput(value);
+              // console.log(value, inputState);
               if (value.length > 4) {
                 setInputState(true);
               } else {
@@ -27,64 +29,32 @@ const NameInput = ({navigation}) => {
               }
             }}
             value={input}
+            handleOnPress={() => this.handlePress(navigation)}
+            clearButtonMode="while-editing"
+            navigation={navigation}
+            maxLength={16}
           />
         </View>
       </ScrollView>
 
-      <View style={{margin: 20}}>
+      <View style={styles.btnWrap}>
         <CustomButton
-          style={{
-            height: Platform.OS === 'ios' ? 50 : 50,
-            width: '100%',
-            borderRadius: 4,
-            backgroundColor: inputstate && input > 4 ? '#4388F0' : '#EBEBEB',
-          }}
-          buttontext="다음"
-          textStyle={{
-            fontSize: 17,
-            lineHeight: 20,
-            color: inputstate && input > 4 ? '#FFFFFF' : '#0000004D',
-            fontWeight: 'bold',
-          }}
-          click={() => {
-            navigation.navigate('AgreementPage');
-          }}
-          disabled={!inputstate}
+          title="다음"
+          innerStyle={
+            inputState === true && input.length > 4
+              ? styles.innerStyle1
+              : styles.innerStyle2
+          }
+          innerTextStyle={
+            inputState === true && input.length > 4
+              ? styles.innerTextStyle1
+              : styles.innerTextStyle2
+          }
+          disabled={inputState === false && input.length <= 4}
         />
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 
-NameInput.navigationOptions = navData => {
-  return {
-    header: null,
-  };
-};
-
-const styles = StyleSheet.create({
-  middleContent: {
-    height: '15%',
-    backgroundColor: 'grey',
-  },
-  firstbox: {
-    height: 56,
-    width: '100%',
-    borderBottomWidth: 1,
-    borderBottomColor: '#00000014',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  lastBox: {
-    height: 56,
-    width: '100%',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  value: {
-    color: '#0000004D',
-  },
-});
-export default NameInput;
+export default EnterName;
