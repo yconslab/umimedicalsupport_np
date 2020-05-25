@@ -30,6 +30,7 @@ const InputField = ({
   externalStyle,
   externalBoxStyle,
   maxLength,
+  multiline,
 }) => {
   return (
     <View style={(styles.InputFieldwrapper, { ...externalBoxStyle })}>
@@ -57,6 +58,7 @@ const InputField = ({
           onSubmitEditing={onSubmitEditing}
           underlineColorAndroid="transparent"
           maxLength={maxLength}
+          multiline={multiline}
         />
       </TouchableOpacity>
       <TouchableOpacity
@@ -76,6 +78,7 @@ const styles = StyleSheet.create({
   InputFieldwrapper: {
     flex: 1,
     width: "100%",
+    // backgroundColor: 'red'
     paddingHorizontal: 10,
   },
   footerTextStyle: {
