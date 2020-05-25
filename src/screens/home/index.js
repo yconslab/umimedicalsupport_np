@@ -9,12 +9,14 @@ import ScheduleTime from "./scheduledTimeSelection";
 import ScheduleHelper from "./scheduleHelperSelection";
 import VisitorInformatioName from "./enterVisitorName";
 import VisitorInformationPhoneNumber from "./enterVisitorNumber";
+import AdditionalInformation from "./additionalInformation";
+import ReservationComplete from "./reservationCompletion";
 
 const Stack = createStackNavigator();
 
 const HomeStack = () => {
   return (
-    <Stack.Navigator headerMode="none" initialRouteName="VisitorInformatioName">
+    <Stack.Navigator headerMode="none" initialRouteName="ReservationComplete">
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="HospitalSelection" component={HospitalSelection} />
       {/* <Stack.Screen name="ReservationGuide" component={ReservationGuide} /> */}
@@ -28,6 +30,14 @@ const HomeStack = () => {
       <Stack.Screen
         name="VisitorInformatioNumber"
         component={VisitorInformationPhoneNumber}
+      />
+      <Stack.Screen
+        name="AdditionalInformation"
+        component={AdditionalInformation}
+      />
+      <Stack.Screen
+        name="ReservationComplete"
+        component={ReservationComplete}
       />
     </Stack.Navigator>
   );

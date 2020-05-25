@@ -11,5 +11,6 @@ export default Images = {
   userIcon: require("./user.png"),
   profileImage: require("./profileImage.png"),
   starIcon: require("./starIcon.png"),
-  helperNurse: require("./helperNurse.png")
+  helperNurse: require("./helperNurse.png"),
+  paymentComplete: require("./paymentCompletion.png")
 };

@@ -4,7 +4,7 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
-  ScrollView,
+  ScrollView
 } from "react-native";
 import { Input } from "react-native-elements";
 // import Icon from 'react-native-vector-icons/FontAwesome';
@@ -31,6 +31,7 @@ const InputField = ({
   externalBoxStyle,
   externalFontStyle,
   maxLength,
+  multiline
 }) => {
   return (
     <View style={(styles.InputFieldwrapper, { ...externalBoxStyle })}>
@@ -44,7 +45,7 @@ const InputField = ({
             borderBottomColor: Colors.activeBlueColor,
             borderBottomWidth: 1,
             ...containerStyle,
-            ...externalStyle,
+            ...externalStyle
           }}
           inputStyle={{ fontSize: 28, lineHeight: 33, ...textStyle }}
           // inputStyle={{fontSize: 28, lineHeight: 33, ...externalFontStyle}}
@@ -58,6 +59,7 @@ const InputField = ({
           onSubmitEditing={onSubmitEditing}
           underlineColorAndroid="transparent"
           maxLength={maxLength}
+          multiline={multiline}
         />
       </TouchableOpacity>
       <TouchableOpacity
@@ -80,7 +82,7 @@ const styles = StyleSheet.create({
     // alignItems: 'center',
     width: "100%",
     // backgroundColor: 'red'
-    paddingHorizontal: 10,
+    paddingHorizontal: 10
   },
   footerTextStyle: {
     fontSize: 12,
@@ -88,13 +90,13 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginLeft: 10,
     textDecorationColor: "#00000099",
-    textDecorationLine: "underline",
+    textDecorationLine: "underline"
   },
   textStyle: {
     fontSize: 13,
     paddingHorizontal: 4,
     paddingVertical: 10,
     color: "#000000",
-    opacity: 0.4,
-  },
+    opacity: 0.4
+  }
 });
