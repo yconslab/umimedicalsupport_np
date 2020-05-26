@@ -16,7 +16,7 @@ const ButtonComponent = ({
       buttonStyle={{
         height: 50,
         borderRadius: 4,
-        marginVertical: 10,
+        // marginVertical: 10,
         ...innerStyle,
       }}
       title={title || ""}
