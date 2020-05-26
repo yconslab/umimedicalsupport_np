@@ -31,6 +31,11 @@ const Main = () => {
       >
         <Stack.Screen name="CardRegistration" component={CardRegistration} />
         {/* <Stack.Screen name="MainBottomTab" component={MainBottomTab} /> */}
+        {/* <Stack.Screen
+          name="CouponSelectionScreen"
+          component={CouponSelectionScreen}
+        /> */}
+        <Stack.Screen name="MainBottomTab" component={MainBottomTab} />
       </Stack.Navigator>
     </NavigationContainer>
   );
