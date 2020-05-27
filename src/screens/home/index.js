@@ -11,12 +11,14 @@ import VisitorInformatioName from "./enterVisitorName";
 import VisitorInformationPhoneNumber from "./enterVisitorNumber";
 import AdditionalInformation from "./additionalInformation";
 import ReservationComplete from "./reservationCompletion";
+import ServiceInformation from "./serviceInformation";
+import Notice from "./notice";
 
 const Stack = createStackNavigator();
 
 const HomeStack = () => {
   return (
-    <Stack.Navigator headerMode="none" initialRouteName="ReservationComplete">
+    <Stack.Navigator headerMode="none" initialRouteName="Notice">
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="HospitalSelection" component={HospitalSelection} />
       {/* <Stack.Screen name="ReservationGuide" component={ReservationGuide} /> */}
@@ -39,6 +41,8 @@ const HomeStack = () => {
         name="ReservationComplete"
         component={ReservationComplete}
       />
+      <Stack.Screen name="ServiceInformation" component={ServiceInformation} />
+      <Stack.Screen name="Notice" component={Notice} />
     </Stack.Navigator>
   );
 };
