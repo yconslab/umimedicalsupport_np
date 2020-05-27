@@ -31,6 +31,7 @@ const InputField = ({
   externalBoxStyle,
   maxLength,
   multiline,
+  secureTextEntry,
 }) => {
   return (
     <View style={(styles.InputFieldwrapper, { ...externalBoxStyle })}>
@@ -51,7 +52,6 @@ const InputField = ({
           disabled={disabled}
           onChangeText={changeText}
           value={value}
-          onSubmitEditing={onSubmit}
           keyboardType={numeric ? "number-pad" : "default"}
           leftIconContainerStyle={{ marginLeft: 0 }}
           clearButtonMode={clearButtonMode}
@@ -59,6 +59,8 @@ const InputField = ({
           underlineColorAndroid="transparent"
           maxLength={maxLength}
           multiline={multiline}
+          secureTextEntry={secureTextEntry}
+          onSubmit={onSubmit}
         />
       </TouchableOpacity>
       <TouchableOpacity
