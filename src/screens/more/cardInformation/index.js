@@ -2,31 +2,13 @@ import React, { useState } from "react";
 import { View, ScrollView } from "react-native";
 import { CustomHeader, CustomButton, TextInput } from "../../../commons";
 import styles from "./style";
-// import { CardIOModule, CardIOUtilities } from "react-native-awesome-card-io";
-//maincomponent
+
 const CardInformation = ({ navigation }) => {
   const [showNumberField, setShowNumberField] = useState(false);
   const [showcvcField, setShowcvcFiled] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showButton, setShowButton] = useState(false);
   const [cardNumber, setCardNumber] = useState("238742389731234");
-
-  // const scanCard = () => {
-  //   CardIOModule.scanCard()
-  //     .then((card) => {
-  //       alert(cardNumber);
-  //       setCardNumber(cardNumber);
-  //     })
-  //     .catch(() => {
-  //       // the user cancelled
-  //     });
-  // };
-
-  // componentWillMount() {
-  //   if (Platform.OS === 'ios') {
-  //     CardIOUtilities.preload();
-  //   }
-  // }
 
   return (
     <View style={styles.screen}>
@@ -76,10 +58,8 @@ const CardInformation = ({ navigation }) => {
         {showNumberField ? null : (
           <CustomButton
             title="카드스캔"
-            //   onPress={() => setShowNumberField(true)}
             innerStyle={styles.innerStyle}
             innerTextStyle={styles.innerTextStyle}
-            // onPress={scanCard.bind()}
           />
         )}
         {showButton ? <CustomButton title="등록하기" /> : null}
