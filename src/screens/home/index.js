@@ -18,7 +18,7 @@ const Stack = createStackNavigator();
 
 const HomeStack = () => {
   return (
-    <Stack.Navigator headerMode="none" initialRouteName="Notice">
+    <Stack.Navigator headerMode="none" initialRouteName="AdditionalInformation">
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="HospitalSelection" component={HospitalSelection} />
       {/* <Stack.Screen name="ReservationGuide" component={ReservationGuide} /> */}
