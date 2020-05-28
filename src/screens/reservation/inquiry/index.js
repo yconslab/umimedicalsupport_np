@@ -81,7 +81,7 @@ const Inquiry = ({ navigation }) => {
         <CustomButton
           title="문의하기"
           onPress={() => {
-            navigation.navigate("Home");
+            navigation.navigate("FAQContents");
           }}
           innerStyle={styles.innerStyle}
         />

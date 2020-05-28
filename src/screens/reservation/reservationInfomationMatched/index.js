@@ -6,6 +6,7 @@ import { Input } from "react-native-elements";
 import Colors from "../../../constants";
 //reusable components
 import Images from "../../../images";
+import styles from "./style";
 const MidLine = ({ lineStyle }) => {
   return <View style={{ ...lineStyle, ...styles.midlineStyle }} />;
 };

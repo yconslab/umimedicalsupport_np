@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, FlatList } from "react-native";
 import styles from "./style";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 //data used in screen
 const data = [
@@ -9,19 +10,30 @@ const data = [
     serviceTitle: "의료도우미 서비스",
     dateTime: "2020년 1월 10일(월) 오후 2시",
     matchStatus: "서비스완료",
+    navTitle: "ReservationInformation",
   },
   {
     id: 2,
     serviceTitle: "의료도우미 서비스",
     dateTime: "2020년 1월 10일(월) 오후 2시",
     matchStatus: "예약취소",
+    navTitle: "ReservationInformationMatched",
   },
 ];
 
 //reusable component
-const CompletedReservationList = ({ serviceTitle, dateTime, matchStatus }) => {
+const CompletedReservationList = ({
+  serviceTitle,
+  dateTime,
+  matchStatus,
+  navTitle,
+  navigation,
+}) => {
   return (
-    <View style={styles.boxMargin}>
+    <TouchableOpacity
+      style={styles.boxMargin}
+      onPress={() => navigation.navigate(navTitle)}
+    >
       <View style={styles.box}>
         <View style={styles.infoTextWrap}>
           <Text style={styles.infotext}>{serviceTitle}</Text>
@@ -31,12 +43,12 @@ const CompletedReservationList = ({ serviceTitle, dateTime, matchStatus }) => {
           <Text style={styles.matchStatus}>{matchStatus}</Text>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
 //main component
-const MyReservationCompleted = () => {
+const MyReservationCompleted = ({ navigation }) => {
   return (
     <View style={styles.screen}>
       <FlatList
@@ -47,9 +59,8 @@ const MyReservationCompleted = () => {
             serviceTitle={itemData.item.serviceTitle}
             dateTime={itemData.item.dateTime}
             matchStatus={itemData.item.matchStatus}
-            click={() => {
-              this.props.navigation.navigate("");
-            }}
+            navigation={navigation}
+            navTitle={itemData.item.navTitle}
           />
         )}
       />

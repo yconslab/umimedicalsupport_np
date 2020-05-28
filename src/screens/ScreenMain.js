@@ -31,7 +31,7 @@ const Main = () => {
                   resizeMode: "contain",
                   tintColor: focused
                     ? Colors.activeColor
-                    : Colors.homeBannerBigText
+                    : Colors.homeBannerBigText,
                 }}
               />
             );
@@ -45,7 +45,7 @@ const Main = () => {
                   resizeMode: "contain",
                   tintColor: focused
                     ? Colors.activeColor
-                    : Colors.homeBannerBigText
+                    : Colors.homeBannerBigText,
                 }}
               />
             );
@@ -59,18 +59,18 @@ const Main = () => {
                   resizeMode: "contain",
                   tintColor: focused
                     ? Colors.activeColor
-                    : Colors.homeBannerBigText
+                    : Colors.homeBannerBigText,
                 }}
               />
             );
           }
 
           return iconName;
-        }
+        },
       })}
       tabBarOptions={{
         activeTintColor: Colors.activeColor,
-        inactiveTintColor: Colors.homeBannerBigText
+        inactiveTintColor: Colors.homeBannerBigText,
       }}
     >
       <Tab.Screen name="홈" component={HomeStack} />

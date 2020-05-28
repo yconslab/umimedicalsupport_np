@@ -13,7 +13,7 @@ import {
   ScrollView,
   View,
   Text,
-  StatusBar
+  StatusBar,
 } from "react-native";
 
 import { store } from "./src/redux/Store";
@@ -21,6 +21,7 @@ import { store } from "./src/redux/Store";
 import { Provider } from "react-redux";
 import Main from "./src/Main";
 const App: () => React$Node = () => {
+  console.disableYellowBox = true;
   return (
     <View style={{ flex: 1 }}>
       <Provider store={store}>
