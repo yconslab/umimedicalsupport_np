@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, FlatList } from "react-native";
 import { CustomButton } from "../../../../commons";
-
+import styles from "./style";
 const data = [
   {
     id: 1,
@@ -68,7 +68,8 @@ const MyReservationReserved = ({ navigation }) => {
       <View style={{ margin: 20 }}>
         <CustomButton
           title="예약하기"
-          onPress={() => navigation.navigate("ReservationInformation")}
+          onPress={() => navigation.navigate("HospitalSelection")}
+          innerStyle={styles.innerStyle}
         />
       </View>
     </View>

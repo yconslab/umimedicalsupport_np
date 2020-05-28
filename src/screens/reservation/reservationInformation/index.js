@@ -4,7 +4,7 @@ import { CustomButton, CustomHeader, ProfileImageWrap } from "../../../commons";
 
 import { Input } from "react-native-elements";
 //reusable components
-
+import styles from "./style";
 const MidLine = ({ lineStyle }) => {
   return <View style={{ ...lineStyle, ...styles.midlineStyle }} />;
 };

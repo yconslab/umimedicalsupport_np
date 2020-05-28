@@ -17,6 +17,6 @@ export default Route;
 
 const styles = StyleSheet.create({
   wrapper: {
-    flex: 1
-  }
+    flex: 1,
+  },
 });

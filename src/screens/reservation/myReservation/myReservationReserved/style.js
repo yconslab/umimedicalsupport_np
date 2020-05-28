@@ -42,4 +42,7 @@ export default StyleSheet.create({
     lineHeight: 20,
     color: Colors.activeBlueColor,
   },
+  innerStyle: {
+    backgroundColor: Colors.activeBlueColor,
+  },
 });
