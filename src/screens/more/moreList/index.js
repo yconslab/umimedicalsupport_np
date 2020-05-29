@@ -11,11 +11,11 @@ import Images from "../../../images";
 import styles from "./style";
 //data
 const data = [
-  { id: 1, title: "환자 정보", navigationTitle: "" },
-  { id: 2, title: "카드 관리", navigationTitle: "" },
-  { id: 3, title: "자주 묻는 질문", navigationTitle: "" },
-  { id: 4, title: "쿠폰 관리", navigationTitle: "" },
-  { id: 5, title: "로그아웃", navigationTitle: "" },
+  { id: 1, title: "환자 정보", navigationTitle: "PatientInformation" },
+  { id: 2, title: "카드 관리", navigationTitle: "PayementCard" },
+  { id: 3, title: "자주 묻는 질문", navigationTitle: "FAQList" },
+  { id: 4, title: "쿠폰 관리", navigationTitle: "Coupon" },
+  { id: 5, title: "로그아웃", navigationTitle: "LoginStack" },
 ];
 
 //reusable component

@@ -12,7 +12,11 @@ const CardInformation = ({ navigation }) => {
 
   return (
     <View style={styles.screen}>
-      <CustomHeader headerText="카드 추가" showHeaderText />
+      <CustomHeader
+        headerText="카드 추가"
+        showHeaderText
+        navigation={navigation}
+      />
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <View style={styles.inputWrap}>
           {showPassword ? (

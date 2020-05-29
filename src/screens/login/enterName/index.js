@@ -7,12 +7,7 @@ const EnterName = ({ navigation }) => {
   const [inputState, setInputState] = useState(false);
   return (
     <View style={styles.screen}>
-      <CustomHeader
-        headerText="실명을 입력해주세요."
-        click={() => {
-          navigation.goBack();
-        }}
-      />
+      <CustomHeader headerText="실명을 입력해주세요." navigation={navigation} />
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <View style={styles.inputWrapper}>
           <TextInput

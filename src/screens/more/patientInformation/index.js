@@ -31,7 +31,11 @@ const ListBox = ({ title, contactNumber, navigation, navigationTitle }) => {
 const PatientInformation = ({ navigation }) => {
   return (
     <View style={styles.screen}>
-      <CustomHeader headerText="환자 정보" showHeaderText />
+      <CustomHeader
+        headerText="환자 정보"
+        showHeaderText
+        navigation={navigation}
+      />
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <View style={styles.listWrapper}>
           <FlatList

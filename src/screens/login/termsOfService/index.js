@@ -92,7 +92,7 @@ const TermsofService = ({ navigation }) => {
   };
   return (
     <View style={styles.screen}>
-      <CustomHeader headerText="약관동의가 필요해요." />
+      <CustomHeader headerText="약관동의가 필요해요." navigation={navigation} />
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <View style={styles.contentTopMargin}>
           <CheckBoxWrapper>
