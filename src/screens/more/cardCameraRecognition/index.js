@@ -2,7 +2,7 @@ import React, { Component, useEffect } from "react";
 import { View, TouchableOpacity, Text, Platform } from "react-native";
 import { CardIOModule, CardIOUtilities } from "react-native-awesome-card-io";
 
-const ScannerPage = () => {
+const CardCameraRecognition = () => {
   useEffect(() => {
     if (Platform.OS === "ios") {
       CardIOUtilities.preload();
@@ -33,4 +33,4 @@ const ScannerPage = () => {
   );
 };
 
-export default ScannerPage;
+export default CardCameraRecognition;

@@ -14,14 +14,19 @@ const data = [
 //reusable components
 const ListBox = ({ title, navigation }) => {
   return (
-    <TouchableOpacity style={styles.box}>
+    <TouchableOpacity
+      style={styles.box}
+      onPress={() => {
+        navigation.navigate("FAQContents");
+      }}
+    >
       <Text style={styles.titleText}>{title}</Text>
       <Icon
         name="keyboard-arrow-right"
         size={26}
         color="#00000066"
         onPress={() => {
-          navigation.navigate("BackgroundCheck");
+          navigation.navigate("FAQContents");
         }}
       />
     </TouchableOpacity>

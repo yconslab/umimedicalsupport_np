@@ -127,6 +127,7 @@ const CardRegistration = ({ navigation }) => {
               : styles.innerTextStyle2
           }
           disabled={!check1 && !check3}
+          onPress={() => navigation.navigate("CardInformation")}
         />
       </View>
     </View>

@@ -165,6 +165,7 @@ const TermsofService = ({ navigation }) => {
               : styles.innerTextStyle2
           }
           disabled={!check1 && !check2 && !check3}
+          onPress={() => navigation.navigate("SignUpComplete")}
         />
       </View>
     </View>

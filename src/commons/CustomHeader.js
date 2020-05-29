@@ -22,7 +22,7 @@ const MyLeftComponent = ({ navigation, cross }) => {
         <BackIcon name="ios-close" size={Scale(35)} />
       ) : (
         (Platform.OS = "ios" ? (
-          <BackIcon name="ios-arrow-round-back" size={Scale(30)} />
+          <BackIcon name="ios-arrow-back" size={Scale(30)} />
         ) : (
           <BackIcon name="md-arrow-back" size={Scale(30)} />
         ))
@@ -39,6 +39,7 @@ const HeaderList = ({
   leftComponent,
   sideText,
   cross,
+  sideNavigation,
 }) => {
   return (
     <View style={styles.headerMainWrapper}>
@@ -52,7 +53,9 @@ const HeaderList = ({
       />
       <View style={styles.headerTextWrap}>
         <Text style={styles.headerTextStyle}>{headerText}</Text>
-        {sideText && <Text style={styles.sideText}>{sideText}</Text>}
+        <TouchableOpacity onPress={() => navigation.navigate(sideNavigation)}>
+          {sideText && <Text style={styles.sideText}>{sideText}</Text>}
+        </TouchableOpacity>
       </View>
     </View>
   );

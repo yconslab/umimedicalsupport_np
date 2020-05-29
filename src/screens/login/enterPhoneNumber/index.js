@@ -59,6 +59,7 @@ const EnterPhoneNumber = ({ navigation }) => {
               : styles.innerTextStyle2
           }
           disabled={inputState === false && input.length <= 12}
+          onPress={() => navigation.navigate("VerificationInput")}
         />
       </View>
     </View>
