@@ -1,319 +1,246 @@
-// import React, {Component} from 'react';
-// import {
-//   FlatList,
-//   View,
-//   Text,
-//   Button,
-//   TouchableOpacity,
-//   StyleSheet,
-//   StatusBar,
-//   ScrollView,
-//   SafeAreaView,
-// } from 'react-native';
-// import CustomHeader from '../../components/Global/CustomHeader';
-// import ProfileImage from '../../components/Global/ProfileImage';
-// import CustomButton from '../../components/UI/CustomButton';
-// import {Input} from 'react-native-elements';
-// //reusable components
+import React from "react";
+import {
+  Text,
+  View,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
+  TextInput
+} from "react-native";
+import CrossIcon from "react-native-vector-icons/Entypo";
+import { useDispatch, useSelector } from "react-redux";
 
-// const MidLine = ({lineStyle}) => {
-//   return (
-//     <View style={{...lineStyle, backgroundColor: '#EBEBEB', width: '100%'}} />
-//   );
-// };
+import { Scale } from "../../../helper/HelperFunction";
+import { CustomButton, CustomHeader, Divider } from "../../../commons";
+import Colors from "../../../constants/Colors";
 
-// const TitleBox = ({title1, title2, title1Style, title2Style}) => {
-//   return (
-//     <View
-//       style={{
-//         flexDirection: 'row',
-//         justifyContent: 'space-between',
-//         width: '100%',
-//         marginVertical: 10,
-//       }}>
-//       <Text style={{...styles.title1, ...title1Style}}>{title1}</Text>
-//       <Text style={{...styles.title2, ...title2Style}}>{title2}</Text>
-//     </View>
-//   );
-// };
+export const FinalConfirmation = ({ nanvigation, onPressHandleCloseModal }) => {
+  const VisitorInformationValue = useSelector(
+    state => state.VisitorInformation
+  );
 
-// const CircleBox = ({title}) => {
-//   return (
-//     <View style={{flexDirection: 'row', justifyContent: 'flex-start'}}>
-//       <View
-//         style={{
-//           height: 24,
-//           width: 24,
-//           borderRadius: 12,
-//           borderWidth: 1,
-//           borderColor: '#707070',
-//         }}
-//       />
-//       <Text
-//         style={{
-//           fontSize: 14,
-//           lineHeight: 21,
-//           color: '#000000',
-//           marginLeft: 10,
-//         }}>
-//         {title}
-//       </Text>
-//     </View>
-//   );
-// };
+  return (
+    <ScrollView>
+      <View style={styles.firstContainerStyle}>
+        <TouchableOpacity onPress={onPressHandleCloseModal}>
+          <CrossIcon name="cross" size={Scale(30)} />
+        </TouchableOpacity>
+        <View style={styles.innerContainer}>
+          <Text>예약내용을 확인하신 후 확정해주세요.</Text>
+          <View style={styles.inLineStyle}>
+            <Text style={styles.questionKeyStyle}>방문병원</Text>
+            <Text style={styles.keyValueStyle}>세브란스병원</Text>
+          </View>
+          <Divider />
+          <View style={styles.inLineStyle}>
+            <Text style={styles.questionKeyStyle}>방문자</Text>
+            <Text style={styles.keyValueStyle}>
+              {VisitorInformationValue.name || ""}
+            </Text>
+          </View>
+          <Divider />
+          <View style={styles.inLineStyle}>
+            <Text style={styles.questionKeyStyle}>방문자 연락처</Text>
+            <Text style={styles.keyValueStyle}>
+              {VisitorInformationValue.phoneNumber || ""}
+            </Text>
+          </View>
+          <Divider />
+          <View style={styles.inLineStyle}>
+            <Text style={styles.questionKeyStyle}>방문날짜</Text>
+            <Text style={styles.keyValueStyle}>2020.01.15</Text>
+          </View>
+          <Divider />
+          <View style={styles.inLineStyle}>
+            <Text style={styles.questionKeyStyle}>방문시간</Text>
+            <Text style={styles.keyValueStyle}>10:00</Text>
+          </View>
+          <Divider />
+          <View style={styles.textInputWrapper}>
+            <Text style={{ marginVertical: 10 }}>특이사항</Text>
+            <TextInput
+              style={styles.textInputStyle}
+              //   onChangeText={val => setTextInput(val)}
+              //   value={textInput}
+              multiline={true}
+              maxLength={100}
+              placeholder="어머니께서 귀가 어두우십니다. 친절하게 안내 부탁드립니다."
+            />
+          </View>
 
-// const TextBox = ({value, label}) => {
-//   return (
-//     <View style={{marginVertical: 10}}>
-//       <Input
-//         placeholder=""
-//         value={value}
-//         label={label}
-//         labelStyle={{
-//           fontSize: 12,
-//           lineHeight: 18,
-//           color: '#393939',
-//           marginVertical: 5,
-//         }}
-//         inputContainerStyle={{
-//           height: 50,
-//           width: '100%',
-//           borderWidth: 1,
-//           borderColor: '#DFE4EB',
-//         }}
-//         inputStyle={{
-//           fontSize: 14,
-//           lineHeight: 21,
-//           color: '#393939',
-//           paddingHorizontal: 10,
-//         }}
-//       />
-//     </View>
-//   );
-// };
-// const BookingDetails = ({navigation}) => {
-//   return (
-//     <SafeAreaView style={{flex: 1, backgroundColor: '#FFFFFF'}}>
-//       <CustomHeader
-//         title1="뒤로"
-//         title2="2020년 1월 10일(월) 오후 2시"
-//         backHidden
-//         title2style={{fontSize: 17, lineHeight: 22, marginLeft: 20}}
-//         justifyStyle={{justifyContent: 'flex-start'}}
-//         clicktitle1={() => navigation.navigate('Ecommerce')}
-//       />
-//       <ScrollView contentContainerStyle={{flexGrow: 1}}>
-//         <View
-//           style={{
-//             flexDirection: 'column',
-//             alignItems: 'center',
-//             justifyContent: 'center',
-//             marginVertical: 20,
-//           }}>
-//           <ProfileImage
-//             style={{
-//               height: 78,
-//               width: 78,
-//               borderRadius: 78 / 2,
-//               marginBottom: 10,
-//             }}
-//             imageUrl="https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg-1024x683.jpg"
-//           />
-//           <View>
-//             <Text style={styles.profileText}>
-//               소중한 고객님을 안내해드릴 파트너를{' '}
-//             </Text>
-//             <Text style={styles.profileText}>매칭 중 입니다.</Text>
-//           </View>
-//         </View>
-//         <MidLine lineStyle={{height: 1}} />
+          <View style={styles.noticeStyle}>
+            <Text style={styles.noticeHeadingStyle}>유의사항(필수확인)</Text>
+            <Text style={styles.noticetextStyle}>* 무엇무엇은 불가합니다.</Text>
+            <Text style={styles.noticetextStyle}>
+              * 무엇무엇을 요청할 시 서비스를 거부할 수 있습니다.{" "}
+            </Text>
+            <Text style={styles.noticetextStyle}>
+              * 무엇무엇을 준비해주시기 바랍니다.
+            </Text>
+          </View>
+          <View style={styles.benefitWrapper}>
+            <Text style={styles.benefitsHeadingStyle}>혜택적용</Text>
+            <View style={styles.benefitsStyle}>
+              <Text style={styles.benefitKeyStyle}>혜택적용</Text>
+              <TouchableOpacity>
+                <Text style={styles.navigationStyle}>추가</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View style={styles.secondContainerStyle}>
+        <Text style={styles.benefitKeyStyle}>결제수단</Text>
+        <View
+          style={[
+            styles.benefitsStyle,
+            {
+              alignItems: "center",
+              marginVertical: Scale(10)
+            }
+          ]}
+        >
+          <Text style={[styles.benefitKeyStyle, { marginVertical: Scale(10) }]}>
+            우리카드 1942
+          </Text>
+          <TouchableOpacity>
+            <Text style={styles.navigationStyle}>변경</Text>
+          </TouchableOpacity>
+        </View>
+        <Text style={styles.redColorStyle}>
+          기본결재수단은 필수로 등록해야 합니다.
+        </Text>
+      </View>
+      <View style={styles.lastContainerWrapper}>
+        <Text>결제 예정내역</Text>
+        <View
+          style={[
+            styles.benefitsStyle,
+            {
+              alignItems: "center",
+              marginVertical: Scale(10)
+            }
+          ]}
+        >
+          <Text>결제 예정내역</Text>
+          <Text>결제 예정내역</Text>
+        </View>
+        <Text style={styles.chargeStyle}>
+          우미 파트너와 매칭되면 결제가 진행됩니다.
+        </Text>
+        <Text style={styles.chargeStyle}>
+          서비스 시간이 2시간 초과 시 10분당 2,000원의 비용이 부과됩니다.
+        </Text>
+        <TouchableOpacity>
+          <Text style={styles.serviceFeePolic}>서비스 요금 정책안내</Text>
+        </TouchableOpacity>
+        <Text style={styles.lastFooterTextStyle}>
+          서비스 전날 6시 이후부터는 30%
+        </Text>
+        <Text style={styles.lastFooterTextStyle}>
+          서비스 당일에는 100%의 취소 수수료가 발생합니다.
+        </Text>
+      </View>
+      <View style={{ marginHorizontal: Scale(20) }}>
+        <CustomButton title="예약 확정하기" />
+      </View>
+    </ScrollView>
+  );
+};
 
-//         <View style={{margin: 20}}>
-//           <TitleBox title1="서비스 내용" title2="예약변경" />
-//           <Text style={styles.normalText}>세브란스 병원</Text>
-//           <Text style={styles.normalText}>2020년 1월 10일(월) 오후 2시</Text>
-//           <Text style={styles.normalText}>2시간(오후 2시~오후 4시)</Text>
-//         </View>
-
-//         <MidLine lineStyle={{height: 9}} />
-//         <View style={{margin: 20}}>
-//           <TitleBox title1="유료 서비스" title2="서비스 추가" />
-//           <Text
-//             style={{
-//               ...styles.normalText,
-//               color: '#00000057',
-//               marginBottom: 20,
-//             }}>
-//             선택하신 서비스가 없습니다.
-//           </Text>
-//         </View>
-
-//         <MidLine lineStyle={{height: 9}} />
-
-//         <View style={{margin: 20}}>
-//           <TitleBox title1="특이사항" title2="수정" />
-//           <Text
-//             style={{
-//               ...styles.normalText,
-//             }}>
-//             어머니께서 귀가 어두우십니다. 친절하게 안내 부탁드
-//           </Text>
-//           <Text
-//             style={{
-//               ...styles.normalText,
-
-//               marginBottom: 20,
-//             }}>
-//             립니다.
-//           </Text>
-//         </View>
-
-//         <MidLine lineStyle={{height: 9}} />
-//         <View style={{margin: 20}}>
-//           <TitleBox title1="환자정보" title2="수정" />
-//           <TextBox label="방문자 전화번호" value="01055048441" />
-//           <TextBox label="방문자 이름" value="윤정탁" />
-//         </View>
-//         <MidLine lineStyle={{height: 9}} />
-//         <View style={{margin: 20, marginBottom: 40}}>
-//           <TitleBox title1="쿠폰사용" />
-//           <View
-//             style={{
-//               height: 67,
-//               width: '100%',
-//               //   borderColor: '#E8E8E8',
-//               //   borderWidth: 1,
-//               padding: 10,
-//               justifyContent: 'space-around',
-//               shadowColor: '#E8E8E8',
-//               shadowOffset: {
-//                 width: 0,
-//                 height: 1,
-//               },
-//               shadowOpacity: 0.22,
-//               shadowRadius: 2.22,
-
-//               elevation: 3,
-//               backgroundColor: '#FFFFFF',
-//             }}>
-//             <Text style={{fontSize: 12, lineHeight: 15, color: '#666666'}}>
-//               가입기념 지급 쿠폰
-//             </Text>
-//             <View style={{flexDirection: 'row'}}>
-//               <Text
-//                 style={{
-//                   fontSize: 23,
-//                   lineHeight: 28,
-//                   color: '#4388F0',
-//                   fontWeight: 'bold',
-//                 }}>
-//                 3,000원{' '}
-//               </Text>
-//               <Text style={{fontSize: 23, lineHeight: 28, color: '#000000'}}>
-//                 할인
-//               </Text>
-//             </View>
-//           </View>
-//         </View>
-//         <MidLine lineStyle={{height: 9}} />
-//         <View style={{margin: 20}}>
-//           <TitleBox title1="결제정보" title2="결제카드 변경" />
-//           <TitleBox
-//             title1="결제예정금액"
-//             title2="24,800원"
-//             title1Style={{fontSize: 16, lineHeight: 19, color: '#404040'}}
-//             title2Style={{
-//               fontSize: 24,
-//               lineHeight: 29,
-//               color: '#000000',
-//               fontWeight: 'bold',
-//             }}
-//           />
-//           <View>
-//             <Text style={{fontSize: 11, lineHeight: 17, color: '#404040'}}>
-//               우미 파트너와 매칭되면 결제가 진행됩니다.{' '}
-//             </Text>
-//             <Text style={{fontSize: 11, lineHeight: 17, color: '#404040'}}>
-//               서비스 시간이 2시간 초과 시 10분당 2,000원의 비용이 부과됩니다.
-//             </Text>
-//           </View>
-//         </View>
-//         <MidLine lineStyle={{height: 21}} />
-//         <View style={{margin: 20}}>
-//           <CircleBox title="주의 사항" />
-//         </View>
-//         <MidLine lineStyle={{height: 1}} />
-//         <View style={{margin: 20}}>
-//           <CircleBox title="자주 묻는 질문" />
-//         </View>
-//         <MidLine lineStyle={{height: 9}} />
-//         <Text
-//           style={{
-//             marginVertical: 20,
-//             textAlign: 'center',
-//             color: '#000000',
-//             fontSize: 14,
-//             lineHeight: 21,
-//           }}>
-//           예약 변경
-//         </Text>
-//         <MidLine lineStyle={{height: 1}} />
-//         <Text
-//           style={{
-//             marginVertical: 20,
-//             textAlign: 'center',
-//             color: '#FF5151',
-//             fontSize: 14,
-//             lineHeight: 21,
-//           }}>
-//           예약 취소
-//         </Text>
-//         <MidLine lineStyle={{height: 1}} />
-//       </ScrollView>
-//       <View style={{margin: 20}}>
-//         <CustomButton
-//           style={{
-//             height: Platform.OS === 'ios' ? 50 : 50,
-//             width: '100%',
-//             borderRadius: 4,
-//           }}
-//           buttontext="문의하기"
-//           textStyle={{fontSize: 17, lineHeight: 20, paddingVertical: '4%'}}
-//           click={() => {
-//             navigation.navigate('Home');
-//           }}
-//         />
-//       </View>
-//     </SafeAreaView>
-//   );
-// };
-
-// BookingDetails.navigationOptions = navData => {
-//   return {
-//     header: null,
-//   };
-// };
-
-// const styles = StyleSheet.create({
-//   profileText: {
-//     fontSize: 14,
-//     lineHeight: 21,
-//     textAlign: 'center',
-//   },
-//   title1: {
-//     fontSize: 20,
-//     lineHeight: 30,
-//     color: '#000000',
-//   },
-//   title2: {
-//     fontSize: 14,
-//     lineHeight: 21,
-//     color: '#1A88FF',
-//   },
-//   normalText: {
-//     fontSize: 14,
-//     lineHeight: 21,
-//     color: '#000000',
-//   },
-// });
-// export default BookingDetails;
+const styles = StyleSheet.create({
+  lastFooterTextStyle: {
+    color: "#4040406A"
+  },
+  serviceFeePolic: {
+    color: Colors.activeColor,
+    textDecorationLine: "underline",
+    marginVertical: Scale(10)
+  },
+  chargeStyle: {
+    fontSize: Scale(11),
+    color: "#404040"
+  },
+  lastContainerWrapper: {
+    backgroundColor: Colors.appColor,
+    paddingVertical: Scale(20),
+    paddingHorizontal: Scale(20)
+  },
+  redColorStyle: {
+    fontSize: Scale(11),
+    color: "#FF0000",
+    fontWeight: "600"
+  },
+  secondContainerStyle: {
+    backgroundColor: Colors.appColor,
+    marginVertical: Scale(20),
+    paddingVertical: Scale(20),
+    paddingHorizontal: Scale(20)
+  },
+  navigationStyle: {
+    color: Colors.activeColor,
+    fontSize: Scale(16)
+  },
+  benefitWrapper: {
+    marginVertical: Scale(20)
+  },
+  benefitKeyStyle: {
+    fontSize: Scale(16),
+    color: "#404040"
+  },
+  benefitsHeadingStyle: {
+    fontSize: Scale(17),
+    color: "#404040",
+    fontWeight: "600",
+    marginVertical: Scale(5)
+  },
+  benefitsStyle: {
+    flexDirection: "row",
+    justifyContent: "space-between"
+  },
+  wrapper: {
+    flex: 1,
+    backgroundColor: "red"
+  },
+  firstContainerStyle: {
+    backgroundColor: Colors.appColor
+  },
+  innerContainer: {
+    marginHorizontal: Scale(20)
+  },
+  inLineStyle: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginVertical: Scale(20)
+  },
+  questionKeyStyle: {
+    fontSize: Scale(16)
+  },
+  keyValueStyle: {
+    fontSize: Scale(16),
+    color: Colors.activeColor
+  },
+  textInputStyle: {
+    height: 100,
+    borderColor: Colors.bannerTextColor,
+    borderWidth: 1,
+    borderRadius: 5,
+    paddingHorizontal: Scale(20)
+  },
+  textInputWrapper: {
+    marginVertical: Scale(20)
+  },
+  noticeStyle: {
+    marginBottom: Scale(10)
+  },
+  noticetextStyle: {
+    fontSize: Scale(11),
+    color: "#404040",
+    marginBottom: 2
+  },
+  noticeHeadingStyle: {
+    color: "#FF0000",
+    fontWeight: "600",
+    marginBottom: 10
+  }
+});

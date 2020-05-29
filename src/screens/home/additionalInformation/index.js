@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, Dimensions, TextInput } from "react-native";
 
+import { Overlay } from "react-native-elements";
 import { CustomHeader, CustomButton } from "../../../commons";
 import Colors from "../../../constants/Colors";
 import { Scale } from "../../../helper/HelperFunction";
+import { FinalConfirmation } from "../finalConfirmation";
 
 const { height, width } = Dimensions.get("window");
 
@@ -16,6 +18,9 @@ const additionalInformation = [
 ];
 const AdditionalInformation = ({ params }) => {
   const [textInput, setTextInput] = useState("");
+  const [showModal, setModal] = useState(false);
+
+  const onPressHandleCloseModal = () => setModal(!showModal);
   return (
     <View style={styles.wrapper}>
       <CustomHeader headerText="설명해주신 내용은 우미가 특별히 신경쓰겠습니다." />
@@ -27,7 +32,6 @@ const AdditionalInformation = ({ params }) => {
 
         <TextInput
           style={styles.textInputStyle}
-          //   externalStyle={styles.textInputStyle}
           onChangeText={val => setTextInput(val)}
           value={textInput}
           multiline={true}
@@ -37,18 +41,28 @@ const AdditionalInformation = ({ params }) => {
       </View>
       <View style={styles.additionalInformationContainer}>
         <Text style={styles.titleStyle}>미포함 서비스</Text>
-        {additionalInformation.map(i => (
-          <View style={styles.titleContainer}>
-            <Text style={[styles.titleDesignStyle, { fontSize: Scale(20) }]}>
-              *
-            </Text>
-            <Text style={styles.titleDesignStyle}>{i.title}</Text>
-          </View>
-        ))}
+        {additionalInformation.map(i => {
+          return (
+            <View style={styles.titleContainer} key={i.id}>
+              <Text style={[styles.titleDesignStyle, { fontSize: Scale(20) }]}>
+                *
+              </Text>
+              <Text style={styles.titleDesignStyle}>{i.title}</Text>
+            </View>
+          );
+        })}
       </View>
+
       <View style={styles.buttonContainer}>
-        <CustomButton title="다음" />
+        <CustomButton title="다음" onPress={() => setModal(true)} />
       </View>
+      {showModal && (
+        <View style={styles.modalStyle}>
+          <FinalConfirmation
+            onPressHandleCloseModal={onPressHandleCloseModal}
+          />
+        </View>
+      )}
     </View>
   );
 };
@@ -103,5 +117,13 @@ const styles = StyleSheet.create({
     fontSize: Scale(11),
     marginRight: Scale(4),
     color: "#393939"
+  },
+  modalStyle: {
+    position: "absolute",
+    top: Scale(40),
+    left: 0,
+    right: 0,
+    backgroundColor: "#EBEBEB",
+    bottom: 0
   }
 });
