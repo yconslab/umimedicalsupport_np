@@ -102,10 +102,9 @@ export default StyleSheet.create({
     borderRadius: 15 / 2,
   },
   progressBarLine: {
-    width: 15,
-    height: 15,
-    backgroundColor: "#4388F0",
-    borderRadius: 15 / 2,
+    width: width / 4.5,
+    height: 1,
+    backgroundColor: "#E7E8E9",
   },
   progressTextWrap: {
     flexDirection: "row",

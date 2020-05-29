@@ -74,7 +74,7 @@ const ServiceCompletion = ({ navigation }) => {
         <CustomButton
           title="결제 진행하기"
           onPress={() => {
-            navigation.navigate("Home");
+            navigation.navigate("PaymentCompletion");
           }}
         />
       </View>

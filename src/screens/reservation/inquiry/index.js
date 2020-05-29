@@ -5,6 +5,7 @@ import Images from "../../../images";
 
 //reusable components
 import styles from "./style";
+import { TouchableOpacity } from "react-native-gesture-handler";
 const MidLine = ({ lineStyle }) => {
   return <View style={{ ...lineStyle, ...styles.midLineStyle }} />;
 };
@@ -20,7 +21,7 @@ const TitleBox = ({ title1, title2, title1Style, title2Style }) => {
 
 const CircleBox = ({ title }) => {
   return (
-    <View style={styles.CircleBox}>
+    <View style={styles.circleBox}>
       <View style={styles.circle} />
       <Text style={styles.circleText}>{title}</Text>
     </View>
@@ -69,13 +70,21 @@ const Inquiry = ({ navigation }) => {
         </View>
         <MidLine lineStyle={styles.lineHeight21} />
 
-        <View style={styles.commonMargin}>
-          <CircleBox title="주의 사항" />
-        </View>
+        <TouchableOpacity style={styles.commonMargin}>
+          <CircleBox
+            title="주의 사항"
+            onPress={() => {
+              navigation.navigate("FAQContents");
+            }}
+          />
+        </TouchableOpacity>
         <MidLine lineStyle={styles.lineHeight1} />
-        <View style={styles.commonMargin}>
+        <TouchableOpacity
+          style={styles.commonMargin}
+          onPress={() => navigation.navigate("FAQList")}
+        >
           <CircleBox title="자주 묻는 질문" />
-        </View>
+        </TouchableOpacity>
       </ScrollView>
       <View style={styles.commonMargin}>
         <CustomButton
