@@ -13,7 +13,7 @@ import {
   ScrollView,
   View,
   Text,
-  StatusBar,
+  StatusBar
 } from "react-native";
 
 import { store } from "./src/redux/Store";
@@ -27,6 +27,7 @@ const App: () => React$Node = () => {
       <Provider store={store}>
         <Main />
       </Provider>
+      <SafeAreaView />
     </View>
   );
 };

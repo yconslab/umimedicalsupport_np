@@ -1,15 +1,15 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 import { View, TouchableOpacity, Text, Platform } from "react-native";
 import { CardIOModule, CardIOUtilities } from "react-native-awesome-card-io";
 
-class ScannerPage extends Component {
-  componentWillMount() {
+const ScannerPage = () => {
+  useEffect(() => {
     if (Platform.OS === "ios") {
       CardIOUtilities.preload();
     }
-  }
+  }, []);
 
-  scanCard() {
+  const scanCard = () => {
     CardIOModule.scanCard()
       .then((card) => {
         alert(card.cardNumber);
@@ -17,22 +17,20 @@ class ScannerPage extends Component {
       .catch(() => {
         // the user cancelled
       });
-  }
+  };
+  return (
+    <View
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <TouchableOpacity onPress={() => scanCard()}>
+        <Text>Scan card!</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
 
-  render() {
-    return (
-      <View
-        style={{
-          flex: 1,
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <TouchableOpacity onPress={this.scanCard.bind(this)}>
-          <Text>Scan card!</Text>
-        </TouchableOpacity>
-      </View>
-    );
-  }
-}
 export default ScannerPage;

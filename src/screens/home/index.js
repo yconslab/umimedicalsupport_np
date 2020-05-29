@@ -16,9 +16,14 @@ import Notice from "./notice";
 
 const Stack = createStackNavigator();
 
-const HomeStack = () => {
+const HomeStack = ({ navigation, route }) => {
+  if (route.state && route.state.index > 0) {
+    navigation.setOptions({ tabBarVisible: false });
+  } else {
+    navigation.setOptions({ tabBarVisible: true });
+  }
   return (
-    <Stack.Navigator headerMode="none" initialRouteName="Notice">
+    <Stack.Navigator headerMode="none" initialRouteName="Home">
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="HospitalSelection" component={HospitalSelection} />
       {/* <Stack.Screen name="ReservationGuide" component={ReservationGuide} /> */}
