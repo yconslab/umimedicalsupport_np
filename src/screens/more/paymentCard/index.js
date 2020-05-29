@@ -50,7 +50,11 @@ const Card = ({ cardStyle, navigation }) => {
 const PayementCard = ({ navigation }) => {
   return (
     <View style={styles.screen}>
-      <CustomHeader headerText="환자 정보" sideText="카드추가" />
+      <CustomHeader
+        headerText="환자 정보"
+        sideText="카드추가"
+        navigation={navigation}
+      />
       <ScrollView
         contentContainerStyle={{ flexGrow: 1 }}
         style={styles.marginVertical_40}

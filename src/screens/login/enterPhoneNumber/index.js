@@ -14,9 +14,7 @@ const EnterPhoneNumber = ({ navigation }) => {
     <View style={styles.screen}>
       <CustomHeader
         headerText="전화번호로 간편하게 시작해요."
-        click={() => {
-          navigation.goBack();
-        }}
+        navigation={navigation}
       />
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <View style={styles.inputWrapper}>

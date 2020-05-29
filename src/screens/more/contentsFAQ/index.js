@@ -5,7 +5,10 @@ import styles from "./style";
 const FAQContents = ({ navigation }) => {
   return (
     <View style={styles.screen}>
-      <CustomHeader headerText="로그인이 되지 않아요." />
+      <CustomHeader
+        headerText="로그인이 되지 않아요."
+        navigation={navigation}
+      />
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <View style={styles.textBox}>
           <Text styles={styles.innerText}>

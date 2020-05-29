@@ -13,7 +13,7 @@ const Stack = createStackNavigator();
 
 const ReservationStack = () => {
   return (
-    <Stack.Navigator headerMode="none" initialRouteName="ServiceCompletion">
+    <Stack.Navigator headerMode="none" initialRouteName="MyReservationTab">
       <Stack.Screen name="MyReservationTab" component={MyReservationTab} />
       <Stack.Screen
         name="ReservationInformationMatched"

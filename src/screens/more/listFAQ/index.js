@@ -32,7 +32,11 @@ const ListBox = ({ title, navigation }) => {
 const FAQList = ({ navigation }) => {
   return (
     <View style={styles.screen}>
-      <CustomHeader headerText="무엇을 도와드릴까요?" cross />
+      <CustomHeader
+        headerText="무엇을 도와드릴까요?"
+        cross
+        navigation={navigation}
+      />
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <View style={styles.listWrap}>
           <FlatList

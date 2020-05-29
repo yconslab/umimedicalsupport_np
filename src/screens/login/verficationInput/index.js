@@ -24,7 +24,10 @@ const VerificationInput = ({ headerTitle, navigation }) => {
   return (
     <View style={styles.screen}>
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-        <CustomHeader headerText="6자리 인증번호를 입력해주세요." />
+        <CustomHeader
+          headerText="6자리 인증번호를 입력해주세요."
+          navigation={navigation}
+        />
         <View style={styles.contentWrap}>
           <View style={styles.topTextWrapper}>
             <Text style={styles.titleText}>

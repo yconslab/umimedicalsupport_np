@@ -72,7 +72,7 @@ const CardRegistration = ({ navigation }) => {
   };
   return (
     <View style={styles.screen}>
-      <CustomHeader headerText="카드 추가" />
+      <CustomHeader headerText="카드 추가" navigation={navigation} />
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <View style={styles.contentTopMargin}>
           <CheckBoxWrapper>

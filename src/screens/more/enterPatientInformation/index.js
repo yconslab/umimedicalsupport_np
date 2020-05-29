@@ -10,7 +10,11 @@ const EnterPatientInformation = ({ navigation }) => {
   const [showNumberField, setShowNumberField] = useState(false);
   return (
     <View style={styles.screen}>
-      <CustomHeader headerText="환자 정보" showHeaderText />
+      <CustomHeader
+        headerText="환자 정보"
+        showHeaderText
+        navigation={navigation}
+      />
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <View style={styles.inputWrap}>
           {showNumberField ? (
