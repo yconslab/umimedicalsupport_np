@@ -11,7 +11,7 @@ const ScannerPage = () => {
 
   const scanCard = () => {
     CardIOModule.scanCard()
-      .then(card => {
+      .then((card) => {
         alert(card.cardNumber);
       })
       .catch(() => {
@@ -23,7 +23,7 @@ const ScannerPage = () => {
       style={{
         flex: 1,
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
       }}
     >
       <TouchableOpacity onPress={() => scanCard()}>

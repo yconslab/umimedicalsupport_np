@@ -19,7 +19,11 @@ const PaymentCompletion = ({ navigation }) => {
         </View>
       </View>
       <View style={styles.marginStyle}>
-        <CustomButton title="홈으로 가기" innerStyle={styles.innerStyle} />
+        <CustomButton
+          title="홈으로 가기"
+          innerStyle={styles.innerStyle}
+          onPress={() => navigation.navigate("Home")}
+        />
       </View>
     </View>
   );

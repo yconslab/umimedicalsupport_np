@@ -6,13 +6,14 @@ import ReservationInformationMatched from "./reservationInfomationMatched";
 import ReservationInformation from "./reservationInformation";
 import PaymentCompletion from "./payementCompletion";
 import ServiceCompletion from "./serviceCompletion";
+import MyReservationReserved from "./myRservationReserved";
 import Inquiry from "./inquiry";
 
 const Stack = createStackNavigator();
 
 const ReservationStack = () => {
   return (
-    <Stack.Navigator headerMode="none" initialRouteName="Inquiry">
+    <Stack.Navigator headerMode="none" initialRouteName="ServiceCompletion">
       <Stack.Screen name="MyReservationTab" component={MyReservationTab} />
       <Stack.Screen
         name="ReservationInformationMatched"
@@ -26,6 +27,10 @@ const ReservationStack = () => {
       <Stack.Screen name="PaymentCompletion" component={PaymentCompletion} />
       <Stack.Screen name="ServiceCompletion" component={ServiceCompletion} />
       <Stack.Screen name="Inquiry" component={Inquiry} />
+      <Stack.Screen
+        name="MyReservationReserved"
+        component={MyReservationReserved}
+      />
     </Stack.Navigator>
   );
 };
