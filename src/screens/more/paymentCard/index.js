@@ -54,6 +54,7 @@ const PayementCard = ({ navigation }) => {
         headerText="환자 정보"
         sideText="카드추가"
         navigation={navigation}
+        sideNavigation="CardRegistration"
       />
       <ScrollView
         contentContainerStyle={{ flexGrow: 1 }}

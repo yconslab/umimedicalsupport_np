@@ -15,7 +15,7 @@ const Main = () => {
         gestureEnabled={false}
       >
         <Stack.Screen name="MainBottomTab" component={MainBottomTab} />
-        <Stack.Screen name="LoginStack" component={LoginStack} />
+        <Stack.Screen name="login" component={LoginStack} />
       </Stack.Navigator>
     </NavigationContainer>
   );

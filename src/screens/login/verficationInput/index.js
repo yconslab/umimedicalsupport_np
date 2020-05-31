@@ -17,7 +17,7 @@ const VerificationInput = ({ headerTitle, navigation }) => {
     } else {
       setError(false);
       if (!error) {
-        navigation.navigate("NameInput");
+        navigation.navigate("TermsOfService");
       }
     }
   };

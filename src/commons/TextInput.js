@@ -64,9 +64,7 @@ const InputField = ({
         />
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() =>
-          navigationFooter && navigation.navigate("HelpScreenList")
-        }
+        onPress={() => navigationFooter && navigation.navigate("FAQList")}
       >
         <Text style={styles.footerTextStyle}>{footerText || ""}</Text>
       </TouchableOpacity>
