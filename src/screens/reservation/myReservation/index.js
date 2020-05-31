@@ -16,7 +16,7 @@ const myReservation = () => {
         inactiveTintColor: Colors.inactiveTintColor,
         labelStyle:
           Platform.OS === "ios"
-            ? { fontSize: 17, lineHeight: 20, paddingTop: 40 }
+            ? { fontSize: 17, lineHeight: 20, marginTop: 40 }
             : { fontSize: 17, lineHeight: 20 },
         style: { backgroundColor: Colors.appColor },
       }}

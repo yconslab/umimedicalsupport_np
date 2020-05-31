@@ -27,7 +27,8 @@ const Main = () => {
               <Image
                 source={Images.homeIcon}
                 style={{
-                  width: 18,
+                  height: 29,
+                  width: 29,
                   resizeMode: "contain",
                   tintColor: focused
                     ? Colors.activeColor
@@ -41,7 +42,8 @@ const Main = () => {
               <Image
                 source={Images.reservationIcon}
                 style={{
-                  width: 18,
+                  height: 29,
+                  width: 29,
                   resizeMode: "contain",
                   tintColor: focused
                     ? Colors.activeColor
@@ -55,7 +57,8 @@ const Main = () => {
               <Image
                 source={Images.userIcon}
                 style={{
-                  width: 18,
+                  height: 29,
+                  width: 29,
                   resizeMode: "contain",
                   tintColor: focused
                     ? Colors.activeColor

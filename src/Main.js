@@ -16,6 +16,7 @@ const Main = () => {
       >
         <Stack.Screen name="MainBottomTab" component={MainBottomTab} />
         <Stack.Screen name="login" component={LoginStack} />
+        {/* <Stack.Screen name="Splash" component={Splash} /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );
