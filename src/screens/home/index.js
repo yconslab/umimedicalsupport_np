@@ -3,7 +3,6 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 import Home from "./mainHome";
 import HospitalSelection from "./hospitalSelection";
-import ReservationGuide from "./reservationGuide";
 import DateSchedule from "./scheduledDateSelection";
 import ScheduleTime from "./scheduledTimeSelection";
 import ScheduleHelper from "./scheduleHelperSelection";
@@ -26,7 +25,6 @@ const HomeStack = ({ navigation, route }) => {
     <Stack.Navigator headerMode="none" initialRouteName="Home">
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="HospitalSelection" component={HospitalSelection} />
-      {/* <Stack.Screen name="ReservationGuide" component={ReservationGuide} /> */}
       <Stack.Screen name="DateSchedule" component={DateSchedule} />
       <Stack.Screen name="ScheduleTime" component={ScheduleTime} />
       <Stack.Screen name="ScheduleHelper" component={ScheduleHelper} />
