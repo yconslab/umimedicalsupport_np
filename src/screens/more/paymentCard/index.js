@@ -6,10 +6,7 @@ import styles from "./style";
 //reusable component
 const Card = ({ cardStyle, navigation }) => {
   return (
-    <TouchableOpacity
-      style={{ ...styles.card, ...cardStyle }}
-      onPress={() => navigation.navigate("EnterCardNumberScreen")}
-    >
+    <TouchableOpacity style={{ ...styles.card, ...cardStyle }}>
       <View style={styles.cardInnerWrap}>
         <View
           style={{
@@ -51,7 +48,7 @@ const PayementCard = ({ navigation }) => {
   return (
     <View style={styles.screen}>
       <CustomHeader
-        headerText="환자 정보"
+        headerText="카드 관리"
         sideText="카드추가"
         navigation={navigation}
         sideNavigation="CardRegistration"

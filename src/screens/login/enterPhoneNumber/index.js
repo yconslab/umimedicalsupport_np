@@ -35,7 +35,7 @@ const EnterPhoneNumber = ({ navigation }) => {
             numeric
             leftIconDispay={<TextInputLeftIcon />}
             // value={nameinput}
-            handleOnPress={() => this.handlePress(navigation)}
+            handleOnPress={() => handlePress(navigation)}
             clearButtonMode="while-editing"
             navigationFooter={true}
             navigation={navigation}

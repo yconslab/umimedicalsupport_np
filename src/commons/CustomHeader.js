@@ -93,6 +93,11 @@ const styles = StyleSheet.create({
     lineHeight: 19,
     color: Colors.activeBlueColor,
   },
+  centerTextStyle: {
+    fontWeight: "bold",
+    fontSize: 17,
+    lineHeight: 22,
+  },
 });
 
 export default HeaderList;

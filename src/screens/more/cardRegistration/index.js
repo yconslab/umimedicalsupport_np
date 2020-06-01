@@ -63,10 +63,10 @@ const CardRegistration = ({ navigation }) => {
   };
   const handleUncheckForThird = (val) => {
     setCheck3(val);
-    if (val == false && !check2) {
+    if (val == false && !check3) {
       setCheck1(false);
     }
-    if (val == true && check2) {
+    if (val == true && check3) {
       setCheck1(true);
     }
   };

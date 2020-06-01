@@ -15,10 +15,8 @@ const myReservation = () => {
         tabBarOptions={{
           activeTintColor: Colors.activeBlueColor,
           inactiveTintColor: Colors.inactiveTintColor,
-          labelStyle:
-            Platform.OS === "ios"
-              ? { fontSize: 17, lineHeight: 20, paddingTop: 40 }
-              : { fontSize: 17, lineHeight: 20 },
+          labelStyle: styles.labelStyle,
+
           style: { backgroundColor: Colors.appColor },
         }}
       >
@@ -43,5 +41,9 @@ const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
     backgroundColor: Colors.appColor,
+  },
+  labelStyle: {
+    fontSize: 17,
+    lineHeight: 20,
   },
 });

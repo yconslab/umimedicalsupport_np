@@ -49,10 +49,10 @@ export default StyleSheet.create({
   errorBox: {
     flex: 3,
     // backgroundColor:'red',
-    flexDirection: "row",
-    justifyContent: "space-between",
+    // flexDirection: "row",
+    // justifyContent: "space-between",
     width: 200,
-    marginVertical: 20,
+    // marginVertical: 20,
     marginHorizontal: 30,
     alignItems: "center",
     width: "80%",

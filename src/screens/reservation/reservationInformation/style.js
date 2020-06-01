@@ -18,6 +18,7 @@ export default StyleSheet.create({
     fontSize: 20,
     lineHeight: 30,
     color: "#000000",
+    fontWeight: "bold",
   },
   title2: {
     fontSize: 14,
@@ -159,8 +160,5 @@ export default StyleSheet.create({
   },
   marginBottom_40: {
     marginBottom: 40,
-  },
-  marginVertical_10: {
-    marginVertical: 10,
   },
 });

@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
   image: {
     height: "100%",
     width: "100%",
+    resizeMode: "contain",
   },
   titleText: {
     textAlign: "center",
