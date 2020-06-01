@@ -11,7 +11,12 @@ import Inquiry from "./inquiry";
 
 const Stack = createStackNavigator();
 
-const ReservationStack = () => {
+const ReservationStack = ({ navigation, route }) => {
+  if (route.state && route.state.index > 0) {
+    navigation.setOptions({ tabBarVisible: false });
+  } else {
+    navigation.setOptions({ tabBarVisible: true });
+  }
   return (
     <Stack.Navigator headerMode="none" initialRouteName="MyReservationTab">
       <Stack.Screen name="MyReservationTab" component={MyReservationTab} />

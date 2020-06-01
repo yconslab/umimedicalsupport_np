@@ -8,6 +8,7 @@ import ReservationStack from "../screens/reservation";
 import MoreStack from "../screens/more";
 import Colors from "../constants/Colors";
 import Images from "../images";
+import { Scale } from "../helper/HelperFunction";
 const Tab = createBottomTabNavigator();
 
 const Main = () => {
@@ -27,8 +28,7 @@ const Main = () => {
               <Image
                 source={Images.homeIcon}
                 style={{
-                  height: 29,
-                  width: 29,
+                  width: Scale(25),
                   resizeMode: "contain",
                   tintColor: focused
                     ? Colors.activeColor
@@ -42,8 +42,7 @@ const Main = () => {
               <Image
                 source={Images.reservationIcon}
                 style={{
-                  height: 29,
-                  width: 29,
+                  width: Scale(25),
                   resizeMode: "contain",
                   tintColor: focused
                     ? Colors.activeColor
@@ -57,8 +56,7 @@ const Main = () => {
               <Image
                 source={Images.userIcon}
                 style={{
-                  height: 29,
-                  width: 29,
+                  width: Scale(25),
                   resizeMode: "contain",
                   tintColor: focused
                     ? Colors.activeColor

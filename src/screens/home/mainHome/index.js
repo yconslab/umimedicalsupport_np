@@ -1,6 +1,6 @@
 import React from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
-
+import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
+import NoticationIcons from "react-native-vector-icons/Ionicons";
 import SwiperFlatList from "react-native-swiper-flatlist";
 import BannerSlider from "./BannerSlider";
 import Colors from "../../../constants/Colors";
@@ -9,6 +9,12 @@ import { Scale } from "../../../helper/HelperFunction";
 const Home = ({ navigation }) => {
   return (
     <View style={styles.wrapper}>
+      <TouchableOpacity
+        style={styles.NotifcaitonContainer}
+        onPress={() => navigation.navigate("Notice")}
+      >
+        <NoticationIcons name="ios-notifications" size={25} />
+      </TouchableOpacity>
       <SwiperFlatList
         autoplay
         autoplayDelay={5}
@@ -44,5 +50,18 @@ const styles = StyleSheet.create({
     height: 10,
     width: 10,
     borderColor: Colors.whiteColor
+  },
+
+  NotifcaitonContainer: {
+    position: "absolute",
+    top: Scale(50),
+    height: Scale(40),
+    width: Scale(40),
+    backgroundColor: Colors.whiteColor,
+    zIndex: 1,
+    right: Scale(20),
+    borderRadius: Scale(20),
+    justifyContent: "center",
+    alignItems: "center"
   }
 });
