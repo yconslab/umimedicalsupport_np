@@ -12,7 +12,12 @@ import PayementCard from "./paymentCard";
 import MoreList from "./moreList";
 const Stack = createStackNavigator();
 
-const MoreStack = () => {
+const MoreStack = ({ navigation, route }) => {
+  if (route.state && route.state.index > 0) {
+    navigation.setOptions({ tabBarVisible: false });
+  } else {
+    navigation.setOptions({ tabBarVisible: true });
+  }
   return (
     <Stack.Navigator headerMode="none" initialRouteName="MoreList">
       <Stack.Screen name="MoreList" component={MoreList} />

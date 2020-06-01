@@ -16,14 +16,17 @@ const additionalInformation = [
   { id: 4, title: "어려운 서비스3 " },
   { id: 5, title: "어려운 서비스" }
 ];
-const AdditionalInformation = ({ params }) => {
+const AdditionalInformation = ({ navigation }) => {
   const [textInput, setTextInput] = useState("");
   const [showModal, setModal] = useState(false);
 
   const onPressHandleCloseModal = () => setModal(!showModal);
   return (
     <View style={styles.wrapper}>
-      <CustomHeader headerText="설명해주신 내용은 우미가 특별히 신경쓰겠습니다." />
+      <CustomHeader
+        headerText="설명해주신 내용은 우미가 특별히 신경쓰겠습니다."
+        navigation={navigation}
+      />
       <View style={styles.innerContainer}>
         <Text style={styles.textStyle}>
           도우미가 특별히 알아야 하는 사항을 알려주세요. Ex)환자분의 거동이
@@ -60,6 +63,7 @@ const AdditionalInformation = ({ params }) => {
         <View style={styles.modalStyle}>
           <FinalConfirmation
             onPressHandleCloseModal={onPressHandleCloseModal}
+            navigation={navigation}
           />
         </View>
       )}

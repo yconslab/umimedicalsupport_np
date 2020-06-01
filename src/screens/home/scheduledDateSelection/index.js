@@ -21,7 +21,7 @@ LocaleConfig.locales["kr"] = {
     "Septembre",
     "Octobre",
     "Novembre",
-    "Décembre",
+    "Décembre"
   ],
 
   dayNames: [
@@ -31,15 +31,15 @@ LocaleConfig.locales["kr"] = {
     "Mercredi",
     "Jeudi",
     "Vendredi",
-    "Samedi",
+    "Samedi"
   ],
   dayNamesShort: ["월", "화", "수", "목", "금", "토", "일"],
-  today: "Aujourd'hui",
+  today: "Aujourd'hui"
 };
 LocaleConfig.defaultLocale = "kr";
 
 const ScheduleDate = ({ navigation }) => {
-  const [todaysDate, setTodaysDate] = useState(Moment().format("YYYY-MM-D"));
+  const [todaysDate, setTodaysDate] = useState(Moment().format("YYYY-MM-DD"));
   const [selectedDate, setSelectedDate] = useState(
     Moment().format("YYYY-MM-D")
   );
@@ -60,18 +60,18 @@ const ScheduleDate = ({ navigation }) => {
       </View>
 
       <Calendar
-        //   current="2020-03-01"
         minDate={todaysDate}
+        maxDate={"2030-05-30"}
         LocaleConfig={LocaleConfig.defaultLocale}
-        onDayPress={(day) => {
+        onDayPress={day => {
           navigation.navigate("ScheduleTime", { day: day });
           // console.log("selected day", day);
         }}
         monthFormat={"yyyy.MM "}
-        onMonthChange={(month) => {
+        onMonthChange={month => {
           console.log("month changed", month);
         }}
-        renderArrow={(direction) =>
+        renderArrow={direction =>
           direction === "left" ? (
             <ArrowIcons
               name="ios-arrow-back"
@@ -90,12 +90,12 @@ const ScheduleDate = ({ navigation }) => {
         disableMonthChange={false}
         firstDay={2}
         hideDayNames={false}
-        onPressArrowLeft={(substractMonth) => substractMonth()}
-        onPressArrowRight={(addMonth) => addMonth()}
+        onPressArrowLeft={substractMonth => substractMonth()}
+        onPressArrowRight={addMonth => addMonth()}
         theme={{
           dayTextColor: "black",
           textDayFontWeight: "bold",
-          textDayFontSize: Scale(17),
+          textDayFontSize: Scale(17)
         }}
       />
     </View>
@@ -107,37 +107,37 @@ export default ScheduleDate;
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    backgroundColor: Colors.appColor,
+    backgroundColor: Colors.appColor
   },
   todayComponent: {
     backgroundColor: "red",
     color: "blue",
-    borderRadius: 15,
+    borderRadius: 15
   },
   dayComponentWrapper: {
     padding: 5,
     height: Scale(40),
     width: Scale(40),
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "center"
   },
   TitleTextStyle: {
-    marginVertical: Scale(40),
+    marginVertical: Scale(40)
   },
   textContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
     marginHorizontal: Scale(20),
-    marginVertical: Scale(11),
+    marginVertical: Scale(11)
   },
   textStyleFirst: {
     fontSize: Scale(16),
     color: Colors.textColor,
-    fontWeight: "600",
+    fontWeight: "600"
   },
   textStyleNavigation: {
     color: Colors.activeColor,
     fontSize: Scale(16),
-    fontWeight: "600",
-  },
+    fontWeight: "600"
+  }
 });

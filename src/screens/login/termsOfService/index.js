@@ -1,13 +1,5 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  TouchableOpacity,
-  SafeAreaView,
-  ScrollView,
-} from "react-native";
+import { View, Text, Image, ScrollView } from "react-native";
 
 import { CheckBox, Button } from "react-native-elements";
 import images from "../../../images";

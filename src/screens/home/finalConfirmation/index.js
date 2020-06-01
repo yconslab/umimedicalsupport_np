@@ -14,7 +14,7 @@ import { Scale } from "../../../helper/HelperFunction";
 import { CustomButton, CustomHeader, Divider } from "../../../commons";
 import Colors from "../../../constants/Colors";
 
-export const FinalConfirmation = ({ nanvigation, onPressHandleCloseModal }) => {
+export const FinalConfirmation = ({ navigation, onPressHandleCloseModal }) => {
   const VisitorInformationValue = useSelector(
     state => state.VisitorInformation
   );
@@ -131,7 +131,9 @@ export const FinalConfirmation = ({ nanvigation, onPressHandleCloseModal }) => {
         <Text style={styles.chargeStyle}>
           서비스 시간이 2시간 초과 시 10분당 2,000원의 비용이 부과됩니다.
         </Text>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("ServiceInformation")}
+        >
           <Text style={styles.serviceFeePolic}>서비스 요금 정책안내</Text>
         </TouchableOpacity>
         <Text style={styles.lastFooterTextStyle}>
@@ -142,7 +144,10 @@ export const FinalConfirmation = ({ nanvigation, onPressHandleCloseModal }) => {
         </Text>
       </View>
       <View style={{ marginHorizontal: Scale(20) }}>
-        <CustomButton title="예약 확정하기" />
+        <CustomButton
+          title="예약 확정하기"
+          onPress={() => navigation.navigate("ReservationComplete")}
+        />
       </View>
     </ScrollView>
   );

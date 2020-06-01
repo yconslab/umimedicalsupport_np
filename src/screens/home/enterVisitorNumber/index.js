@@ -113,7 +113,7 @@ const VisitorPhonenumber = ({ navigation }) => {
           title="다음"
           innerStyle={{ marginHorizontal: Scale(20) }}
           disabled={disableButton}
-          // onPress={() => navigation.navigate("VisitorInformatioNumber")}
+          onPress={() => navigation.navigate("AdditionalInformation")}
         />
       </View>
     </View>

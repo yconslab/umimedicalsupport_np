@@ -24,6 +24,7 @@ const App: () => React$Node = () => {
   console.disableYellowBox = true;
   return (
     <View style={{ flex: 1 }}>
+      {/* <SafeAreaView /> */}
       <Provider store={store}>
         <Main />
       </Provider>

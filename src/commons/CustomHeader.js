@@ -9,7 +9,7 @@ import {
   Platform,
 } from "react-native";
 import { Header } from "react-native-elements";
-import BackIcon from "react-native-vector-icons/Ionicons";
+import BackIcon from "react-native-vector-icons/MaterialIcons";
 import Colors from "../constants";
 import { Scale } from "../helper/HelperFunction";
 
@@ -19,10 +19,10 @@ const MyLeftComponent = ({ navigation, cross }) => {
   return (
     <TouchableOpacity onPress={() => navigation.goBack()}>
       {cross ? (
-        <BackIcon name="ios-close" size={Scale(35)} />
+        <BackIcon name="close" size={Scale(35)} />
       ) : (
         (Platform.OS = "ios" ? (
-          <BackIcon name="ios-arrow-back" size={Scale(30)} />
+          <BackIcon name="arrow-back" size={Scale(30)} />
         ) : (
           <BackIcon name="md-arrow-back" size={Scale(30)} />
         ))
@@ -34,7 +34,7 @@ const HeaderList = ({
   navigation,
   showBackIcon,
   headerText,
-  centerComponent,
+  centerText,
   rightComponent,
   leftComponent,
   sideText,
@@ -48,7 +48,9 @@ const HeaderList = ({
         leftComponent={
           <MyLeftComponent navigation={navigation} cross={cross} />
         }
-        centerComponent={centerComponent}
+        centerComponent={
+          <Text style={styles.centerTextStyle}>{centerText}</Text>
+        }
         rightComponent={rightComponent}
       />
       <View style={styles.headerTextWrap}>
