@@ -19,7 +19,7 @@ const MyLeftComponent = ({ navigation, cross }) => {
   return (
     <TouchableOpacity onPress={() => navigation.goBack()}>
       {cross ? (
-        <BackIcon name="ios-close" size={Scale(35)} />
+        <BackIcon name="close" size={Scale(35)} />
       ) : (
         (Platform.OS = "ios" ? (
           <BackIcon name="arrow-back" size={Scale(30)} />

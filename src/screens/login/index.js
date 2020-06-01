@@ -10,7 +10,7 @@ const Stack = createStackNavigator();
 
 const LoginStack = () => {
   return (
-    <Stack.Navigator headerMode="none" initialRouteName="EnterName">
+    <Stack.Navigator headerMode="none" initialRouteName="EnterPhoneNumber">
       <Stack.Screen name="EnterName" component={EnterName} />
       <Stack.Screen name="EnterPhoneNumber" component={EnterPhoneNumber} />
       <Stack.Screen name="SignUpComplete" component={SignUpComplete} />

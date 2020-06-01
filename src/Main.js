@@ -11,7 +11,7 @@ const Main = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="MainBottomTab"
+        initialRouteName="login"
         headerMode="none"
         gestureEnabled={false}
       >

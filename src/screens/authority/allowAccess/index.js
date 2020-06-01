@@ -13,12 +13,12 @@ const AuthorizationPage = ({ navigation }) => {
         {
           text: " 받지 않다",
           onPress: () => navigation.navigate("MainBottomTab"),
-          style: "cancel"
+          style: "cancel",
         },
         {
           text: " 허용하다",
-          onPress: () => navigation.navigate("MainBottomTab")
-        }
+          onPress: () => navigation.navigate("MainBottomTab"),
+        },
       ],
       { cancelable: false }
     );
