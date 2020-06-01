@@ -119,7 +119,12 @@ const ReservationInformation = ({ navigation }) => {
         <MidLine lineStyle={styles.height_9} />
 
         <View style={styles.commonMargin}>
-          <TitleBox title1="특이사항" title2="수정" navigation={navigation} />
+          <TitleBox
+            title1="특이사항"
+            title2="수정"
+            navigation={navigation}
+            navTitle="AdditionalInformation"
+          />
           <Text
             style={{
               ...styles.normalText,
@@ -140,7 +145,12 @@ const ReservationInformation = ({ navigation }) => {
 
         <MidLine lineStyle={styles.height_9} />
         <View style={styles.commonMargin}>
-          <TitleBox title1="환자정보" title2="수정" navigation={navigation} />
+          <TitleBox
+            title1="환자정보"
+            title2="수정"
+            navigation={navigation}
+            navTitle="VisitorInformatioName"
+          />
           <TextBox label="방문자 전화번호" value="01055048441" />
           <TextBox label="방문자 이름" value="윤정탁" />
         </View>
@@ -162,6 +172,7 @@ const ReservationInformation = ({ navigation }) => {
             title1="결제정보"
             title2="결제카드 변경"
             navigation={navigation}
+            navTitle="PaymentCard"
           />
           <TitleBox
             title1="결제예정금액"
@@ -180,13 +191,19 @@ const ReservationInformation = ({ navigation }) => {
           </View>
         </View>
         <MidLine lineStyle={styles.height_21} />
-        <View style={styles.commonMargin}>
+        <TouchableOpacity
+          style={styles.commonMargin}
+          onPress={() => navigation.navigate("FAQList")}
+        >
           <CircleBox title="주의 사항" />
-        </View>
+        </TouchableOpacity>
         <MidLine lineStyle={styles.height_1} />
-        <View style={styles.commonMargin}>
+        <TouchableOpacity
+          style={styles.commonMargin}
+          onPress={() => navigation.navigate("FAQList")}
+        >
           <CircleBox title="자주 묻는 질문" />
-        </View>
+        </TouchableOpacity>
         <MidLine lineStyle={styles.height_9} />
         <BottomTextBox title="예약 변경" textStyle={styles.bottomText1} />
         <BottomTextBox title="예약 취소" textStyle={styles.bottomText2} />
@@ -195,7 +212,7 @@ const ReservationInformation = ({ navigation }) => {
         <CustomButton
           title="문의하기"
           onPress={() => {
-            navigation.navigate("Home");
+            navigation.navigate("EnterName");
           }}
           innerStyle={styles.innerStyle}
         />
