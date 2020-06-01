@@ -12,6 +12,7 @@ import AdditionalInformation from "./additionalInformation";
 import ReservationComplete from "./reservationCompletion";
 import ServiceInformation from "./serviceInformation";
 import Notice from "./notice";
+import Events from "./Events";
 
 const Stack = createStackNavigator();
 
@@ -46,6 +47,7 @@ const HomeStack = ({ navigation, route }) => {
       />
       <Stack.Screen name="ServiceInformation" component={ServiceInformation} />
       <Stack.Screen name="Notice" component={Notice} />
+      <Stack.Screen name="Events" component={Events} />
     </Stack.Navigator>
   );
 };

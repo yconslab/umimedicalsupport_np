@@ -14,9 +14,8 @@ const EnterName = ({ navigation }) => {
             title="이름"
             placeholderText="타이틀1"
             customStyle={styles.Textholder}
-            changeText={(value) => {
+            changeText={value => {
               setInput(value);
-              // console.log(value, inputState);
               if (value.length > 4) {
                 setInputState(true);
               } else {
@@ -24,7 +23,7 @@ const EnterName = ({ navigation }) => {
               }
             }}
             value={input}
-            handleOnPress={() => this.handlePress(navigation)}
+            // handleOnPress={() => this.handlePress(navigation)}
             clearButtonMode="while-editing"
             navigation={navigation}
             maxLength={16}
@@ -46,6 +45,7 @@ const EnterName = ({ navigation }) => {
               : styles.innerTextStyle2
           }
           disabled={inputState === false && input.length <= 4}
+          onPress={() => navigation.navigate("TermsOfService")}
         />
       </View>
     </View>

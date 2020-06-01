@@ -8,6 +8,7 @@ import {
   TouchableOpacity
 } from "react-native";
 const { height, width } = Dimensions.get("window");
+import RightArrow from "react-native-vector-icons/FontAwesome";
 
 import Images from "../../../images";
 import { CustomButton } from "../../../commons";
@@ -28,8 +29,12 @@ const HomeImageSlider = ({ navigation }) => (
           더 편하게 이용하실 수 있습니다.
         </Text>
       </View>
-      <TouchableOpacity>
+      <TouchableOpacity
+        style={styles.rightArrowStyle}
+        onPress={() => navigation.navigate("Events")}
+      >
         <Text style={styles.NavigationText}>서비스 가이드</Text>
+        <RightArrow name="angle-right" style={styles.iconsStyle} />
       </TouchableOpacity>
     </View>
     <View style={styles.buttonContainer}>
@@ -43,6 +48,16 @@ const HomeImageSlider = ({ navigation }) => (
 );
 
 const styles = StyleSheet.create({
+  iconsStyle: {
+    fontSize: Scale(20),
+    color: Colors.activeColor
+  },
+  rightArrowStyle: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    width: Scale(120)
+  },
   bannerStyle: {
     height: height,
     width: width
