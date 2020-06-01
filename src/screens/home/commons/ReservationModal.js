@@ -81,10 +81,12 @@ const Modal = ({ showReservationModal, toggleOverlay, navigation }) => {
             />
           </View>
         </View>
-        <CustomButton
-          title="네. 예약을 완료했어요."
-          onPress={() => handleOverlay()}
-        />
+        <View style={styles.buttonContainer}>
+          <CustomButton
+            title="네. 예약을 완료했어요."
+            onPress={() => handleOverlay()}
+          />
+        </View>
       </Overlay>
     </View>
   );
@@ -93,6 +95,9 @@ const Modal = ({ showReservationModal, toggleOverlay, navigation }) => {
 export default Modal;
 
 const styles = StyleSheet.create({
+  buttonContainer: {
+    marginVertical: Scale(30)
+  },
   wrapper: {
     flex: 1
   },
