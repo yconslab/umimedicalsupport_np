@@ -13,7 +13,6 @@ const ReservationComplete = ({ navigation }) => {
 
   return (
     <View style={{ flex: 1 }}>
-      {console.log(navigation)}
       <View style={styles.wrapper}>
         <Image source={Images.paymentComplete} />
         <View style={styles.textTitleContainer}>
@@ -46,7 +45,8 @@ const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    backgroundColor: Colors.appColor
   },
   textTitleContainer: {
     marginHorizontal: Scale(40)
