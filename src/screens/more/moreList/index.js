@@ -4,7 +4,7 @@ import {
   Text,
   TouchableOpacity,
   FlatList,
-  ScrollView,
+  ScrollView
 } from "react-native";
 import { CustomHeader, ProfileImageWrap } from "../../../commons";
 import Images from "../../../images";
@@ -15,7 +15,7 @@ const data = [
   { id: 2, title: "카드 관리", navigationTitle: "PayementCard" },
   { id: 3, title: "자주 묻는 질문", navigationTitle: "FAQList" },
   { id: 4, title: "쿠폰 관리", navigationTitle: "Coupon" },
-  { id: 5, title: "로그아웃", navigationTitle: "login" },
+  { id: 5, title: "로그아웃", navigationTitle: "login" }
 ];
 
 //reusable component
@@ -33,7 +33,6 @@ const ListBox = ({ title, navigation, navigationTitle }) => {
 const MoreList = ({ navigation }) => {
   return (
     <View style={styles.screen}>
-      <CustomHeader backHidden navigation={navigation} />
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <View style={styles.profileWrapper}>
           <ProfileImageWrap
@@ -48,8 +47,8 @@ const MoreList = ({ navigation }) => {
         <View style={styles.listWrapper}>
           <FlatList
             data={data}
-            keyExtractor={(item) => item.id}
-            renderItem={(itemData) => (
+            keyExtractor={item => item.id}
+            renderItem={itemData => (
               <ListBox
                 title={itemData.item.title}
                 navigation={navigation}

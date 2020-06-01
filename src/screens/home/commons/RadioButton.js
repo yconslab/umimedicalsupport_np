@@ -13,20 +13,11 @@ const RadioButton = ({ title, selected, onChangeRadioButton }) => {
       title={title}
       checkedIcon={
         <View style={styles.borderCheckbox}>
-          <Icons
-            name="circle"
-            style={{ width: Scale(10) }}
-            color={Colors.activeColor}
-          />
+          <Icons name="circle" size={Scale(17)} color={Colors.activeColor} />
         </View>
       }
       uncheckedIcon={
-        <Icons
-          name="circle-thin"
-          color={Colors.activeColor}
-          style={{ width: Scale(15) }}
-          size={Scale(15)}
-        />
+        <Icons name="circle-thin" color={Colors.activeColor} size={Scale(20)} />
       }
       checked={title === selected}
       onPress={() => onChangeRadioButton(title)}
@@ -36,13 +27,15 @@ const RadioButton = ({ title, selected, onChangeRadioButton }) => {
 export default RadioButton;
 const styles = StyleSheet.create({
   borderCheckbox: {
-    width: Scale(15),
-    height: Scale(15),
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: 7,
+    // borderRadius: 7,
     borderColor: Colors.activeColor,
-    borderWidth: 1
+    borderWidth: 1,
+    // padding: Scale(1),
+    borderRadius: Scale(10),
+    height: Scale(20),
+    width: Scale(20)
   },
   coantainerStyle: {
     backgroundColor: Colors.appColor,
