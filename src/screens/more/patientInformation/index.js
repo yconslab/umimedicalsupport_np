@@ -11,8 +11,18 @@ import Images from "../../../images";
 import styles from "./style";
 //data
 const data = [
-  { id: 1, title: "윤정택", contactNumber: "01045844821", navigationTitle: "" },
-  { id: 2, title: "박춘자", contactNumber: "01012938287", navigationTitle: "" },
+  {
+    id: 1,
+    title: "윤정택",
+    contactNumber: "01045844821",
+    navigationTitle: "EnterPatientInformation",
+  },
+  {
+    id: 2,
+    title: "박춘자",
+    contactNumber: "01012938287",
+    navigationTitle: "EnterPatientInformation",
+  },
 ];
 
 //reusable component
@@ -57,6 +67,7 @@ const PatientInformation = ({ navigation }) => {
           title="새 환자 등록"
           innerStyle={styles.innerStyle}
           innerTextStyle={styles.innerTextStyle}
+          onPress={() => navigation.navigate("EnterPatientInformation")}
         />
       </View>
     </View>

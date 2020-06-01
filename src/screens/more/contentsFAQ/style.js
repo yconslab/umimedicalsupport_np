@@ -29,11 +29,13 @@ export default StyleSheet.create({
   },
   bottomTextWrap: {
     alignItems: "center",
+    marginVertical: 10,
   },
   bottomText: {
     fontSize: 17,
     lineHeight: 20,
     color: "#021F2C",
+    fontWeight: "bold",
   },
   btnWrap: {
     flexDirection: "row",

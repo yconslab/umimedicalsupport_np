@@ -9,6 +9,13 @@ import ServiceCompletion from "./serviceCompletion";
 import MyReservationReserved from "./myRservationReserved";
 import Inquiry from "./inquiry";
 
+//other tab screens
+import DateSchedule from "../home/scheduledDateSelection";
+import AdditionalInformation from "../home/additionalInformation";
+import VisitorInformatioName from "../home/enterVisitorName";
+import FAQList from "../more/listFAQ";
+
+import PaymentCard from "../more/paymentCard";
 const Stack = createStackNavigator();
 
 const ReservationStack = ({ navigation, route }) => {
@@ -36,6 +43,17 @@ const ReservationStack = ({ navigation, route }) => {
         name="MyReservationReserved"
         component={MyReservationReserved}
       />
+      <Stack.Screen name="DateSchedule" component={DateSchedule} />
+      <Stack.Screen
+        name="AdditionalInformation"
+        component={AdditionalInformation}
+      />
+      <Stack.Screen
+        name="VisitorInformatioName"
+        component={VisitorInformatioName}
+      />
+      <Stack.Screen name="PaymentCard" component={PaymentCard} />
+      <Stack.Screen name="FAQList" component={FAQList} />
     </Stack.Navigator>
   );
 };

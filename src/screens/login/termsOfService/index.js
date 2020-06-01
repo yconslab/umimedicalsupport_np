@@ -145,7 +145,7 @@ const TermsofService = ({ navigation }) => {
 
       <View style={styles.btnWrap}>
         <CustomButton
-          title="등록하기"
+          title="다음"
           innerStyle={
             check1 === true && check2 === true && check3 == true
               ? styles.innerStyle1

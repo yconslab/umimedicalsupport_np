@@ -6,6 +6,7 @@ import SignUpComplete from "./signupComplete";
 import TermsOfService from "./termsOfService";
 import VerificationInput from "./verficationInput";
 import FAQList from "../more/listFAQ";
+import FAQContents from "../more/contentsFAQ";
 const Stack = createStackNavigator();
 
 const LoginStack = () => {
@@ -17,6 +18,7 @@ const LoginStack = () => {
       <Stack.Screen name="TermsOfService" component={TermsOfService} />
       <Stack.Screen name="VerificationInput" component={VerificationInput} />
       <Stack.Screen name="FAQList" component={FAQList} />
+      <Stack.Screen name="FAQContents" component={FAQContents} />
     </Stack.Navigator>
   );
 };

@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
 import { CustomButton, CustomHeader, ProfileImageWrap } from "../../../commons";
 
 import { Input } from "react-native-elements";
@@ -7,15 +13,25 @@ import Colors from "../../../constants";
 //reusable components
 import Images from "../../../images";
 import styles from "./style";
+
 const MidLine = ({ lineStyle }) => {
   return <View style={{ ...lineStyle, ...styles.midlineStyle }} />;
 };
 
-const TitleBox = ({ title1, title2, title1Style, title2Style }) => {
+const TitleBox = ({
+  title1,
+  title2,
+  title1Style,
+  title2Style,
+  navTitle,
+  navigation,
+}) => {
   return (
     <View style={styles.titleBox}>
       <Text style={{ ...styles.title1, ...title1Style }}>{title1}</Text>
-      <Text style={{ ...styles.title2, ...title2Style }}>{title2}</Text>
+      <TouchableOpacity onPress={() => navigation.navigate(navTitle)}>
+        <Text style={{ ...styles.title2, ...title2Style }}>{title2}</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -66,7 +82,12 @@ const ReservationInformationMatched = ({ navigation }) => {
         <MidLine lineStyle={styles.height_1} />
 
         <View style={styles.commonMargin}>
-          <TitleBox title1="서비스 내용" title2="예약변경" />
+          <TitleBox
+            title1="서비스 내용"
+            title2="예약변경"
+            navigation={navigation}
+            navTitle="DateSchedule"
+          />
           <Text style={styles.normalText}>세브란스 병원</Text>
           <Text style={styles.normalText}>2020년 1월 10일(월) 오후 2시</Text>
           <Text style={styles.normalText}>2시간(오후 2시~오후 4시)</Text>

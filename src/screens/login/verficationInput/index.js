@@ -65,8 +65,9 @@ const VerificationInput = ({ headerTitle, navigation }) => {
             {error ? (
               <View style={styles.errorBox}>
                 <Text style={styles.errorText}>
-                  인증번호를 잘못 입력하셨습니다. 다시 입력해주세요.
+                  인증번호를 잘못 입력하셨습니다.
                 </Text>
+                <Text style={styles.errorText}> 다시 입력해주세요.</Text>
               </View>
             ) : null}
           </View>

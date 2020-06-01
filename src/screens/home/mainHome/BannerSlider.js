@@ -89,7 +89,8 @@ const styles = StyleSheet.create({
   },
   customButtonStyle: {
     height: Scale(64),
-    borderRadius: Scale(32)
+    borderRadius: Scale(32),
+    backgroundColor: Colors.activeColor
   },
   containerInnerStyle: {
     width: Scale(200),
