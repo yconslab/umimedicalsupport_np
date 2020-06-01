@@ -110,7 +110,7 @@ const HospitalSelection = ({ navigation }) => {
       />
       <View style={styles.buttonStyle}>
         <CustomButton
-          title="다음"
+          title="선택하기"
           innerStyle={{ backgroundColor: Colors.activeBlueColor }}
           onPress={() => setShowReservationModal(true)}
         />
