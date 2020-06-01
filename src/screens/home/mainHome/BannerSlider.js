@@ -17,12 +17,7 @@ import Colors from "../../../constants/Colors";
 const HomeImageSlider = ({ navigation }) => (
   <ImageBackground source={Images.welcomeBanner} style={styles.bannerStyle}>
     <View style={styles.containerWrapper}>
-      <View
-        style={{
-          width: Scale(200),
-          height: Scale(100)
-        }}
-      >
+      <View style={styles.containerInnerStyle}>
         <Text style={styles.firstTextStyle}>우미 이용이 </Text>
         <Text style={styles.firstTextStyle}>처음이신가요?</Text>
       </View>
@@ -73,13 +68,17 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     position: "absolute",
-    bottom: Scale(80),
+    bottom: Scale(90),
     width: width,
-    paddingHorizontal: 20
+    paddingHorizontal: Scale(20)
   },
   customButtonStyle: {
     height: Scale(64),
     borderRadius: Scale(32)
+  },
+  containerInnerStyle: {
+    width: Scale(200),
+    height: Scale(100)
   }
 });
 export default HomeImageSlider;
