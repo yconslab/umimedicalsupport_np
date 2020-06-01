@@ -97,7 +97,9 @@ const styles = StyleSheet.create({
   centerTextStyle: {
     fontWeight: "bold",
     fontSize: 17,
-    lineHeight: 22
+    width: width - Scale(100),
+    textAlign: "center"
+    // lineHeight: 22
   }
 });
 
