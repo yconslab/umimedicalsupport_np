@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { View, StyleSheet, Image, Text } from "react-native";
+import { Scale } from "../helper/HelperFunction";
 
 const ProfileImageWrap = ({
   source,
@@ -7,7 +8,7 @@ const ProfileImageWrap = ({
   title2,
   imageStyle,
   title1Style,
-  title2Style,
+  title2Style
 }) => {
   return (
     <View>
@@ -25,16 +26,18 @@ const ProfileImageWrap = ({
 const styles = StyleSheet.create({
   imageContainer: {
     overflow: "hidden",
-    alignSelf: "center",
+    alignSelf: "center"
   },
   image: {
     height: "100%",
     width: "100%",
     resizeMode: "contain",
+    backgroundColor: "white"
   },
   titleText: {
     textAlign: "center",
-  },
+    marginTop: Scale(10)
+  }
 });
 
 export default ProfileImageWrap;
