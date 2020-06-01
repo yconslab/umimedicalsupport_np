@@ -9,7 +9,7 @@ import {
   Dimensions
 } from "react-native";
 import { CustomHeader, CustomButton } from "../../../commons";
-import { DateConversionWithDot } from "../commons";
+import { DateConversionWithDot, DisplayStar } from "../commons";
 import { Scale } from "../../../helper/HelperFunction";
 import Colors from "../../../constants/Colors";
 import Images from "../../../images";
@@ -124,7 +124,10 @@ const ScheduleHelper = ({ navigation, route }) => {
                       </View>
                     </View>
                     <Text style={styles.loctaion}>{i.loc}</Text>
-                    <Text style={styles.starStyles}>{i.star}</Text>
+                    <View style={styles.starContainer}>
+                      <Text style={styles.starStyles}>{i.star}</Text>
+                      <DisplayStar />
+                    </View>
                     <View>
                       <Text style={styles.descriptionStyle}>{i.desc}</Text>
                     </View>
@@ -146,6 +149,10 @@ const ScheduleHelper = ({ navigation, route }) => {
   );
 };
 const styles = StyleSheet.create({
+  starContainer: {
+    flexDirection: "row",
+    alignItems: "center"
+  },
   loctaion: {
     color: Colors.bannerTextColor,
     fontSize: Scale(10)
