@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   Image,
   Dimensions,
-  Platform,
+  Platform
 } from "react-native";
 import { Header } from "react-native-elements";
 import BackIcon from "react-native-vector-icons/MaterialIcons";
@@ -39,7 +39,7 @@ const HeaderList = ({
   leftComponent,
   sideText,
   cross,
-  sideNavigation,
+  sideNavigation
 }) => {
   return (
     <View style={styles.headerMainWrapper}>
@@ -66,38 +66,41 @@ const HeaderList = ({
 const styles = StyleSheet.create({
   headerWrapper: {
     paddingHorizontal: 3,
-    backgroundColor: Colors.appColor,
+    backgroundColor: Colors.appColor
   },
   headerMainWrapper: {
-    paddingHorizontal: Scale(20),
+    paddingHorizontal: Scale(20)
   },
   headerTextDesign: {
     paddingHorizontal: Scale(15),
     backgroundColor: Colors.appColor,
     borderWidth: 0,
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: "space-between"
   },
   headerTextStyle: {
     lineHeight: 29,
     fontSize: Scale(24),
     fontWeight: "bold",
-    color: Colors.TextColor,
+    color: Colors.TextColor
   },
   headerTextWrap: {
     flexDirection: "row",
     justifyContent: "space-between",
+    paddingHorizontal: Scale(5)
   },
   sideText: {
     fontSize: 16,
     lineHeight: 19,
-    color: Colors.activeBlueColor,
+    color: Colors.activeBlueColor
   },
   centerTextStyle: {
     fontWeight: "bold",
     fontSize: 17,
-    lineHeight: 22,
-  },
+    width: width - Scale(100),
+    textAlign: "center"
+    // lineHeight: 22
+  }
 });
 
 export default HeaderList;
