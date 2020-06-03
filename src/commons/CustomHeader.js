@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between"
   },
   headerTextStyle: {
-    lineHeight: 29,
+    // lineHeight: 29,
     fontSize: Scale(24),
     fontWeight: "bold",
     color: Colors.TextColor
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
   },
   sideText: {
     fontSize: 16,
-    lineHeight: 19,
+    // lineHeight: 19,
     color: Colors.activeBlueColor
   },
   centerTextStyle: {

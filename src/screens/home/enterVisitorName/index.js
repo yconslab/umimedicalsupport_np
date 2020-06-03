@@ -7,6 +7,7 @@ import { Scale } from "../../../helper/HelperFunction";
 import Colors from "../../../constants/Colors";
 import { RadioButton } from "../commons";
 import { setName, setRadioButton } from "../redux/actions";
+import { ScrollView } from "react-native-gesture-handler";
 
 const componentName = ({ navigation }) => {
   const [selectedRadioButton, setselectedRadioButton] = useState(
@@ -39,26 +40,28 @@ const componentName = ({ navigation }) => {
         headerText="방문자의 이름을 입력하세요."
         navigation={navigation}
       />
-      <View style={styles.textInputStyle}>
-        <Text style={styles.textInputHeaderStyle}>방문자 이름</Text>
-        <TextInput
-          placeholderText="실명을 입력해주세요."
-          value={VisitorInformationValue.name}
-          changeText={handleNameChangeInput}
-        />
-      </View>
-      <View style={styles.radioButtonWrapper}>
-        <RadioButton
-          title="대리 접수입니다."
-          selected={VisitorInformationValue.selectedRadioButton}
-          onChangeRadioButton={title => handleRadioButton(title)}
-        />
-        <RadioButton
-          title="본인입니다."
-          selected={VisitorInformationValue.selectedRadioButton}
-          onChangeRadioButton={title => handleRadioButton(title)}
-        />
-      </View>
+      <ScrollView>
+        <View style={styles.textInputStyle}>
+          <Text style={styles.textInputHeaderStyle}>방문자 이름</Text>
+          <TextInput
+            placeholderText="실명을 입력해주세요."
+            value={VisitorInformationValue.name}
+            changeText={handleNameChangeInput}
+          />
+        </View>
+        <View style={styles.radioButtonWrapper}>
+          <RadioButton
+            title="대리 접수입니다."
+            selected={VisitorInformationValue.selectedRadioButton}
+            onChangeRadioButton={title => handleRadioButton(title)}
+          />
+          <RadioButton
+            title="본인입니다."
+            selected={VisitorInformationValue.selectedRadioButton}
+            onChangeRadioButton={title => handleRadioButton(title)}
+          />
+        </View>
+      </ScrollView>
       <View style={styles.footerPosition}>
         <CustomButton
           title="다음"
@@ -92,5 +95,5 @@ const styles = StyleSheet.create({
     marginTop: -20,
     marginHorizontal: Scale(20)
   },
-  footerPosition: { position: "absolute", bottom: 0, left: 0, right: 0 }
+  footerPosition: { position: "absolute", bottom: Scale(20), left: 0, right: 0 }
 });

@@ -85,7 +85,10 @@ const ScheduleHelper = ({ navigation, route }) => {
             <Text style={styles.value}>am {time}</Text>
           </TouchableOpacity>
         </View>
-        <ScrollView showsVerticalScrollIndicator={false}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={styles.scrollViewStyleContainer}
+        >
           {helperList.map(i => {
             return (
               <TouchableOpacity
@@ -139,16 +142,25 @@ const ScheduleHelper = ({ navigation, route }) => {
         </ScrollView>
       </View>
       {showButton && (
-        <CustomButton
-          title="다음"
-          onPress={() => navigation.navigate("VisitorInformatioName")}
-          innerStyle={{ marginHorizontal: Scale(20) }}
-        />
+        <View style={styles.BottomContainer}>
+          <CustomButton
+            title="다음"
+            onPress={() => navigation.navigate("VisitorInformatioName")}
+            innerStyle={{ marginHorizontal: Scale(20) }}
+          />
+        </View>
       )}
     </View>
   );
 };
 const styles = StyleSheet.create({
+  BottomContainer: {
+    marginBottom: Scale(20)
+  },
+  scrollViewStyleContainer: {
+    marginBottom: Scale(20),
+    paddingBottom: Scale(20)
+  },
   starContainer: {
     flexDirection: "row",
     alignItems: "center"

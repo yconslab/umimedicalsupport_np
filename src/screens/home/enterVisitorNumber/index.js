@@ -123,7 +123,12 @@ const VisitorPhonenumber = ({ navigation }) => {
 export default VisitorPhonenumber;
 
 const styles = StyleSheet.create({
-  footerPosition: { position: "absolute", bottom: 0, left: 0, right: 0 },
+  footerPosition: {
+    position: "absolute",
+    bottom: Scale(20),
+    left: 0,
+    right: 0
+  },
   wrapper: {
     flex: 1,
     backgroundColor: Colors.appColor

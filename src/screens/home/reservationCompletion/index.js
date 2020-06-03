@@ -12,7 +12,7 @@ const ReservationComplete = ({ navigation }) => {
   const jumpToAction = TabActions.jumpTo("예약내역");
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={styles.wrapperContainer}>
       <View style={styles.wrapper}>
         <Image source={Images.paymentComplete} />
         <View style={styles.textTitleContainer}>
@@ -58,6 +58,8 @@ const styles = StyleSheet.create({
     marginTop: Scale(20)
   },
   buttonContainer: {
-    marginHorizontal: Scale(20)
-  }
+    marginHorizontal: Scale(20),
+    marginVertical: Scale(20)
+  },
+  wrapperContainer: { flex: 1, backgroundColor: Colors.appColor }
 });

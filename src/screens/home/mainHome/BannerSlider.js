@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.activeColor
   },
   containerInnerStyle: {
-    width: Scale(200),
+    // width: Scale(200),
     height: Scale(100)
   }
 });

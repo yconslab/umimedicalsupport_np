@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     position: "absolute",
-    bottom: 0,
+    bottom: Scale(20),
     left: 0,
     right: 0,
     marginHorizontal: Scale(20)

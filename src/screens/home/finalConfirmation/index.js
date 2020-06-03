@@ -22,7 +22,10 @@ export const FinalConfirmation = ({ navigation, onPressHandleCloseModal }) => {
   return (
     <ScrollView>
       <View style={styles.firstContainerStyle}>
-        <TouchableOpacity onPress={onPressHandleCloseModal}>
+        <TouchableOpacity
+          onPress={onPressHandleCloseModal}
+          style={styles.crossIconStyle}
+        >
           <CrossIcon name="cross" size={Scale(30)} />
         </TouchableOpacity>
         <View style={styles.innerContainer}>
@@ -142,18 +145,25 @@ export const FinalConfirmation = ({ navigation, onPressHandleCloseModal }) => {
         <Text style={styles.lastFooterTextStyle}>
           서비스 당일에는 100%의 취소 수수료가 발생합니다.
         </Text>
-      </View>
-      <View style={{ marginHorizontal: Scale(20) }}>
-        <CustomButton
-          title="예약 확정하기"
-          onPress={() => navigation.navigate("ReservationComplete")}
-        />
+        <View style={styles.footerPosition}>
+          <CustomButton
+            title="예약 확정하기"
+            onPress={() => navigation.navigate("ReservationComplete")}
+          />
+        </View>
       </View>
     </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
+  crossIconStyle: {
+    marginHorizontal: Scale(20)
+  },
+  footerPosition: {
+    marginVertical: Scale(10)
+  },
+
   lastFooterTextStyle: {
     color: "#4040406A"
   },
