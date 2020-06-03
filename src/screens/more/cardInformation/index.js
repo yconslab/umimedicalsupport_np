@@ -3,6 +3,7 @@ import { View, ScrollView } from "react-native";
 import { CustomHeader, CustomButton, TextInput } from "../../../commons";
 import styles from "./style";
 import { CardIOModule, CardIOUtilities } from "react-native-awesome-card-io";
+
 const CardInformation = ({ navigation }) => {
   const [showNumberField, setShowNumberField] = useState(false);
   const [showcvcField, setShowcvcFiled] = useState(false);
@@ -26,7 +27,9 @@ const CardInformation = ({ navigation }) => {
         alert(card.cardNumber);
         setReadCardValue(card.cardNumber);
       })
-      .catch(() => {});
+      .catch(err => {
+        console.log(err);
+      });
   };
   const handlesetShowNumberField = val => {
     setShowNumberField(val);
