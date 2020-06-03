@@ -9,6 +9,7 @@ const CardInformation = ({ navigation }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [showButton, setShowButton] = useState(false);
   const [cardNumber, setCardNumber] = useState("238742389731234");
+  const [headerLine, setHeaderLine] = useState(40);
   useEffect(() => {
     if (Platform.OS === "ios") {
       CardIOUtilities.preload();
@@ -17,10 +18,23 @@ const CardInformation = ({ navigation }) => {
 
   const scanCard = () => {
     CardIOModule.scanCard()
-      .then((card) => {
+      .then(card => {
         alert(card.cardNumber);
       })
       .catch(() => {});
+  };
+  const handlesetShowNumberField = val => {
+    setShowNumberField(val);
+    setHeaderLine(50);
+  };
+
+  const handlesetShowcvcFiled = val => {
+    setShowcvcFiled(val);
+    setHeaderLine(70);
+  };
+  const handlesetShowPassword = val => {
+    setShowPassword(val);
+    setHeaderLine(90);
   };
   return (
     <View style={styles.screen}>
@@ -28,6 +42,7 @@ const CardInformation = ({ navigation }) => {
         headerText="카드 추가"
         showHeaderText
         navigation={navigation}
+        headerLine={headerLine}
       />
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <View style={styles.inputWrap}>
@@ -44,7 +59,7 @@ const CardInformation = ({ navigation }) => {
             <TextInput
               title="CVC"
               placeholderText="카드 뒷면 세자리"
-              onSubmitEditing={() => setShowPassword(true)}
+              onSubmitEditing={() => handlesetShowPassword(true)}
               secureTextEntry={true}
             />
           ) : null}
@@ -52,7 +67,7 @@ const CardInformation = ({ navigation }) => {
             <TextInput
               title="유효기간"
               placeholderText="YYMM"
-              onSubmitEditing={() => setShowcvcFiled(true)}
+              onSubmitEditing={() => handlesetShowcvcFiled(true)}
             />
           ) : null}
           <View style={styles.inputWrapper}>
@@ -61,7 +76,7 @@ const CardInformation = ({ navigation }) => {
                 title="방문자 이름"
                 numeric
                 clearButtonMode="while-editing"
-                onSubmitEditing={() => setShowNumberField(true)}
+                onSubmitEditing={() => handlesetShowNumberField(true)}
               />
             </View>
             <View style={styles.secondInput}>

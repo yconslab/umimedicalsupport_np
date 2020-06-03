@@ -11,15 +11,10 @@ const Card = ({ cardStyle, navigation }) => {
         <View
           style={{
             flex: 1,
-            justifyContent: "center",
+            justifyContent: "center"
           }}
         >
-          <View style={styles.cardLogoWrap}>
-            {/* <Image
-                source={Images.cardLogo}
-                style={{height: '100%', width: '100%'}}
-              /> */}
-          </View>
+          <View style={styles.cardLogoWrap}></View>
         </View>
 
         <View style={styles.cardChipWrap}>

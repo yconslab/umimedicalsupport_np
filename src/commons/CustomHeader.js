@@ -30,6 +30,7 @@ const MyLeftComponent = ({ navigation, cross }) => {
     </TouchableOpacity>
   );
 };
+
 const HeaderList = ({
   navigation,
   showBackIcon,
@@ -39,25 +40,41 @@ const HeaderList = ({
   leftComponent,
   sideText,
   cross,
-  sideNavigation
+  sideNavigation,
+  headerLine
 }) => {
   return (
-    <View style={styles.headerMainWrapper}>
-      <Header
-        containerStyle={styles.headerWrapper}
-        leftComponent={
-          <MyLeftComponent navigation={navigation} cross={cross} />
-        }
-        centerComponent={
-          <Text style={styles.centerTextStyle}>{centerText}</Text>
-        }
-        rightComponent={rightComponent}
-      />
-      <View style={styles.headerTextWrap}>
-        <Text style={styles.headerTextStyle}>{headerText}</Text>
-        <TouchableOpacity onPress={() => navigation.navigate(sideNavigation)}>
-          {sideText && <Text style={styles.sideText}>{sideText}</Text>}
-        </TouchableOpacity>
+    <View>
+      {headerLine && (
+        <View
+          style={{
+            height: 1,
+            backgroundColor: Colors.activeBlueColor,
+            position: "absolute",
+
+            top: 20,
+            width: `${headerLine}%`,
+            zIndex: 1
+          }}
+        />
+      )}
+      <View style={styles.headerMainWrapper}>
+        <Header
+          containerStyle={styles.headerWrapper}
+          leftComponent={
+            <MyLeftComponent navigation={navigation} cross={cross} />
+          }
+          centerComponent={
+            <Text style={styles.centerTextStyle}>{centerText}</Text>
+          }
+          rightComponent={rightComponent}
+        />
+        <View style={styles.headerTextWrap}>
+          <Text style={styles.headerTextStyle}>{headerText}</Text>
+          <TouchableOpacity onPress={() => navigation.navigate(sideNavigation)}>
+            {sideText && <Text style={styles.sideText}>{sideText}</Text>}
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
@@ -100,6 +117,10 @@ const styles = StyleSheet.create({
     width: width - Scale(100),
     textAlign: "center"
     // lineHeight: 22
+  },
+  widthContainer: {
+    backgroundColor: Colors.activeColor,
+    height: 1
   }
 });
 

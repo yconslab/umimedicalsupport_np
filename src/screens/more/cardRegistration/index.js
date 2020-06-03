@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, Image, ScrollView } from "react-native";
 
-import { CheckBox, Button } from "react-native-elements";
+import { CheckBox, Button, Header } from "react-native-elements";
 import images from "../../../images";
 import { CustomHeader, CustomButton } from "../../../commons";
 import styles from "./style";
@@ -35,7 +35,7 @@ const TitleText = ({ title1, title2, title3, flexd, textStyle }) => {
       <Text
         style={{
           ...styles.title1,
-          ...textStyle,
+          ...textStyle
         }}
       >
         {title1}
@@ -50,7 +50,7 @@ const CardRegistration = ({ navigation }) => {
   const [check1, setCheck1] = useState(false);
   const [check3, setCheck3] = useState(false);
 
-  const handleFirstCheckBox = (val) => {
+  const handleFirstCheckBox = val => {
     if (val === true) {
       setCheck1(true);
 
@@ -61,7 +61,7 @@ const CardRegistration = ({ navigation }) => {
       setCheck3(false);
     }
   };
-  const handleUncheckForThird = (val) => {
+  const handleUncheckForThird = val => {
     setCheck3(val);
     if (val == false && !check3) {
       setCheck1(false);
@@ -72,7 +72,11 @@ const CardRegistration = ({ navigation }) => {
   };
   return (
     <View style={styles.screen}>
-      <CustomHeader headerText="카드 추가" navigation={navigation} />
+      <CustomHeader
+        headerText="카드 추가"
+        navigation={navigation}
+        headerLine={20}
+      />
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <View style={styles.contentTopMargin}>
           <CheckBoxWrapper>
