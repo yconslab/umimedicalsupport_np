@@ -5,6 +5,9 @@ import { CustomButton, CustomHeader, ProfileImageWrap } from "../../../commons";
 import { Input } from "react-native-elements";
 //reusable components
 import styles from "./style";
+import MoreStack from "../../more";
+import FAQList from "../../more/listFAQ";
+import FAQContents from "../../more/contentsFAQ";
 const MidLine = ({ lineStyle }) => {
   return <View style={{ ...lineStyle, ...styles.midlineStyle }} />;
 };
@@ -15,13 +18,16 @@ const TitleBox = ({
   title1Style,
   title2Style,
   navTitle,
-  navigation
+  navigation,
+  navStack,
 }) => {
   return (
     <View style={styles.titleBox}>
       <Text style={{ ...styles.title1, ...title1Style }}>{title1}</Text>
       {navTitle ? (
-        <TouchableOpacity onPress={() => navigation.navigate(navTitle)}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate(navStack, { screen: navTitle })}
+        >
           <Text style={{ ...styles.title2, ...title2Style }}>{title2}</Text>
         </TouchableOpacity>
       ) : (
@@ -77,7 +83,7 @@ const ReservationInformation = ({ navigation }) => {
           <ProfileImageWrap
             source={{
               uri:
-                "https://www.awesomegreece.com/wp-content/uploads/2018/10/default-user-image.png"
+                "https://www.awesomegreece.com/wp-content/uploads/2018/10/default-user-image.png",
             }}
             imageStyle={styles.imageStyle}
             title1="소중한 고객님을 안내해드릴파트너를 "
@@ -93,6 +99,7 @@ const ReservationInformation = ({ navigation }) => {
             title2="예약변경"
             navigation={navigation}
             navTitle="DateSchedule"
+            navStack="HomeStack"
           />
           <Text style={styles.normalText}>세브란스 병원</Text>
           <Text style={styles.normalText}>2020년 1월 10일(월) 오후 2시</Text>
@@ -109,7 +116,7 @@ const ReservationInformation = ({ navigation }) => {
           <Text
             style={{
               ...styles.normalText,
-              ...styles.normalTextExtra
+              ...styles.normalTextExtra,
             }}
           >
             선택하신 서비스가 없습니다.
@@ -124,10 +131,11 @@ const ReservationInformation = ({ navigation }) => {
             title2="수정"
             navigation={navigation}
             navTitle="AdditionalInformation"
+            navStack="HomeStack"
           />
           <Text
             style={{
-              ...styles.normalText
+              ...styles.normalText,
             }}
           >
             어머니께서 귀가 어두우십니다. 친절하게 안내 부탁드
@@ -136,7 +144,7 @@ const ReservationInformation = ({ navigation }) => {
             style={{
               ...styles.normalText,
 
-              ...styles.marginBottom_20
+              ...styles.marginBottom_20,
             }}
           >
             립니다.
@@ -150,6 +158,7 @@ const ReservationInformation = ({ navigation }) => {
             title2="수정"
             navigation={navigation}
             navTitle="VisitorInformatioName"
+            navStack="HomeStack"
           />
           <TextBox label="방문자 전화번호" value="01055048441" />
           <TextBox label="방문자 이름" value="윤정탁" />
@@ -173,6 +182,7 @@ const ReservationInformation = ({ navigation }) => {
             title2="결제카드 변경"
             navigation={navigation}
             navTitle="PaymentCard"
+            navStack="MoreStack"
           />
           <TitleBox
             title1="결제예정금액"
@@ -193,14 +203,14 @@ const ReservationInformation = ({ navigation }) => {
         <MidLine lineStyle={styles.height_21} />
         <TouchableOpacity
           style={styles.commonMargin}
-          onPress={() => navigation.navigate("FAQList")}
+          onPress={() => navigation.navigate(MoreStack, { screen: FAQList })}
         >
           <CircleBox title="주의 사항" />
         </TouchableOpacity>
         <MidLine lineStyle={styles.height_1} />
         <TouchableOpacity
           style={styles.commonMargin}
-          onPress={() => navigation.navigate("FAQList")}
+          onPress={() => navigation.navigate(MoreStack, { screen: FAQList })}
         >
           <CircleBox title="자주 묻는 질문" />
         </TouchableOpacity>
@@ -211,9 +221,9 @@ const ReservationInformation = ({ navigation }) => {
       <View style={styles.commonMargin}>
         <CustomButton
           title="문의하기"
-          onPress={() => {
-            navigation.navigate("EnterName");
-          }}
+          onPress={() =>
+            navigation.navigate(MoreStack, { screen: FAQContents })
+          }
           innerStyle={styles.innerStyle}
         />
       </View>
