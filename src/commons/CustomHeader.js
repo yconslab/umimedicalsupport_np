@@ -46,17 +46,7 @@ const HeaderList = ({
   return (
     <View>
       {headerLine && (
-        <View
-          style={{
-            height: 1,
-            backgroundColor: Colors.activeBlueColor,
-            position: "absolute",
-
-            top: 20,
-            width: `${headerLine}%`,
-            zIndex: 1
-          }}
-        />
+        <View style={{ ...styles.headerLineStyle, width: `${headerLine}%` }} />
       )}
       <View style={styles.headerMainWrapper}>
         <Header
@@ -81,6 +71,14 @@ const HeaderList = ({
 };
 
 const styles = StyleSheet.create({
+  headerLineStyle: {
+    height: 1,
+    backgroundColor: Colors.activeBlueColor,
+    position: "absolute",
+    top: Platform.OS === "android" ? 20 : 40,
+
+    zIndex: 1
+  },
   headerWrapper: {
     paddingHorizontal: 3,
     backgroundColor: Colors.appColor

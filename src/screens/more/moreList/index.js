@@ -33,7 +33,7 @@ const ListBox = ({ title, navigation, navigationTitle }) => {
 const MoreList = ({ navigation }) => {
   return (
     <View style={styles.screen}>
-      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+      <View style={{ flex: 1 }}>
         <View style={styles.profileWrapper}>
           <ProfileImageWrap
             source={Images.profileImage}
@@ -47,7 +47,7 @@ const MoreList = ({ navigation }) => {
         <View style={styles.listWrapper}>
           <FlatList
             data={data}
-            keyExtractor={item => item.id}
+            keyExtractor={item => item.id.toString()}
             renderItem={itemData => (
               <ListBox
                 title={itemData.item.title}
@@ -57,7 +57,7 @@ const MoreList = ({ navigation }) => {
             )}
           />
         </View>
-      </ScrollView>
+      </View>
     </View>
   );
 };

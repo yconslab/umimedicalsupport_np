@@ -4,7 +4,7 @@ import {
   Text,
   TouchableOpacity,
   FlatList,
-  ScrollView,
+  ScrollView
 } from "react-native";
 import { CustomHeader, CustomButton } from "../../../commons";
 import Images from "../../../images";
@@ -15,14 +15,14 @@ const data = [
     id: 1,
     title: "윤정택",
     contactNumber: "01045844821",
-    navigationTitle: "EnterPatientInformation",
+    navigationTitle: "EnterPatientInformation"
   },
   {
     id: 2,
     title: "박춘자",
     contactNumber: "01012938287",
-    navigationTitle: "EnterPatientInformation",
-  },
+    navigationTitle: "EnterPatientInformation"
+  }
 ];
 
 //reusable component
@@ -46,12 +46,12 @@ const PatientInformation = ({ navigation }) => {
         showHeaderText
         navigation={navigation}
       />
-      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+      <View style={{ flexGrow: 1 }}>
         <View style={styles.listWrapper}>
           <FlatList
             data={data}
-            keyExtractor={(item) => item.id}
-            renderItem={(itemData) => (
+            keyExtractor={item => item.id.toString()}
+            renderItem={itemData => (
               <ListBox
                 title={itemData.item.title}
                 navigation={navigation}
@@ -61,7 +61,7 @@ const PatientInformation = ({ navigation }) => {
             )}
           />
         </View>
-      </ScrollView>
+      </View>
       <View style={styles.buttonWrap}>
         <CustomButton
           title="새 환자 등록"

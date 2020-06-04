@@ -11,6 +11,7 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 import Colors from "../../../constants";
 import { CustomButton, CustomHeader } from "../../../commons";
 import { ReservationModal } from "../commons";
+import { Scale } from "../../../helper/HelperFunction";
 const data = [
   {
     id: 1,
@@ -86,23 +87,20 @@ const HospitalSelection = ({ navigation }) => {
         navigation={navigation}
       />
 
-      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-        <View style={{ marginHorizontal: 20 }}>
-          <FlatList
-            style={styles.flatlistStyle}
-            data={data}
-            keyExtractor={item => item.id}
-            renderItem={itemData => (
-              <ListItem
-                title={itemData.item.name}
-                navigation={navigation}
-                onHandlesetSelectedHospital={val => setSelectedHospital(val)}
-                selectedHospital={selectedHospital}
-              />
-            )}
+      <FlatList
+        style={styles.flatlistStyle}
+        data={data}
+        keyExtractor={item => item.id.toString()}
+        renderItem={itemData => (
+          <ListItem
+            title={itemData.item.name}
+            navigation={navigation}
+            onHandlesetSelectedHospital={val => setSelectedHospital(val)}
+            selectedHospital={selectedHospital}
           />
-        </View>
-      </ScrollView>
+        )}
+      />
+
       <ReservationModal
         showReservationModal={showReservationModal}
         toggleOverlay={() => handletoggleOverlay()}
@@ -140,6 +138,10 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#FFFFFF"
   },
-  flatlistStyle: { marginTop: 16, backgroundColor: "#FFFFFF" }
+  flatlistStyle: {
+    marginTop: Scale(20),
+    backgroundColor: "#FFFFFF",
+    marginHorizontal: Scale(20)
+  }
 });
 export default HospitalSelection;

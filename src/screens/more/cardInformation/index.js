@@ -3,6 +3,7 @@ import { View, ScrollView } from "react-native";
 import { CustomHeader, CustomButton, TextInput } from "../../../commons";
 import styles from "./style";
 import { CardIOModule, CardIOUtilities } from "react-native-awesome-card-io";
+
 const CardInformation = ({ navigation }) => {
   const [showNumberField, setShowNumberField] = useState(false);
   const [showcvcField, setShowcvcFiled] = useState(false);
@@ -10,6 +11,10 @@ const CardInformation = ({ navigation }) => {
   const [showButton, setShowButton] = useState(false);
   const [cardNumber, setCardNumber] = useState("238742389731234");
   const [headerLine, setHeaderLine] = useState(40);
+
+  //
+  const [readCardValue, setReadCardValue] = useState("");
+
   useEffect(() => {
     if (Platform.OS === "ios") {
       CardIOUtilities.preload();
@@ -20,8 +25,11 @@ const CardInformation = ({ navigation }) => {
     CardIOModule.scanCard()
       .then(card => {
         alert(card.cardNumber);
+        setReadCardValue(card.cardNumber);
       })
-      .catch(() => {});
+      .catch(err => {
+        console.log(err);
+      });
   };
   const handlesetShowNumberField = val => {
     setShowNumberField(val);
@@ -76,6 +84,7 @@ const CardInformation = ({ navigation }) => {
                 title="방문자 이름"
                 numeric
                 clearButtonMode="while-editing"
+                value={readCardValue}
                 onSubmitEditing={() => handlesetShowNumberField(true)}
               />
             </View>
