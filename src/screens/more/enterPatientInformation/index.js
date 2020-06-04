@@ -7,7 +7,24 @@ import styles from "./style";
 const EnterPatientInformation = ({ navigation }) => {
   const [input, setInput] = useState("");
   const [inputState, setInputState] = useState(false);
-  const [showNumberField, setShowNumberField] = useState(false);
+  const [secondInput, setSecondInput] = useState("");
+  const [showbutton, setShowButton] = useState(false);
+  const handleSetFirstTextBox = value => {
+    setInput(value);
+    if (value.length > 4) {
+      setInputState(true);
+    } else {
+      setInputState(false);
+    }
+  };
+  const handleInputSecondText = val => {
+    setSecondInput(val);
+    if (val.length > 4 && inputState) {
+      setShowButton(true);
+    } else {
+      setShowButton(false);
+    }
+  };
   return (
     <View style={styles.screen}>
       <CustomHeader
@@ -17,43 +34,27 @@ const EnterPatientInformation = ({ navigation }) => {
       />
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <View style={styles.inputWrap}>
-          {showNumberField ? (
+          {inputState && (
             <TextInput
               title="방문자 휴대폰 번호"
               placeholderText="실제 연락이 가능해야 합니다."
+              changeText={val => handleInputSecondText(val)}
+              value={secondInput}
             />
-          ) : null}
+          )}
 
           <TextInput
             title="방문자 이름"
-            changeText={(value) => {
-              setInput(value);
-              // console.log(value, inputState);
-              if (value.length > 4) {
-                setInputState(true);
-              } else {
-                setInputState(false);
-              }
-            }}
+            changeText={value => handleSetFirstTextBox(value)}
             value={input}
           />
         </View>
       </ScrollView>
       <View style={styles.buttonWrap}>
-        {showNumberField ? (
-          <CustomButton title="등록하기" innerStyle={styles.innerStyle} />
-        ) : (
-          <CustomButton
-            title="다음"
-            onPress={() => setShowNumberField(true)}
-            innerStyle={
-              inputState === true && input.length > 0
-                ? styles.innerStyle1
-                : styles.innerStyle2
-            }
-            disabled={inputState === false && input.length <= 4}
-          />
-        )}
+        <CustomButton
+          title={showbutton ? "등록하기" : "다음"}
+          disabled={showbutton ? false : true}
+        />
       </View>
     </View>
   );

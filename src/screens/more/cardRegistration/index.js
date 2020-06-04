@@ -53,20 +53,20 @@ const CardRegistration = ({ navigation }) => {
   const handleFirstCheckBox = val => {
     if (val === true) {
       setCheck1(true);
-
       setCheck3(true);
     } else if (val === false) {
-      setCheck1(false);
       setCheck1(false);
       setCheck3(false);
     }
   };
   const handleUncheckForThird = val => {
     setCheck3(val);
-    if (val == false && !check3) {
+    if (val == false) {
+      setCheck1(false);
       setCheck1(false);
     }
-    if (val == true && check3) {
+    if (val == true) {
+      setCheck1(true);
       setCheck1(true);
     }
   };
@@ -120,16 +120,6 @@ const CardRegistration = ({ navigation }) => {
       <View style={styles.btnWrap}>
         <CustomButton
           title="다음"
-          innerStyle={
-            check1 === true && check3 == true
-              ? styles.innerStyle1
-              : styles.innerStyle2
-          }
-          innerTextStyle={
-            check1 === true && check3 == true
-              ? styles.innerTextStyle1
-              : styles.innerTextStyle2
-          }
           disabled={!check1 && !check3}
           onPress={() => navigation.navigate("CardInformation")}
         />
