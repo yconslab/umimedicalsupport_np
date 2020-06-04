@@ -60,7 +60,8 @@ const styles = StyleSheet.create({
   },
   bannerStyle: {
     height: height,
-    width: width
+    width: width,
+    flex: 1
   },
   containerWrapper: {
     paddingVertical: Scale(130),

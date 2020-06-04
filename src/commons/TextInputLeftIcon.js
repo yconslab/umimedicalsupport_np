@@ -14,10 +14,8 @@ const LeftIcon = () => {
 const styles = StyleSheet.create({
   textBoxWrapper: {
     flexDirection: "row",
-    // justifyContent: 'flex-start',
     alignItems: "center",
-    // backgroundColor: 'red',
-    alignSelf: "flex-start",
-  },
+    alignSelf: "flex-start"
+  }
 });
 export default LeftIcon;

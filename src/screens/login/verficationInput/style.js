@@ -37,7 +37,6 @@ export default StyleSheet.create({
   },
   bottomTextWrap: {
     flex: 1,
-    // backgroundColor:'red',
     flexDirection: "row",
     justifyContent: "space-between",
     marginHorizontal: 30,
@@ -48,11 +47,8 @@ export default StyleSheet.create({
   },
   errorBox: {
     flex: 3,
-    // backgroundColor:'red',
-    // flexDirection: "row",
-    // justifyContent: "space-between",
+
     width: 200,
-    // marginVertical: 20,
     marginHorizontal: 30,
     alignItems: "center",
     width: "80%"

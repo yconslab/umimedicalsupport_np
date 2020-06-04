@@ -13,6 +13,7 @@ const DisplayStar = ({ count = 5 }) => {
         color={Colors.activeColor}
         size={Scale(15)}
         style={{ marginLeft: Scale(3) }}
+        key={i}
       />
     );
   }

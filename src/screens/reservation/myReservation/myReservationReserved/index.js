@@ -7,21 +7,21 @@ const data = [
     id: 1,
     serviceTitle: "의료도우미 서비스",
     dateTime: "2020년 1월 10일(월) 오후 2시",
-    matchStatus: "서비스완료",
+    matchStatus: "서비스완료"
   },
   {
     id: 2,
     serviceTitle: "의료도우미 서비스",
     dateTime: "2020년 1월 10일(월) 오후 2시",
-    matchStatus: "예약취소",
+    matchStatus: "예약취소"
   },
 
   {
     id: 3,
     serviceTitle: "의료도우미 서비스",
     dateTime: "2020년 1월 10일(월) 오후 2시",
-    matchStatus: "예약취소",
-  },
+    matchStatus: "예약취소"
+  }
 ];
 
 const CompletedReservationList = ({ serviceTitle, dateTime, matchStatus }) => {
@@ -46,8 +46,8 @@ const MyReservationReserved = ({ navigation }) => {
     <View style={styles.screen}>
       <FlatList
         data={data}
-        keyExtractor={(item) => item.id}
-        renderItem={(itemData) => (
+        keyExtractor={item => item.id.toString()}
+        renderItem={itemData => (
           <CompletedReservationList
             serviceTitle={itemData.item.serviceTitle}
             dateTime={itemData.item.dateTime}

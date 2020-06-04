@@ -61,7 +61,7 @@ const NotificationPage = ({ navigation }) => {
       <View style={{ marginTop: Scale(20) }}>
         <FlatList
           data={data}
-          keyExtractor={item => item.id}
+          keyExtractor={item => item.id.toString()}
           renderItem={itemData => (
             <ListItem
               title={itemData.item.title}

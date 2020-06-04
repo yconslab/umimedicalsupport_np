@@ -8,7 +8,7 @@ import styles from "./style";
 const data = [
   { id: 1, title: "로그인이 되지 않아요" },
   { id: 1, title: "질문1" },
-  { id: 1, title: "질문2" },
+  { id: 1, title: "질문2" }
 ];
 
 //reusable components
@@ -42,17 +42,17 @@ const FAQList = ({ navigation }) => {
         cross
         navigation={navigation}
       />
-      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+      <View style={{ flexGrow: 1 }}>
         <View style={styles.listWrap}>
           <FlatList
             data={data}
-            keyExtractor={(item) => item.id}
-            renderItem={(itemData) => (
+            keyExtractor={item => item.id.toString()}
+            renderItem={itemData => (
               <ListBox title={itemData.item.title} navigation={navigation} />
             )}
           />
         </View>
-      </ScrollView>
+      </View>
     </View>
   );
 };
