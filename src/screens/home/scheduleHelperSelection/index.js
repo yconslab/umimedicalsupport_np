@@ -6,7 +6,7 @@ import {
   StyleSheet,
   ScrollView,
   Image,
-  Dimensions
+  Dimensions,
 } from "react-native";
 import { CustomHeader, CustomButton } from "../../../commons";
 import { DateConversionWithDot, DisplayStar } from "../commons";
@@ -25,7 +25,7 @@ const helperList = [
     desc:
       "연세대학교 15학번 간호학과 이유미입니다. 최선을 다해 안내해드리겠습니다!",
 
-    icon: Images.helperNurse
+    icon: Images.helperNurse,
   },
   {
     id: 2,
@@ -34,7 +34,7 @@ const helperList = [
     loc: "서울 마포구 연희동",
     star: 9.5,
     desc: "제 부모님을 모신다는 마음을 가지고 최선을 다해 모시겠습니다.",
-    icon: Images.helperNurse
+    icon: Images.helperNurse,
   },
   {
     id: 3,
@@ -43,8 +43,8 @@ const helperList = [
     loc: "서울 마포구 연희동",
     star: 9.5,
     desc: "제 부모님을 모신다는 마음을 가지고 최선을 다해 모시겠습니다.",
-    icon: Images.helperNurse
-  }
+    icon: Images.helperNurse,
+  },
 ];
 
 const ScheduleHelper = ({ navigation, route }) => {
@@ -54,12 +54,12 @@ const ScheduleHelper = ({ navigation, route }) => {
   const { dateString } = route.params.dateString;
   const { time } = route.params;
 
-  const handleSelectedHelper = id => {
+  const handleSelectedHelper = (id) => {
     setSelectedHelper(id);
     setShowButton(true);
   };
   return (
-    <View style={{ flex: 1, backgroundColor: "#FFFFFF" }}>
+    <View style={styles.parentWrapper}>
       <CustomHeader
         headerText="우미 서포터를 선택해주세요."
         navigation={navigation}
@@ -89,11 +89,11 @@ const ScheduleHelper = ({ navigation, route }) => {
           showsVerticalScrollIndicator={false}
           contentContainerStyle={styles.scrollViewStyleContainer}
         >
-          {helperList.map(i => {
+          {helperList.map((i) => {
             return (
               <TouchableOpacity
                 key={i.id}
-                onPress={id => handleSelectedHelper(i.id)}
+                onPress={(id) => handleSelectedHelper(i.id)}
               >
                 <View
                   style={
@@ -102,9 +102,9 @@ const ScheduleHelper = ({ navigation, route }) => {
                         ? {
                             borderColor: Colors.activeColor,
                             borderWidth: 1,
-                            ...styles.helperListWrapper
+                            ...styles.helperListWrapper,
                           }
-                        : styles.helperListWrapper
+                        : styles.helperListWrapper,
                     ]
                     // styles.helperListWrapper)
                   }
@@ -112,12 +112,7 @@ const ScheduleHelper = ({ navigation, route }) => {
                   <View style={styles.imageContainer}>
                     <Image source={i.icon} />
                   </View>
-                  <View
-                    style={{
-                      flex: 1,
-                      justifyContent: "space-between"
-                    }}
-                  >
+                  <View style={styles.containerStyle}>
                     <View style={styles.test}>
                       <Text style={styles.helperNameStyle}>{i.name}</Text>
                       <View style={styles.certificateStyle}>
@@ -146,7 +141,7 @@ const ScheduleHelper = ({ navigation, route }) => {
           <CustomButton
             title="다음"
             onPress={() => navigation.navigate("VisitorInformatioName")}
-            innerStyle={{ marginHorizontal: Scale(20) }}
+            innerStyle={styles.buttonInnerStyle}
           />
         </View>
       )}
@@ -154,51 +149,57 @@ const ScheduleHelper = ({ navigation, route }) => {
   );
 };
 const styles = StyleSheet.create({
+  buttonInnerStyle: { marginHorizontal: Scale(20) },
+  parentWrapper: { flex: 1, backgroundColor: "#FFFFFF" },
+  containerStyle: {
+    flex: 1,
+    justifyContent: "space-between",
+  },
   BottomContainer: {
-    marginBottom: Scale(20)
+    marginBottom: Scale(20),
   },
   scrollViewStyleContainer: {
     marginBottom: Scale(20),
-    paddingBottom: Scale(20)
+    paddingBottom: Scale(20),
   },
   starContainer: {
     flexDirection: "row",
-    alignItems: "center"
+    alignItems: "center",
   },
   loctaion: {
     color: Colors.bannerTextColor,
-    fontSize: Scale(10)
+    fontSize: Scale(10),
   },
   certificateTextStyle: {
-    color: Colors.activeColor
+    color: Colors.activeColor,
   },
   certificateStyle: {
     paddingHorizontal: Scale(10),
     paddingVertical: Scale(5),
     borderRadius: Scale(10),
     backgroundColor: "#ECF3FD",
-    marginLeft: Scale(15)
+    marginLeft: Scale(15),
   },
   test: {
     flexDirection: "row",
     alignItems: "center",
-    marginBottom: Scale(5)
+    marginBottom: Scale(5),
   },
   starStyles: {
     color: Colors.activeColor,
     marginVertical: Scale(10),
     fontWeight: "bold",
-    fontSize: Scale(14)
+    fontSize: Scale(14),
   },
 
   helperNameStyle: {
     fontSize: Scale(14),
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
   topWrapper: {
     elevation: 5,
     marginVertical: Scale(10),
-    justifyContent: "center"
+    justifyContent: "center",
   },
   helperListWrapper: {
     flexDirection: "row",
@@ -207,7 +208,7 @@ const styles = StyleSheet.create({
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
-      height: 2
+      height: 2,
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
@@ -218,26 +219,26 @@ const styles = StyleSheet.create({
     borderRadius: Scale(6),
     // width: width - 50,
     padding: Scale(15),
-    marginHorizontal: Scale(5)
+    marginHorizontal: Scale(5),
   },
   imageContainer: {
     height: Scale(64),
     width: Scale(64),
     borderRadius: Scale(5),
     overflow: "hidden",
-    marginRight: Scale(10)
+    marginRight: Scale(10),
   },
   firstComponentWrapper: {
-    flexDirection: "row"
+    flexDirection: "row",
   },
 
   wrapper: {
     flex: 1,
-    paddingHorizontal: Scale(20)
+    paddingHorizontal: Scale(20),
   },
   middleContent: {
     height: "15%",
-    backgroundColor: "grey"
+    backgroundColor: "grey",
   },
   firstbox: {
     height: 56,
@@ -246,31 +247,31 @@ const styles = StyleSheet.create({
     borderBottomColor: "#00000014",
     flexDirection: "row",
     justifyContent: "space-between",
-    alignItems: "center"
+    alignItems: "center",
   },
   lastBox: {
     height: 56,
     width: "100%",
     flexDirection: "row",
     justifyContent: "space-between",
-    alignItems: "center"
+    alignItems: "center",
   },
   value: {
     color: "#4086F0",
-    fontSize: Scale(16)
+    fontSize: Scale(16),
   },
   headerTextStyle: {
     fontSize: Scale(16),
     marginVertical: Scale(10),
-    color: Colors.homeBannerBigText
+    color: Colors.homeBannerBigText,
   },
   textStyle: {
-    fontSize: Scale(16)
+    fontSize: Scale(16),
   },
   descriptionStyle: {
     fontSize: Scale(10),
-    color: "#404040"
-  }
+    color: "#404040",
+  },
 });
 
 export default ScheduleHelper;

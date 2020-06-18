@@ -11,7 +11,7 @@ import {
   setName,
   setRadioButton,
   setPhoneNumber,
-  setCheckbox
+  setCheckbox,
 } from "../redux/actions";
 import { CheckBox } from "react-native-elements";
 
@@ -25,15 +25,15 @@ const VisitorPhonenumber = ({ navigation }) => {
   const [ph, setph] = useState("");
 
   const VisitorInformationValue = useSelector(
-    state => state.VisitorInformation
+    (state) => state.VisitorInformation
   );
   const dispatch = useDispatch();
-  const handleRadioButton = vale => {
+  const handleRadioButton = (vale) => {
     dispatch(setRadioButton(vale));
 
     setselectedRadioButton(vale);
   };
-  const handleNameChangeInput = text => {
+  const handleNameChangeInput = (text) => {
     dispatch(setName(text));
     setname(text);
     // if (name.length > 4) {
@@ -42,7 +42,7 @@ const VisitorPhonenumber = ({ navigation }) => {
     //   setDisableButton(true);
     // }
   };
-  const handleChangeNumber = val => {
+  const handleChangeNumber = (val) => {
     dispatch(setPhoneNumber(val));
     if (val.length > 4) {
       return setDisableButton(false);
@@ -50,7 +50,7 @@ const VisitorPhonenumber = ({ navigation }) => {
       setDisableButton(true);
     }
   };
-  const handleCheckedBox = val => {
+  const handleCheckedBox = (val) => {
     dispatch(setCheckbox(!val));
   };
   return (
@@ -70,12 +70,7 @@ const VisitorPhonenumber = ({ navigation }) => {
         <View style={styles.checkboxWrapper}>
           <CheckBox
             title="안심번호 사용"
-            containerStyle={{
-              backgroundColor: Colors.appColor,
-              borderWidth: 0,
-              margin: 0,
-              padding: 0
-            }}
+            containerStyle={styles.checkboxStyle}
             checkedIcon={
               <CheckIcons
                 name="md-checkbox"
@@ -100,12 +95,12 @@ const VisitorPhonenumber = ({ navigation }) => {
         <RadioButton
           title="대리 접수입니다."
           selected={VisitorInformationValue.selectedRadioButton}
-          onChangeRadioButton={title => handleRadioButton(title)}
+          onChangeRadioButton={(title) => handleRadioButton(title)}
         />
         <RadioButton
           title="본인입니다."
           selected={VisitorInformationValue.selectedRadioButton}
-          onChangeRadioButton={title => handleRadioButton(title)}
+          onChangeRadioButton={(title) => handleRadioButton(title)}
         />
       </View>
       <View style={styles.footerPosition}>
@@ -123,38 +118,44 @@ const VisitorPhonenumber = ({ navigation }) => {
 export default VisitorPhonenumber;
 
 const styles = StyleSheet.create({
+  checkboxStyle: {
+    backgroundColor: Colors.appColor,
+    borderWidth: 0,
+    margin: 0,
+    padding: 0,
+  },
   footerPosition: {
     position: "absolute",
     bottom: Scale(20),
     left: 0,
-    right: 0
+    right: 0,
   },
   wrapper: {
     flex: 1,
-    backgroundColor: Colors.appColor
+    backgroundColor: Colors.appColor,
   },
   textInputStyle: {
     marginHorizontal: Scale(20),
     // marginVertical: Scale(20)
-    marginTop: Scale(30)
+    marginTop: Scale(30),
   },
   textInputHeaderStyle: {
     fontSize: Scale(13),
     color: "#A7A7A7",
     fontWeight: "bold",
-    marginLeft: Scale(10)
+    marginLeft: Scale(10),
   },
   radioButtonWrapper: {
     flexDirection: "row",
     marginTop: Scale(-10),
-    marginHorizontal: Scale(20)
+    marginHorizontal: Scale(20),
     // backgroundColor: "red"
   },
   checkboxWrapper: {
-    marginTop: Scale(-30)
+    marginTop: Scale(-30),
   },
   NumberStyleContainer: {
     marginHorizontal: Scale(20),
-    marginTop: Scale(30)
-  }
+    marginTop: Scale(30),
+  },
 });
