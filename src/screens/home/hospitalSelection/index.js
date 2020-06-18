@@ -4,7 +4,7 @@ import {
   View,
   StyleSheet,
   ScrollView,
-  TouchableOpacity
+  TouchableOpacity,
 } from "react-native";
 import CheckBox from "react-native-check-box";
 import Icon from "react-native-vector-icons/MaterialIcons";
@@ -15,31 +15,31 @@ import { Scale } from "../../../helper/HelperFunction";
 const data = [
   {
     id: 1,
-    name: "연세 세브란스"
+    name: "연세 세브란스",
   },
   {
     id: 2,
-    name: "연세 암병원"
+    name: "연세 암병원",
   },
   {
     id: 3,
-    name: "재활병원"
+    name: "재활병원",
   },
   {
     id: 4,
-    name: "심혈관병원"
+    name: "심혈관병원",
   },
   { id: 5, name: "안과병원" },
   {
     id: 6,
-    name: "어린이병원"
-  }
+    name: "어린이병원",
+  },
 ];
 const ListItem = ({
   title,
   navigation,
   onHandlesetSelectedHospital,
-  selectedHospital
+  selectedHospital,
 }) => {
   return (
     <View style={styles.product}>
@@ -48,18 +48,8 @@ const ListItem = ({
           leftText={title}
           leftTextStyle={
             selectedHospital === title
-              ? {
-                  color: "#4388F0",
-                  fontSize: 16,
-                  marginVertical: 20,
-                  lineHeight: 19
-                }
-              : {
-                  color: "#404040",
-                  fontSize: 16,
-                  marginVertical: 20,
-                  lineHeight: 19
-                }
+              ? styles.selectedHospitalStyle
+              : styles.unSelectHosipitalStyle
           }
           onClick={() => {
             onHandlesetSelectedHospital(title);
@@ -90,12 +80,12 @@ const HospitalSelection = ({ navigation }) => {
       <FlatList
         style={styles.flatlistStyle}
         data={data}
-        keyExtractor={item => item.id.toString()}
-        renderItem={itemData => (
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={(itemData) => (
           <ListItem
             title={itemData.item.name}
             navigation={navigation}
-            onHandlesetSelectedHospital={val => setSelectedHospital(val)}
+            onHandlesetSelectedHospital={(val) => setSelectedHospital(val)}
             selectedHospital={selectedHospital}
           />
         )}
@@ -120,28 +110,40 @@ const HospitalSelection = ({ navigation }) => {
 const styles = StyleSheet.create({
   middleContent: {
     height: "15%",
-    backgroundColor: "grey"
+    backgroundColor: "grey",
   },
   product: {
     borderBottomWidth: 1,
     borderBottomColor: "#D1D1D1",
-    height: "auto"
+    height: "auto",
   },
   title: {
     fontSize: 18,
-    marginVertical: 15
+    marginVertical: 15,
   },
   buttonStyle: {
-    margin: 20
+    margin: 20,
   },
   wrapper: {
     flex: 1,
-    backgroundColor: "#FFFFFF"
+    backgroundColor: "#FFFFFF",
   },
   flatlistStyle: {
     marginTop: Scale(20),
     backgroundColor: "#FFFFFF",
-    marginHorizontal: Scale(20)
-  }
+    marginHorizontal: Scale(20),
+  },
+  selectedHospitalStyle: {
+    color: "#4388F0",
+    fontSize: 16,
+    marginVertical: 20,
+    lineHeight: 19,
+  },
+  unSelectHosipitalStyle: {
+    color: "#404040",
+    fontSize: 16,
+    marginVertical: 20,
+    lineHeight: 19,
+  },
 });
 export default HospitalSelection;

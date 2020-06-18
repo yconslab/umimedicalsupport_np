@@ -5,7 +5,7 @@ import {
   ScrollView,
   StyleSheet,
   TouchableOpacity,
-  TextInput
+  TextInput,
 } from "react-native";
 import CrossIcon from "react-native-vector-icons/Entypo";
 import { useDispatch, useSelector } from "react-redux";
@@ -16,7 +16,7 @@ import Colors from "../../../constants/Colors";
 
 export const FinalConfirmation = ({ navigation, onPressHandleCloseModal }) => {
   const VisitorInformationValue = useSelector(
-    state => state.VisitorInformation
+    (state) => state.VisitorInformation
   );
 
   return (
@@ -78,7 +78,7 @@ export const FinalConfirmation = ({ navigation, onPressHandleCloseModal }) => {
                 * 무엇무엇은 불가합니다.
               </Text>
               <Text style={styles.noticetextStyle}>
-                * 무엇무엇을 요청할 시 서비스를 거부할 수 있습니다.{" "}
+                * 무엇무엇을 요청할 시 서비스를 거부할 수 있습니다.
               </Text>
               <Text style={styles.noticetextStyle}>
                 * 무엇무엇을 준비해주시기 바랍니다.
@@ -102,8 +102,8 @@ export const FinalConfirmation = ({ navigation, onPressHandleCloseModal }) => {
               styles.benefitsStyle,
               {
                 alignItems: "center",
-                marginVertical: Scale(10)
-              }
+                marginVertical: Scale(10),
+              },
             ]}
           >
             <Text
@@ -126,8 +126,8 @@ export const FinalConfirmation = ({ navigation, onPressHandleCloseModal }) => {
               styles.benefitsStyle,
               {
                 alignItems: "center",
-                marginVertical: Scale(10)
-              }
+                marginVertical: Scale(10),
+              },
             ]}
           >
             <Text>결제 예정내역</Text>
@@ -164,106 +164,106 @@ export const FinalConfirmation = ({ navigation, onPressHandleCloseModal }) => {
 
 const styles = StyleSheet.create({
   wrapper: {
-    flex: 1
+    flex: 1,
   },
   crossIconStyle: {
-    marginHorizontal: Scale(20)
+    marginHorizontal: Scale(20),
   },
   footerPosition: {
-    marginVertical: Scale(10)
+    marginVertical: Scale(10),
   },
 
   lastFooterTextStyle: {
-    color: "#4040406A"
+    color: "#4040406A",
   },
   serviceFeePolic: {
     color: Colors.activeColor,
     textDecorationLine: "underline",
-    marginVertical: Scale(10)
+    marginVertical: Scale(10),
   },
   chargeStyle: {
     fontSize: Scale(11),
-    color: "#404040"
+    color: "#404040",
   },
   lastContainerWrapper: {
     backgroundColor: Colors.appColor,
     paddingVertical: Scale(20),
-    paddingHorizontal: Scale(20)
+    paddingHorizontal: Scale(20),
   },
   redColorStyle: {
     fontSize: Scale(11),
     color: "#FF0000",
-    fontWeight: "600"
+    fontWeight: "600",
   },
   secondContainerStyle: {
     backgroundColor: Colors.appColor,
     marginVertical: Scale(20),
     paddingVertical: Scale(20),
-    paddingHorizontal: Scale(20)
+    paddingHorizontal: Scale(20),
   },
   navigationStyle: {
     color: Colors.activeColor,
-    fontSize: Scale(16)
+    fontSize: Scale(16),
   },
   benefitWrapper: {
-    marginVertical: Scale(20)
+    marginVertical: Scale(20),
   },
   benefitKeyStyle: {
     fontSize: Scale(16),
-    color: "#404040"
+    color: "#404040",
   },
   benefitsHeadingStyle: {
     fontSize: Scale(17),
     color: "#404040",
     fontWeight: "600",
-    marginVertical: Scale(5)
+    marginVertical: Scale(5),
   },
   benefitsStyle: {
     flexDirection: "row",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
   },
   wrapper: {
-    flex: 1
+    flex: 1,
   },
   firstContainerStyle: {
-    backgroundColor: Colors.appColor
+    backgroundColor: Colors.appColor,
   },
   innerContainer: {
-    marginHorizontal: Scale(20)
+    marginHorizontal: Scale(20),
   },
   inLineStyle: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginVertical: Scale(20)
+    marginVertical: Scale(20),
   },
   questionKeyStyle: {
-    fontSize: Scale(16)
+    fontSize: Scale(16),
   },
   keyValueStyle: {
     fontSize: Scale(16),
-    color: Colors.activeColor
+    color: Colors.activeColor,
   },
   textInputStyle: {
     height: 100,
     borderColor: Colors.bannerTextColor,
     borderWidth: 1,
     borderRadius: 5,
-    paddingHorizontal: Scale(20)
+    paddingHorizontal: Scale(20),
   },
   textInputWrapper: {
-    marginVertical: Scale(20)
+    marginVertical: Scale(20),
   },
   noticeStyle: {
-    marginBottom: Scale(10)
+    marginBottom: Scale(10),
   },
   noticetextStyle: {
     fontSize: Scale(11),
     color: "#404040",
-    marginBottom: 2
+    marginBottom: 2,
   },
   noticeHeadingStyle: {
     color: "#FF0000",
     fontWeight: "600",
-    marginBottom: 10
-  }
+    marginBottom: 10,
+  },
 });
