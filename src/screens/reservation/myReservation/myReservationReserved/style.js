@@ -45,4 +45,7 @@ export default StyleSheet.create({
   innerStyle: {
     backgroundColor: Colors.activeBlueColor,
   },
+  margin_20: {
+    margin: 20,
+  },
 });
