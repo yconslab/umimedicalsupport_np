@@ -44,7 +44,7 @@ const VisitorPhonenumber = ({ navigation }) => {
   };
   const handleChangeNumber = (val) => {
     dispatch(setPhoneNumber(val));
-    if (val.length > 4) {
+    if (val.length > 10) {
       return setDisableButton(false);
     } else {
       setDisableButton(true);

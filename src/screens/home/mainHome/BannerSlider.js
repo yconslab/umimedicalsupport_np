@@ -5,7 +5,7 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableOpacity
+  TouchableOpacity,
 } from "react-native";
 const { height, width } = Dimensions.get("window");
 import RightArrow from "react-native-vector-icons/FontAwesome";
@@ -31,7 +31,7 @@ const HomeImageSlider = ({ navigation }) => (
       </View>
       <TouchableOpacity
         style={styles.rightArrowStyle}
-        onPress={() => navigation.navigate("Events")}
+        onPress={() => navigation.navigate("ServiceInformation")}
       >
         <Text style={styles.NavigationText}>서비스 가이드</Text>
         <RightArrow name="angle-right" style={styles.iconsStyle} />
@@ -50,52 +50,52 @@ const HomeImageSlider = ({ navigation }) => (
 const styles = StyleSheet.create({
   iconsStyle: {
     fontSize: Scale(20),
-    color: Colors.activeColor
+    color: Colors.activeColor,
   },
   rightArrowStyle: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    width: Scale(120)
+    width: Scale(120),
   },
   bannerStyle: {
     height: height,
     width: width,
-    flex: 1
+    flex: 1,
   },
   containerWrapper: {
     paddingVertical: Scale(130),
     flex: 1 / 2,
-    paddingHorizontal: Scale(15)
+    paddingHorizontal: Scale(15),
   },
   firstTextStyle: {
     fontSize: Scale(34),
     color: Colors.homeBannerBigText,
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
   secondTextStyle: {
     fontSize: Scale(15),
-    color: Colors.bannerTextColor
+    color: Colors.bannerTextColor,
   },
   NavigationText: {
     color: Colors.activeColor,
     fontSize: Scale(17),
-    marginVertical: Scale(20)
+    marginVertical: Scale(20),
   },
   buttonContainer: {
     position: "absolute",
     bottom: Scale(90),
     width: width,
-    paddingHorizontal: Scale(20)
+    paddingHorizontal: Scale(20),
   },
   customButtonStyle: {
     height: Scale(64),
     borderRadius: Scale(32),
-    backgroundColor: Colors.activeColor
+    backgroundColor: Colors.activeColor,
   },
   containerInnerStyle: {
     // width: Scale(200),
-    height: Scale(100)
-  }
+    height: Scale(100),
+  },
 });
 export default HomeImageSlider;

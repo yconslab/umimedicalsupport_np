@@ -17,18 +17,19 @@ const componentName = ({ navigation }) => {
   const [name, setname] = useState("");
 
   const VisitorInformationValue = useSelector(
-    state => state.VisitorInformation
+    (state) => state.VisitorInformation
   );
   const dispatch = useDispatch();
-  const handleRadioButton = vale => {
+  const handleRadioButton = (vale) => {
     dispatch(setRadioButton(vale));
 
     setselectedRadioButton(vale);
   };
-  const handleNameChangeInput = text => {
+  const handleNameChangeInput = (text) => {
+    console.log(text);
     dispatch(setName(text));
     setname(text);
-    if (name.length > 4) {
+    if (name.length > 1) {
       return setDisableButton(false);
     } else {
       setDisableButton(true);
@@ -53,12 +54,12 @@ const componentName = ({ navigation }) => {
           <RadioButton
             title="대리 접수입니다."
             selected={VisitorInformationValue.selectedRadioButton}
-            onChangeRadioButton={title => handleRadioButton(title)}
+            onChangeRadioButton={(title) => handleRadioButton(title)}
           />
           <RadioButton
             title="본인입니다."
             selected={VisitorInformationValue.selectedRadioButton}
-            onChangeRadioButton={title => handleRadioButton(title)}
+            onChangeRadioButton={(title) => handleRadioButton(title)}
           />
         </View>
       </ScrollView>
@@ -79,21 +80,26 @@ export default componentName;
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    backgroundColor: Colors.appColor
+    backgroundColor: Colors.appColor,
   },
   textInputStyle: {
     marginHorizontal: Scale(20),
-    marginTop: Scale(30)
+    marginTop: Scale(30),
   },
   textInputHeaderStyle: {
     fontSize: Scale(13),
     color: "#A7A7A7",
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
   radioButtonWrapper: {
     flexDirection: "row",
     marginTop: -20,
-    marginHorizontal: Scale(20)
+    marginHorizontal: Scale(20),
   },
-  footerPosition: { position: "absolute", bottom: Scale(20), left: 0, right: 0 }
+  footerPosition: {
+    position: "absolute",
+    bottom: Scale(20),
+    left: 0,
+    right: 0,
+  },
 });

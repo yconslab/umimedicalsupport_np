@@ -6,7 +6,8 @@ import {
   StyleSheet,
   Image,
   TouchableOpacity,
-  Linking
+  Linking,
+  Platform,
 } from "react-native";
 import { Button, Overlay } from "react-native-elements";
 import CrossIcon from "react-native-vector-icons/Entypo";
@@ -37,6 +38,25 @@ const Modal = ({ showReservationModal, toggleOverlay, navigation }) => {
     );
   };
 
+  const callNumber = (phone) => {
+    let phoneNumber = phone;
+    if (Platform.OS !== "android") {
+      phoneNumber = `tel:${phone}`;
+    } else {
+      phoneNumber = `tel://${phone}`;
+    }
+    console.log(phoneNumber);
+    Linking.canOpenURL(phoneNumber)
+      .then((supported) => {
+        if (!supported) {
+          alert("Phone number is not available");
+        } else {
+          return Linking.openURL(phoneNumber);
+        }
+      })
+      .catch((err) => console.log(err));
+  };
+
   const handleOverlay = () => {
     navigation.navigate("DateSchedule");
     toggleOverlay();
@@ -61,7 +81,10 @@ const Modal = ({ showReservationModal, toggleOverlay, navigation }) => {
           </Text>
           <View style={styles.PhoneBoxContainer}>
             <Text style={styles.phoneHeaderStyle}>전화 예약</Text>
-            <TouchableOpacity style={styles.phoneWrapper}>
+            <TouchableOpacity
+              style={styles.phoneWrapper}
+              onPress={() => callNumber("1599 - 1004")}
+            >
               <PhoneIcon
                 name="phone"
                 size={Scale(35)}
@@ -96,58 +119,58 @@ export default Modal;
 
 const styles = StyleSheet.create({
   buttonContainer: {
-    marginVertical: Scale(30)
+    marginVertical: Scale(30),
   },
   wrapper: {
-    flex: 1
+    flex: 1,
   },
   ModalOverLaystyle: {
     width: width,
     height: height,
-    marginTop: Scale(100)
+    marginTop: Scale(100),
   },
   PhoneBoxContainer: {
-    marginVertical: Scale(42)
+    marginVertical: Scale(42),
   },
   headerTextStyle: {
     fontSize: Scale(24),
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
   headerBaseTextStyle: {
     fontSize: Scale(15),
-    color: Colors.homeBannerBigText
+    color: Colors.homeBannerBigText,
   },
   phoneWrapper: {
     flexDirection: "row",
     alignItems: "center",
-    marginTop: Scale(14)
+    marginTop: Scale(14),
   },
   PhoneNumberStyle: {
     fontSize: Scale(28),
     marginLeft: Scale(15),
     color: Colors.activeColor,
     fontWeight: "400",
-    textDecorationLine: "underline"
+    textDecorationLine: "underline",
   },
   footerText: {
     fontSize: Scale(18),
     color: Colors.textColor,
     fontWeight: "600",
-    marginBottom: 10
+    marginBottom: 10,
   },
   linkStyle: {
     color: Colors.activeColor,
     fontWeight: "400",
     textDecorationLine: "underline",
-    fontSize: Scale(28)
+    fontSize: Scale(28),
   },
   phoneHeaderStyle: {
     fontSize: Scale(18),
     color: Colors.textColor,
-    fontWeight: "500"
+    fontWeight: "500",
   },
   headerBaseSmallTextStyle: {
     fontSize: Scale(12),
-    color: Colors.homeBannerBigText
-  }
+    color: Colors.homeBannerBigText,
+  },
 });
