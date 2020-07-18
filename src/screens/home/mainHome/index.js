@@ -1,5 +1,12 @@
 import React from "react";
-import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  Platform,
+} from "react-native";
 import NoticationIcons from "react-native-vector-icons/Ionicons";
 import SwiperFlatList from "react-native-swiper-flatlist";
 import BannerSlider from "./BannerSlider";
@@ -26,7 +33,7 @@ const Home = ({ navigation }) => {
         paginationStyle={{
           position: "absolute",
 
-          bottom: Scale(80)
+          bottom: Scale(100),
         }}
       >
         <BannerSlider navigation={navigation} />
@@ -43,13 +50,13 @@ export default Home;
 
 const styles = StyleSheet.create({
   wrapper: {
-    flex: 1
+    flex: 1,
   },
   sliderPaginationItemStyle: {
     borderWidth: 1,
     height: 10,
     width: 10,
-    borderColor: Colors.whiteColor
+    borderColor: Colors.whiteColor,
   },
 
   NotifcaitonContainer: {
@@ -62,6 +69,6 @@ const styles = StyleSheet.create({
     right: Scale(20),
     borderRadius: Scale(20),
     justifyContent: "center",
-    alignItems: "center"
-  }
+    alignItems: "center",
+  },
 });
