@@ -15,7 +15,7 @@ const TitleBox = ({
   title1Style,
   title2Style,
   navTitle,
-  navigation
+  navigation,
 }) => {
   return (
     <View style={styles.titleBox}>
@@ -77,7 +77,7 @@ const ReservationInformation = ({ navigation }) => {
           <ProfileImageWrap
             source={{
               uri:
-                "https://www.awesomegreece.com/wp-content/uploads/2018/10/default-user-image.png"
+                "https://www.awesomegreece.com/wp-content/uploads/2018/10/default-user-image.png",
             }}
             imageStyle={styles.imageStyle}
             title1="소중한 고객님을 안내해드릴파트너를 "
@@ -109,7 +109,7 @@ const ReservationInformation = ({ navigation }) => {
           <Text
             style={{
               ...styles.normalText,
-              ...styles.normalTextExtra
+              ...styles.normalTextExtra,
             }}
           >
             선택하신 서비스가 없습니다.
@@ -127,7 +127,7 @@ const ReservationInformation = ({ navigation }) => {
           />
           <Text
             style={{
-              ...styles.normalText
+              ...styles.normalText,
             }}
           >
             어머니께서 귀가 어두우십니다. 친절하게 안내 부탁드
@@ -136,7 +136,7 @@ const ReservationInformation = ({ navigation }) => {
             style={{
               ...styles.normalText,
 
-              ...styles.marginBottom_20
+              ...styles.marginBottom_20,
             }}
           >
             립니다.
@@ -205,8 +205,12 @@ const ReservationInformation = ({ navigation }) => {
           <CircleBox title="자주 묻는 질문" />
         </TouchableOpacity>
         <MidLine lineStyle={styles.height_9} />
-        <BottomTextBox title="예약 변경" textStyle={styles.bottomText1} />
-        <BottomTextBox title="예약 취소" textStyle={styles.bottomText2} />
+        <TouchableOpacity>
+          <BottomTextBox title="예약 변경" textStyle={styles.bottomText1} />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <BottomTextBox title="예약 취소" textStyle={styles.bottomText2} />
+        </TouchableOpacity>
       </ScrollView>
       <View style={styles.commonMargin}>
         <CustomButton

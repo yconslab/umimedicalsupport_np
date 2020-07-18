@@ -95,7 +95,12 @@ const ReservationInformationMatched = ({ navigation }) => {
 
         <MidLine lineStyle={styles.height_9} />
         <View style={styles.commonMargin}>
-          <TitleBox title1="유료 서비스" title2="서비스 추가" />
+          <TitleBox
+            title1="유료 서비스"
+            title2="서비스 추가"
+            navigation={navigation}
+            navTitle="DateSchedule"
+          />
           <Text
             style={{
               ...styles.normalText,
@@ -109,7 +114,12 @@ const ReservationInformationMatched = ({ navigation }) => {
         <MidLine lineStyle={styles.height_9} />
 
         <View style={styles.commonMargin}>
-          <TitleBox title1="특이사항" title2="수정" />
+          <TitleBox
+            title1="특이사항"
+            title2="수정"
+            navigation={navigation}
+            navTitle="DateSchedule"
+          />
           <Text
             style={{
               ...styles.normalText,
@@ -129,13 +139,22 @@ const ReservationInformationMatched = ({ navigation }) => {
 
         <MidLine lineStyle={styles.height_9} />
         <View style={styles.commonMargin}>
-          <TitleBox title1="환자정보" title2="수정" />
+          <TitleBox
+            title1="환자정보"
+            title2="수정"
+            navigation={navigation}
+            navTitle="DateSchedule"
+          />
           <TextBox label="방문자 전화번호" value="01055048441" />
           <TextBox label="방문자 이름" value="윤정탁" />
         </View>
         <MidLine lineStyle={styles.height_9} />
         <View style={{ ...styles.commonMargin, ...styles.marginBottom_40 }}>
-          <TitleBox title1="쿠폰사용" />
+          <TitleBox
+            title1="쿠폰사용"
+            navigation={navigation}
+            navTitle="DateSchedule"
+          />
         </View>
         <MidLine lineStyle={styles.height_9} />
         <View style={styles.commonMargin}>
