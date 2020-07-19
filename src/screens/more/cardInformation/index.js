@@ -23,24 +23,24 @@ const CardInformation = ({ navigation }) => {
 
   const scanCard = () => {
     CardIOModule.scanCard()
-      .then(card => {
+      .then((card) => {
         alert(card.cardNumber);
         setReadCardValue(card.cardNumber);
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   };
-  const handlesetShowNumberField = val => {
+  const handlesetShowNumberField = (val) => {
     setShowNumberField(val);
     setHeaderLine(50);
   };
 
-  const handlesetShowcvcFiled = val => {
+  const handlesetShowcvcFiled = (val) => {
     setShowcvcFiled(val);
     setHeaderLine(70);
   };
-  const handlesetShowPassword = val => {
+  const handlesetShowPassword = (val) => {
     setShowPassword(val);
     setHeaderLine(90);
   };
@@ -81,7 +81,7 @@ const CardInformation = ({ navigation }) => {
           <View style={styles.inputWrapper}>
             <View style={styles.firstInput}>
               <TextInput
-                title="방문자 이름"
+                title="카드번호"
                 numeric
                 clearButtonMode="while-editing"
                 value={readCardValue}
