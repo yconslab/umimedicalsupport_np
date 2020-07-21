@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { View, Text, FlatList } from "react-native";
 import { CustomButton } from "../../../../commons";
 import styles from "./style";
+import { useSelector, useDispatch } from "react-redux";
+
 const data = [
   {
     id: 1,
@@ -41,17 +43,22 @@ const CompletedReservationList = ({ serviceTitle, dateTime, matchStatus }) => {
 };
 
 const MyReservationReserved = ({ navigation }) => {
-  const [hasReservation, setHasReservation] = useState(false);
-  return hasReservation ? (
+  const reservations = useSelector(
+    (state) => state.ReservationInformation.reservations
+  );
+
+  console.log(reservations);
+
+  return reservations.length > 0 ? (
     <View style={styles.screen}>
       <FlatList
-        data={data}
+        data={reservations}
         keyExtractor={(item) => item.id.toString()}
         renderItem={(itemData) => (
           <CompletedReservationList
-            serviceTitle={itemData.item.serviceTitle}
-            dateTime={itemData.item.dateTime}
-            matchStatus={itemData.item.matchStatus}
+            serviceTitle="의료도우미 서비스"
+            dateTime="2020년 1월 10일(월) 오후 2시"
+            matchStatus="서비스완료"
             click={() => {
               this.props.navigation.navigate("");
             }}

@@ -12,6 +12,8 @@ import Colors from "../../../constants";
 import { CustomButton, CustomHeader } from "../../../commons";
 import { ReservationModal } from "../commons";
 import { Scale } from "../../../helper/HelperFunction";
+import { addHospital } from "../redux/actions";
+import { useSelector, useDispatch } from "react-redux";
 const data = [
   {
     id: 1,
@@ -35,6 +37,7 @@ const data = [
     name: "어린이병원",
   },
 ];
+
 const ListItem = ({
   title,
   navigation,
@@ -66,9 +69,14 @@ const ListItem = ({
 const HospitalSelection = ({ navigation }) => {
   const [selectedHospital, setSelectedHospital] = useState("연세 세브란스");
   const [showReservationModal, setShowReservationModal] = useState(false);
-
+  const dispatch = useDispatch();
   const handletoggleOverlay = () => {
     setShowReservationModal(!showReservationModal);
+  };
+
+  const handleButton = () => {
+    setShowReservationModal(true);
+    dispatch(addHospital(selectedHospital));
   };
   return (
     <View style={styles.wrapper}>
@@ -100,7 +108,7 @@ const HospitalSelection = ({ navigation }) => {
         <CustomButton
           title="선택하기"
           innerStyle={{ backgroundColor: Colors.activeBlueColor }}
-          onPress={() => setShowReservationModal(true)}
+          onPress={() => handleButton()}
         />
       </View>
     </View>

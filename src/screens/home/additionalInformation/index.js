@@ -8,19 +8,27 @@ import { Scale } from "../../../helper/HelperFunction";
 import { FinalConfirmation } from "../finalConfirmation";
 
 const { height, width } = Dimensions.get("window");
-
+import { addAdditionalInfo } from "../redux/actions";
+import { useSelector, useDispatch } from "react-redux";
 const additionalInformation = [
   { id: 1, title: "간병 서비스 같은" },
   { id: 2, title: "어려운 서비스1" },
   { id: 3, title: "어려운 서비스2 " },
   { id: 4, title: "어려운 서비스3 " },
-  { id: 5, title: "어려운 서비스" }
+  { id: 5, title: "어려운 서비스" },
 ];
 const AdditionalInformation = ({ navigation }) => {
   const [textInput, setTextInput] = useState("");
   const [showModal, setModal] = useState(false);
+  const dispatch = useDispatch();
+  const onPressHandleCloseModal = () => {
+    setModal(!showModal);
+  };
 
-  const onPressHandleCloseModal = () => setModal(!showModal);
+  const textInputHandler = (val) => {
+    setTextInput(val);
+    dispatch(addAdditionalInfo(val));
+  };
   return (
     <View style={styles.wrapper}>
       <CustomHeader
@@ -35,7 +43,7 @@ const AdditionalInformation = ({ navigation }) => {
 
         <TextInput
           style={styles.textInputStyle}
-          onChangeText={val => setTextInput(val)}
+          onChangeText={(val) => textInputHandler(val)}
           value={textInput}
           multiline={true}
           maxLength={100}
@@ -44,7 +52,7 @@ const AdditionalInformation = ({ navigation }) => {
       </View>
       <View style={styles.additionalInformationContainer}>
         <Text style={styles.titleStyle}>미포함 서비스</Text>
-        {additionalInformation.map(i => {
+        {additionalInformation.map((i) => {
           return (
             <View style={styles.titleContainer} key={i.id}>
               <Text style={[styles.titleDesignStyle, { fontSize: Scale(20) }]}>
@@ -76,10 +84,10 @@ export default AdditionalInformation;
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    backgroundColor: Colors.appColor
+    backgroundColor: Colors.appColor,
   },
   innerContainer: {
-    marginHorizontal: Scale(20)
+    marginHorizontal: Scale(20),
   },
   textInputStyle: {
     height: 100,
@@ -90,37 +98,37 @@ const styles = StyleSheet.create({
     borderBottomColor: "#F5F5F5",
     borderColor: "#DFE4EB",
     padding: Scale(10),
-    borderRadius: Scale(5)
+    borderRadius: Scale(5),
   },
   textStyle: {
     fontSize: Scale(15),
     marginTop: Scale(10),
-    marginBottom: Scale(20)
+    marginBottom: Scale(20),
   },
   buttonContainer: {
     position: "absolute",
     bottom: Scale(20),
     left: 0,
     right: 0,
-    marginHorizontal: Scale(20)
+    marginHorizontal: Scale(20),
   },
   additionalInformationContainer: {
-    marginHorizontal: Scale(20)
+    marginHorizontal: Scale(20),
   },
   titleStyle: {
     fontSize: Scale(11),
     marginVertical: Scale(14),
-    fontWeight: "bold"
+    fontWeight: "bold",
   },
   titleContainer: {
     flexDirection: "row",
     marginTop: Scale(3),
-    alignItems: "center"
+    alignItems: "center",
   },
   titleDesignStyle: {
     fontSize: Scale(11),
     marginRight: Scale(4),
-    color: "#393939"
+    color: "#393939",
   },
   modalStyle: {
     position: "absolute",
@@ -128,6 +136,6 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     backgroundColor: "#EBEBEB",
-    bottom: 0
-  }
+    bottom: 0,
+  },
 });

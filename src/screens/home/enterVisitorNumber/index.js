@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Text, View, StyleSheet } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
-
+import { addVisitorNumber } from "../redux/actions";
 import CheckIcons from "react-native-vector-icons/Ionicons";
 import { CustomHeader, CustomButton, TextInput } from "../../../commons";
 import { Scale } from "../../../helper/HelperFunction";
@@ -44,6 +44,7 @@ const VisitorPhonenumber = ({ navigation }) => {
   };
   const handleChangeNumber = (val) => {
     dispatch(setPhoneNumber(val));
+    dispatch(addVisitorNumber(val));
     if (val.length > 10) {
       return setDisableButton(false);
     } else {
@@ -52,6 +53,10 @@ const VisitorPhonenumber = ({ navigation }) => {
   };
   const handleCheckedBox = (val) => {
     dispatch(setCheckbox(!val));
+  };
+
+  const handleButton = () => {
+    navigation.navigate("AdditionalInformation");
   };
   return (
     <View style={styles.wrapper}>
@@ -108,7 +113,7 @@ const VisitorPhonenumber = ({ navigation }) => {
           title="다음"
           innerStyle={{ marginHorizontal: Scale(20) }}
           disabled={disableButton}
-          onPress={() => navigation.navigate("AdditionalInformation")}
+          onPress={() => handleButton()}
         />
       </View>
     </View>

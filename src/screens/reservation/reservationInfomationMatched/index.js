@@ -9,7 +9,6 @@ import {
 import { CustomButton, CustomHeader, ProfileImageWrap } from "../../../commons";
 
 import { Input } from "react-native-elements";
-import Colors from "../../../constants";
 //reusable components
 import Images from "../../../images";
 import styles from "./style";
@@ -32,6 +31,16 @@ const TitleBox = ({
       <TouchableOpacity onPress={() => navigation.navigate(navTitle)}>
         <Text style={{ ...styles.title2, ...title2Style }}>{title2}</Text>
       </TouchableOpacity>
+    </View>
+  );
+};
+
+const NormalBox = ({ title1, title2, title1Style, title2Style }) => {
+  return (
+    <View style={styles.titleBox}>
+      <Text style={{ ...styles.title1, ...title1Style }}>{title1}</Text>
+
+      <Text style={{ ...styles.title2, ...title2Style }}>{title2}</Text>
     </View>
   );
 };
@@ -95,7 +104,7 @@ const ReservationInformationMatched = ({ navigation }) => {
 
         <MidLine lineStyle={styles.height_9} />
         <View style={styles.commonMargin}>
-          <TitleBox title1="유료 서비스" title2="서비스 추가" />
+          <NormalBox title1="유료 서비스" title2="서비스 추가" />
           <Text
             style={{
               ...styles.normalText,

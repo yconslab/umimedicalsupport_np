@@ -7,10 +7,15 @@ import { Scale } from "../../../helper/HelperFunction";
 import Images from "../../../images";
 import Colors from "../../../constants/Colors";
 const { width } = Dimensions.get("window");
-
+import { addScheduleDate, addReservation } from "../redux/actions";
+import { useSelector, useDispatch } from "react-redux";
 const ReservationComplete = ({ navigation }) => {
   const jumpToAction = TabActions.jumpTo("예약내역");
-
+  const dispatch = useDispatch();
+  const handleButton = () => {
+    dispatch(addReservation());
+    navigation.dispatch(jumpToAction);
+  };
   return (
     <View style={styles.wrapperContainer}>
       <View style={styles.wrapper}>
@@ -22,7 +27,7 @@ const ReservationComplete = ({ navigation }) => {
           <Text
             style={[
               styles.textTitleStyle,
-              { fontSize: Scale(14), color: "#404040" }
+              { fontSize: Scale(14), color: "#404040" },
             ]}
           >
             담당 파트너가 매칭되면 결제가 진행되고 예약이 확정됩니다.
@@ -30,10 +35,7 @@ const ReservationComplete = ({ navigation }) => {
         </View>
       </View>
       <View style={styles.buttonContainer}>
-        <CustomButton
-          title="내 예약 확인하기"
-          onPress={() => navigation.dispatch(jumpToAction)}
-        />
+        <CustomButton title="내 예약 확인하기" onPress={() => handleButton()} />
       </View>
     </View>
   );
@@ -46,20 +48,20 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: Colors.appColor
+    backgroundColor: Colors.appColor,
   },
   textTitleContainer: {
-    marginHorizontal: Scale(40)
+    marginHorizontal: Scale(40),
   },
   textTitleStyle: {
     color: Colors.activeColor,
     fontSize: Scale(30),
     textAlign: "center",
-    marginTop: Scale(20)
+    marginTop: Scale(20),
   },
   buttonContainer: {
     marginHorizontal: Scale(20),
-    marginVertical: Scale(20)
+    marginVertical: Scale(20),
   },
-  wrapperContainer: { flex: 1, backgroundColor: Colors.appColor }
+  wrapperContainer: { flex: 1, backgroundColor: Colors.appColor },
 });

@@ -6,7 +6,7 @@ import { CustomHeader, CustomButton, TextInput } from "../../../commons";
 import { Scale } from "../../../helper/HelperFunction";
 import Colors from "../../../constants/Colors";
 import { RadioButton } from "../commons";
-import { setName, setRadioButton } from "../redux/actions";
+import { setName, setRadioButton, addVisitorName } from "../redux/actions";
 import { ScrollView } from "react-native-gesture-handler";
 
 const componentName = ({ navigation }) => {
@@ -34,6 +34,11 @@ const componentName = ({ navigation }) => {
     } else {
       setDisableButton(true);
     }
+  };
+
+  const handleButton = () => {
+    navigation.navigate("VisitorInformatioNumber");
+    dispatch(addVisitorName(name));
   };
   return (
     <View style={styles.wrapper}>
@@ -68,7 +73,7 @@ const componentName = ({ navigation }) => {
           title="다음"
           innerStyle={{ marginHorizontal: Scale(20) }}
           disabled={disableButton}
-          onPress={() => navigation.navigate("VisitorInformatioNumber")}
+          onPress={() => handleButton()}
         />
       </View>
     </View>
