@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, ScrollView } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import { addVisitorNumber } from "../redux/actions";
 import CheckIcons from "react-native-vector-icons/Ionicons";
@@ -64,54 +64,56 @@ const VisitorPhonenumber = ({ navigation }) => {
         headerText="방문자의 전화번호를 입력하세요."
         navigation={navigation}
       />
-      <View style={styles.NumberStyleContainer}>
-        <Text style={styles.textInputHeaderStyle}>방문자 휴대폰 번호</Text>
-        <TextInput
-          placeholderText="실제 연락이 가능해야 합니다."
-          value={VisitorInformationValue.phoneNumber}
-          changeText={handleChangeNumber}
-          numeric={true}
-        />
-        <View style={styles.checkboxWrapper}>
-          <CheckBox
-            title="안심번호 사용"
-            containerStyle={styles.checkboxStyle}
-            checkedIcon={
-              <CheckIcons
-                name="md-checkbox"
-                color={Colors.activeColor}
-                size={Scale(22)}
-              />
-            }
-            onPress={() => handleCheckedBox(VisitorInformationValue.checkbox)}
-            checked={VisitorInformationValue.checkbox}
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+        <View style={styles.NumberStyleContainer}>
+          <Text style={styles.textInputHeaderStyle}>방문자 휴대폰 번호</Text>
+          <TextInput
+            placeholderText="실제 연락이 가능해야 합니다."
+            value={VisitorInformationValue.phoneNumber}
+            changeText={handleChangeNumber}
+            numeric={true}
+          />
+          <View style={styles.checkboxWrapper}>
+            <CheckBox
+              title="안심번호 사용"
+              containerStyle={styles.checkboxStyle}
+              checkedIcon={
+                <CheckIcons
+                  name="md-checkbox"
+                  color={Colors.activeColor}
+                  size={Scale(22)}
+                />
+              }
+              onPress={() => handleCheckedBox(VisitorInformationValue.checkbox)}
+              checked={VisitorInformationValue.checkbox}
+            />
+          </View>
+        </View>
+        <View style={styles.textInputStyle}>
+          <Text style={styles.textInputHeaderStyle}>방문자 이름</Text>
+          <TextInput
+            placeholderText="실명을 입력해주세요."
+            value={VisitorInformationValue.name}
+            changeText={handleNameChangeInput}
           />
         </View>
-      </View>
-      <View style={styles.textInputStyle}>
-        <Text style={styles.textInputHeaderStyle}>방문자 이름</Text>
-        <TextInput
-          placeholderText="실명을 입력해주세요."
-          value={VisitorInformationValue.name}
-          changeText={handleNameChangeInput}
-        />
-      </View>
-      <View style={styles.radioButtonWrapper}>
-        <RadioButton
-          title="대리 접수입니다."
-          selected={VisitorInformationValue.selectedRadioButton}
-          onChangeRadioButton={(title) => handleRadioButton(title)}
-        />
-        <RadioButton
-          title="본인입니다."
-          selected={VisitorInformationValue.selectedRadioButton}
-          onChangeRadioButton={(title) => handleRadioButton(title)}
-        />
-      </View>
+        <View style={styles.radioButtonWrapper}>
+          <RadioButton
+            title="대리 접수입니다."
+            selected={VisitorInformationValue.selectedRadioButton}
+            onChangeRadioButton={(title) => handleRadioButton(title)}
+          />
+          <RadioButton
+            title="본인입니다."
+            selected={VisitorInformationValue.selectedRadioButton}
+            onChangeRadioButton={(title) => handleRadioButton(title)}
+          />
+        </View>
+      </ScrollView>
       <View style={styles.footerPosition}>
         <CustomButton
           title="다음"
-          innerStyle={{ marginHorizontal: Scale(20) }}
+          // innerStyle={{ marginHorizontal: Scale(20) }}
           disabled={disableButton}
           onPress={() => handleButton()}
         />
@@ -130,10 +132,7 @@ const styles = StyleSheet.create({
     padding: 0,
   },
   footerPosition: {
-    position: "absolute",
-    bottom: Scale(20),
-    left: 0,
-    right: 0,
+    margin: Scale(20),
   },
   wrapper: {
     flex: 1,

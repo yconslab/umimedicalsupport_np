@@ -68,48 +68,53 @@ const Modal = ({ showReservationModal, toggleOverlay, navigation }) => {
         onBackdropPress={toggleOverlay}
         overlayStyle={styles.ModalOverLaystyle}
       >
-        <View>
-          <TouchableOpacity onPress={toggleOverlay} style={{ marginLeft: -5 }}>
-            <CrossIcon name="cross" size={Scale(30)} />
-          </TouchableOpacity>
-          <Text style={styles.headerTextStyle}>우미 예약 전에</Text>
-          <Text style={styles.headerTextStyle}>
-            병원 예약을 직접 하셔야 해요.
-          </Text>
-          <Text style={styles.headerBaseSmallTextStyle}>
-            (우미에서 ‘바로예약’ 기능은 준비중입니다.)
-          </Text>
-          <View style={styles.PhoneBoxContainer}>
-            <Text style={styles.phoneHeaderStyle}>전화 예약</Text>
+        <>
+          <View>
             <TouchableOpacity
-              style={styles.phoneWrapper}
-              onPress={() => callNumber("1599 - 1004")}
+              onPress={toggleOverlay}
+              style={{ marginLeft: -5 }}
             >
-              <PhoneIcon
-                name="phone"
-                size={Scale(35)}
-                color={Colors.activeColor}
-              />
-              <Text style={styles.PhoneNumberStyle}>1599-1004</Text>
+              <CrossIcon name="cross" size={Scale(30)} />
             </TouchableOpacity>
+            <Text style={styles.headerTextStyle}>우미 예약 전에</Text>
+            <Text style={styles.headerTextStyle}>
+              병원 예약을 직접 하셔야 해요.
+            </Text>
+            <Text style={styles.headerBaseSmallTextStyle}>
+              (우미에서 ‘바로예약’ 기능은 준비중입니다.)
+            </Text>
+            <View style={styles.PhoneBoxContainer}>
+              <Text style={styles.phoneHeaderStyle}>전화 예약</Text>
+              <TouchableOpacity
+                style={styles.phoneWrapper}
+                onPress={() => callNumber("1599 - 1004")}
+              >
+                <PhoneIcon
+                  name="phone"
+                  size={Scale(35)}
+                  color={Colors.activeColor}
+                />
+                <Text style={styles.PhoneNumberStyle}>1599-1004</Text>
+              </TouchableOpacity>
+            </View>
+            <View>
+              <Image />
+            </View>
+            <View>
+              <Text style={styles.footerText}>온라인 예약</Text>
+              <OpenURLButton
+                url={"https://sev.iseverance.com/appnt/index.asp"}
+                displayText="sev.iseverance.com/appnt/"
+              />
+            </View>
           </View>
-          <View>
-            <Image />
-          </View>
-          <View>
-            <Text style={styles.footerText}>온라인 예약</Text>
-            <OpenURLButton
-              url={"https://sev.iseverance.com/appnt/index.asp"}
-              displayText="sev.iseverance.com/appnt/"
+          <View style={styles.buttonContainer}>
+            <CustomButton
+              title="네. 예약을 완료했어요."
+              onPress={() => handleOverlay()}
             />
           </View>
-        </View>
-        <View style={styles.buttonContainer}>
-          <CustomButton
-            title="네. 예약을 완료했어요."
-            onPress={() => handleOverlay()}
-          />
-        </View>
+        </>
       </Overlay>
     </View>
   );

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, ScrollView } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 
 import { CustomHeader, CustomButton, TextInput } from "../../../commons";
@@ -7,7 +7,6 @@ import { Scale } from "../../../helper/HelperFunction";
 import Colors from "../../../constants/Colors";
 import { RadioButton } from "../commons";
 import { setName, setRadioButton, addVisitorName } from "../redux/actions";
-import { ScrollView } from "react-native-gesture-handler";
 
 const componentName = ({ navigation }) => {
   const [selectedRadioButton, setselectedRadioButton] = useState(
@@ -46,7 +45,7 @@ const componentName = ({ navigation }) => {
         headerText="방문자의 이름을 입력하세요."
         navigation={navigation}
       />
-      <ScrollView>
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <View style={styles.textInputStyle}>
           <Text style={styles.textInputHeaderStyle}>방문자 이름</Text>
           <TextInput
@@ -71,7 +70,6 @@ const componentName = ({ navigation }) => {
       <View style={styles.footerPosition}>
         <CustomButton
           title="다음"
-          innerStyle={{ marginHorizontal: Scale(20) }}
           disabled={disableButton}
           onPress={() => handleButton()}
         />
@@ -102,9 +100,6 @@ const styles = StyleSheet.create({
     marginHorizontal: Scale(20),
   },
   footerPosition: {
-    position: "absolute",
-    bottom: Scale(20),
-    left: 0,
-    right: 0,
+    margin: Scale(20),
   },
 });
