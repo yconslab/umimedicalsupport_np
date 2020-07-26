@@ -11,7 +11,7 @@ import CrossIcon from "react-native-vector-icons/Entypo";
 import { useDispatch, useSelector } from "react-redux";
 
 import { Scale } from "../../../helper/HelperFunction";
-import { CustomButton, CustomHeader, Divider } from "../../../commons";
+import { CustomButton, Divider } from "../../../commons";
 import Colors from "../../../constants/Colors";
 
 export const FinalConfirmation = ({ navigation, onPressHandleCloseModal }) => {
