@@ -82,7 +82,7 @@ const ScheduleHelper = ({ navigation, route }) => {
         <View style={styles.firstbox}>
           <Text style={styles.textStyle}>방문시간</Text>
           <TouchableOpacity onPress={() => navigation.goBack()}>
-            <Text style={styles.value}>am {time}</Text>
+            <Text style={styles.value}> {time}</Text>
           </TouchableOpacity>
         </View>
         <ScrollView
