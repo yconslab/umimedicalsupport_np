@@ -69,6 +69,7 @@ export const FinalConfirmation = ({ navigation, onPressHandleCloseModal }) => {
                 multiline={true}
                 maxLength={100}
                 placeholder="어머니께서 귀가 어두우십니다. 친절하게 안내 부탁드립니다."
+                value={VisitorInformationValue.additionalInfo}
               />
             </View>
 
