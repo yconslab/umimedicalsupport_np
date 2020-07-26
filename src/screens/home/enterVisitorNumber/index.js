@@ -24,7 +24,7 @@ const VisitorPhonenumber = ({ navigation }) => {
   const [ph, setph] = useState("");
 
   const VisitorInformationValue = useSelector(
-    (state) => state.VisitorInformation
+    (state) => state.ReservationInformation
   );
   const dispatch = useDispatch();
   const handleRadioButton = (vale) => {

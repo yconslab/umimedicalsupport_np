@@ -15,7 +15,7 @@ const componentName = ({ navigation }) => {
   const [name, setname] = useState("");
 
   const VisitorInformationValue = useSelector(
-    (state) => state.VisitorInformation
+    (state) => state.ReservationInformation
   );
   const dispatch = useDispatch();
   const handleRadioButton = (vale) => {
