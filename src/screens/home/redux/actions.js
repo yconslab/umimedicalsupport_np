@@ -39,19 +39,6 @@ export const addAdditionalInfo = (additionalInfo) => {
     payload: additionalInfo,
   };
 };
-export const addVisitorName = (visitorName) => {
-  return {
-    type: ADD_VISITORNAME,
-    payload: visitorName,
-  };
-};
-
-export const addVisitorNumber = (visitorNumber) => {
-  return {
-    type: ADD_VISITORNUMBER,
-    payload: visitorNumber,
-  };
-};
 
 export const addReservation = () => {
   return {

@@ -12,10 +12,12 @@ import { useSelector, useDispatch } from "react-redux";
 const ReservationComplete = ({ navigation }) => {
   const jumpToAction = TabActions.jumpTo("예약내역");
   const dispatch = useDispatch();
-  const handleButton = () => {
+  const handleButton = (navigation) => {
     dispatch(addReservation());
-    navigation.dispatch(jumpToAction);
+    // navigation.dispatch(jumpToAction);
+    navigation.navigate("Home");
   };
+  console.log(navigation, "hello");
   return (
     <View style={styles.wrapperContainer}>
       <View style={styles.wrapper}>
@@ -35,7 +37,11 @@ const ReservationComplete = ({ navigation }) => {
         </View>
       </View>
       <View style={styles.buttonContainer}>
-        <CustomButton title="내 예약 확인하기" onPress={() => handleButton()} />
+        <CustomButton
+          title="내 예약 확인하기"
+          onPress={() => handleButton(navigation)}
+          // onPress={() => handleButton(navigation)}
+        />
       </View>
     </View>
   );

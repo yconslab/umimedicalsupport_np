@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { Text, View, StyleSheet, ScrollView } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
-
 import { CustomHeader, CustomButton, TextInput } from "../../../commons";
 import { Scale } from "../../../helper/HelperFunction";
 import Colors from "../../../constants/Colors";
 import { RadioButton } from "../commons";
-import { setName, setRadioButton, addVisitorName } from "../redux/actions";
+import { setName, setRadioButton } from "../redux/actions";
 
 const componentName = ({ navigation }) => {
   const [selectedRadioButton, setselectedRadioButton] = useState(
@@ -37,7 +36,7 @@ const componentName = ({ navigation }) => {
 
   const handleButton = () => {
     navigation.navigate("VisitorInformatioNumber");
-    dispatch(addVisitorName(name));
+    dispatch(setName(name));
   };
   return (
     <View style={styles.wrapper}>

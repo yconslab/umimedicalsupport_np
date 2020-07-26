@@ -4,8 +4,10 @@ import {
   ADD_SCHEDULETIME,
   ADD_RESERVATION,
   ADD_ADDITIONAL_INFO,
-  ADD_VISITORNUMBER,
-  ADD_VISITORNAME,
+  SET_NAME,
+  SET_PHONENUMBER,
+  SET_RADIO_BUTTON,
+  SET_CHECKBOX,
 } from "./actions";
 import Reservation from "../../../models/Reservation";
 
@@ -17,10 +19,24 @@ const INITAL_STATE = {
   visitorName: "",
   visitorNumber: "",
   reservations: [],
+  checkbox: false,
+  selectedRadioButton: "대리 접수입니다.",
 };
 
 export default (state = INITAL_STATE, actions) => {
   switch (actions.type) {
+    case SET_RADIO_BUTTON: {
+      return {
+        ...state,
+        selectedRadioButton: actions.payload,
+      };
+    }
+    case SET_CHECKBOX: {
+      return {
+        ...state,
+        checkbox: actions.payload,
+      };
+    }
     case ADD_HOSPITAL: {
       return {
         ...state,
@@ -46,14 +62,14 @@ export default (state = INITAL_STATE, actions) => {
         additionalInfo: actions.payload,
       };
     }
-    case ADD_VISITORNAME: {
+    case SET_NAME: {
       return {
         ...state,
         visitorName: actions.payload,
       };
     }
 
-    case ADD_VISITORNUMBER: {
+    case SET_PHONENUMBER: {
       return {
         ...state,
         visitorNumber: actions.payload,
@@ -82,6 +98,7 @@ export default (state = INITAL_STATE, actions) => {
             : state.reservations,
       };
     }
+
     default: {
       return {
         ...state,
