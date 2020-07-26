@@ -16,7 +16,7 @@ import Colors from "../../../constants/Colors";
 
 export const FinalConfirmation = ({ navigation, onPressHandleCloseModal }) => {
   const VisitorInformationValue = useSelector(
-    (state) => state.VisitorInformation
+    (state) => state.ReservationInformation
   );
 
   return (
